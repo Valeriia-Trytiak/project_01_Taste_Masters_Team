@@ -2,23 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!--Підключення фавікону-->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+
+    <title>TastyTreats.</title>
+    <!--Підключення стилів-->
     <link rel="stylesheet" href="./css/styles.css" />
+    <!--Підключення js-->
+    <script type="module" src="/main.js"></script>
   </head>
   <body>
-    <load ="partials/header.html" />
-
-    <section>
-      <h1>Lorem ipsum dolor sit amet.</h1>
-      <!-- Path to images as from index.html file -->
-      <img src="./img/javascript.svg" alt="" />
-    </section>
-
-    <!-- Loads the specified .html file -->
-    <load ="partials/vite-promo.html" />
-
-    <script type="module" src="/main.js"></script>
+    <!--Підключення хедера-->
+    <load src="partials/header.html" />
+    <main>
+      <!--Підключення секцій-->
+      <load src="partials/hero-section.html" />
+      <load src="partials/categories-section.html" />
+      <load src="partials/search-section.html" />
+      <load src="partials/cards-section.html" />
+      <load src="partials/popular-recipes-section.html" />
+      <load src="partials/modal-new-order.html" />
+      <load src="partials/modal-full-recipe.html" />
+      <load src="partials/modal-rating.html" />
+    </main>
   </body>
 </html>

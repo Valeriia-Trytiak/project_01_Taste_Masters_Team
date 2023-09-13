@@ -4,22 +4,57 @@
   | default @import url()
   |============================
 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap');
+/* @import url('/node_modules/normalize.css/normalize.css'); */
 @import url('./reset.css');
-@import url('./vite-promo.css');
 @import url('./header.css');
+@import url('./hero-section.css');
+@import url('./categories-section.css');
+@import url('./search-section.css');
+@import url('./cards-section.css');
+@import url('./popular-recipe.css');
+@import url('./modal-new-order.css');
+@import url('./modal-full-recipe.css');
+@import url('./modal-rating.css');
+@import url('./favorites-page.css');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  --font-family: Inter, sans-serif;
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  /*txt-color*/
+  --txt-cl-100-light-theme: rgb(5, 5, 5);
+  --txt-cl-80-light-theme: rgba(5, 5, 5, 0.8);
+  --txt-cl-50-light-theme: rgba(5, 5, 5, 0.5);
+  --txt-cl-30-light-theme: rgba(5, 5, 5, 0.3);
+  --secondary-txt-cl-100-light-theme: rgba(248, 248, 248, 1);
+  --secondary-txt-cl-light-theme: rgba(248, 248, 248, 1);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --txt-cl-100-dark-theme: rgba(255, 255, 255, 1);
+  --txt-cl-80-dark-theme: rgba(255, 255, 255, 0.8);
+  --txt-cl-50-dark-theme: rgba(255, 255, 255, 0.5);
+  --txt-cl-30-dark-theme: rgba(255, 255, 255, 0.3);
+  --secondary-txt-cl-100-light-theme: rgba(248, 248, 248, 1);
+  --secondary-txt-cl-light-theme: rgba(248, 248, 248, 1);
+
+  /*color*/
+  --accent-cl: rgb(155, 181, 55);
+  --bg-cl-light-theme: rgb(248, 248, 248);
+  --bg-cl-dark-theme: rgb(22, 22, 22);
+
+  --border-light-theme: 1px solid rgba(5, 5, 5, 0.2);
+  --border-dark-theme: 1px solid rgba(255, 255, 255, 0.2);
+
+  --cl-number-pages: rgb(5, 5, 5);
+  --cl-rating: rgb(238, 161, 12);
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--txt-cl-100-light-theme);
+}
+
+.container {
+  /*Basic styles*/
 }
