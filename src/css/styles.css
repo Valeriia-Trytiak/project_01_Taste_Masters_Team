@@ -34,7 +34,6 @@
   --txt-cl-50-dark-theme: rgba(255, 255, 255, 0.5);
   --txt-cl-30-dark-theme: rgba(255, 255, 255, 0.3);
   --secondary-txt-cl-100-light-theme: rgba(248, 248, 248, 1);
-  --secondary-txt-cl-light-theme: rgba(248, 248, 248, 1);
 
   /*color*/
   --accent-cl: rgb(155, 181, 55);
@@ -46,6 +45,8 @@
 
   --cl-number-pages: rgb(5, 5, 5);
   --cl-rating: rgb(238, 161, 12);
+
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -57,4 +58,23 @@ body {
 
 .container {
   /*Basic styles*/
+}
+
+.btn {
+  font-size: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  text-align: center;
+
+  transition: background-color 250ms var(--timing-function);
+
+  color: var(--txt-cl-100-light-theme);
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  background-color: var(--accent-cl);
 }
