@@ -27,13 +27,11 @@
   --txt-cl-50-light-theme: rgba(5, 5, 5, 0.5);
   --txt-cl-30-light-theme: rgba(5, 5, 5, 0.3);
   --secondary-txt-cl-100-light-theme: rgba(248, 248, 248, 1);
-  --secondary-txt-cl-light-theme: rgba(248, 248, 248, 1);
 
   --txt-cl-100-dark-theme: rgba(255, 255, 255, 1);
   --txt-cl-80-dark-theme: rgba(255, 255, 255, 0.8);
   --txt-cl-50-dark-theme: rgba(255, 255, 255, 0.5);
   --txt-cl-30-dark-theme: rgba(255, 255, 255, 0.3);
-  --secondary-txt-cl-100-light-theme: rgba(248, 248, 248, 1);
 
   /*color*/
   --accent-cl: rgb(155, 181, 55);
@@ -66,7 +64,10 @@ body {
   /*Basic styles*/
   min-width: 320px;
   max-width: 375px;
-  padding: 0 20px;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 0;
+  padding-left: 20px;
   margin: 0 auto;
 }
 
@@ -74,12 +75,15 @@ body {
 @media only screen and (min-width: 768px) {
   .container {
     max-width: 768px;
-    padding: 0 32px;
+    padding-top: 28px;
+    padding-right: 32px;
+    padding-bottom: 0;
+    padding-left: 32px;
   }
 }
 
 /*Desktop styles*/
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1280px) {
   .container {
     max-width: 1080px;
   }
@@ -96,6 +100,7 @@ body {
   transition: background-color 250ms var(--timing-function);
 
   color: var(--txt-cl-100-light-theme);
+  border: none;
   border-radius: 15px;
   cursor: pointer;
 }
@@ -104,6 +109,20 @@ body {
 .btn:focus,
 .btn:active {
   background-color: var(--accent-cl);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 /**
