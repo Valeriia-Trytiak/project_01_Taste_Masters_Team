@@ -1,102 +1,103 @@
-.menu-desc {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-  }
-  
-  .menu {
-    display: flex;
-    gap: 16px;
-  }
-  
-  .menu-link {
-    color: var(--txt-cl-100-light-theme);
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 1.21;
-  
-    transition: color 250ms var(--timing-function);
-  
-    display: block;
-  }
-  
-  @media screen and (min-width: 768px) {
-    .menu-link {
-      font-weight: 400;
-    }
-  }
-  
-  .menu-link:focus,
-  .menu-link:hover {
-    color: var(--accent-cl);
-  }
-  
-  .logo-link {
-    color: var(--txt-cl-100-light-theme);
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 18px;
-    letter-spacing: -0.72px;
-  }
-  
-  @media screen and (min-width: 768px) {
-    .logo-link {
-      font-size: 18px;
-      line-height: 20px;
-    }
-  }
-  
-  .logo-begin {
-    color: var(--accent-cl);
-  }
-  
-  
-  
-  /* ================== second day =================== */
-  
-  .mobile-icons {
+/* ================= for mobile =================== */
+
+.mobile-icons {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-icons {
+    display: none;
   }
-  
-  .mob-btn {
+}
+
+
+.mob-btn {
   display: flex;
   align-items: center;
-  }
-  
-  .active {
-  color: var(--accent-cl);
-  }
-  
-  .mob-menu-link {
+}
+
+.mob-menu-link {
   color: var(--bg-cl-light-theme);
   font-size: 12px;
   font-weight: 500;
   line-height: normal;
-  }
-  
-  
-  
-  @media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 768px) {
   .menu-desc {
-      display: none;
+    display: none;
   }
-  }
-  
-  @media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 768px) {
   .burger-btn {
-      display: none;
+    display: none;
   }
-  
+
   .mobile-menu,
   .backdrop {
-      display: none;
+    display: none;
   }
-  
-  .mobile-icons {
-      display: none;
+}
+
+.logo-link {
+  color: var(--txt-cl-100-light-theme);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.72px;
+}
+
+@media screen and (min-width: 768px) {
+  .logo-link {
+    font-size: 18px;
+    line-height: 20px;
   }
+}
+
+.logo-begin {
+  color: var(--accent-cl);
+}
+
+/* ========================== Tablet and more ========================== */
+
+.menu-desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  gap: 16px;
+}
+
+.active {
+  color: var(--accent-cl);
+}
+
+.menu-link {
+  color: var(--txt-cl-100-light-theme);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.21;
+
+  transition: color 250ms var(--timing-function);
+
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-link {
+    font-weight: 400;
   }
+}
+
+.menu-link:focus,
+.menu-link:hover {
+  color: var(--accent-cl);
+}
+
