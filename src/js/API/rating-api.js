@@ -2,8 +2,7 @@ import axios from 'axios';
 
 // Function to fetch the rating from the API
 export async function fetchRating(recipeId) {
-  try {
-    // Replace 'your-api-url-here' with the actual API endpoint
+  try 
     const apiUrl = `https://tasty-treats-backend.p.goit.global/api/recipes/${Id}/rating`;
     const response = await axios.get(apiUrl);
     return response.data.rating;
@@ -30,7 +29,7 @@ export async function initializeRating(recipeId) {
 // Function to rate a recipe
 export async function rateRecipe(recipeId, userRating, userEmail) {
   try {
-    const apiUrl = `https://tasty-treats-backend.p.goit.global/api/recipes/${recipeId}/rating`;
+    const apiUrl = `https://tasty-treats-backend.p.goit.global/api/recipes/${Id}/rating`;
     const response = await axios.patch(apiUrl, { rating: userRating, email: userEmail });
     return response.data;
   } catch (error) {
