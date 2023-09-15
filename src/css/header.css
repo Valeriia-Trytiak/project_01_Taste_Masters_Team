@@ -12,7 +12,6 @@
   }
 }
 
-
 .mob-btn {
   display: flex;
   align-items: center;
@@ -25,11 +24,7 @@
   line-height: normal;
 }
 
-@media screen and (max-width: 768px) {
-  .menu-desc {
-    display: none;
-  }
-}
+
 
 @media screen and (min-width: 768px) {
   .burger-btn {
@@ -51,16 +46,6 @@
   letter-spacing: -0.72px;
 }
 
-@media screen and (min-width: 768px) {
-  .logo-link {
-    font-size: 18px;
-    line-height: 20px;
-  }
-}
-
-.logo-begin {
-  color: var(--accent-cl);
-}
 
 /* ========================== Tablet and more ========================== */
 
@@ -70,12 +55,29 @@
   align-items: center;
 }
 
+@media screen and (max-width: 768px) {
+  .menu-desc {
+    display: none;
+  }
+}
+
 .menu {
   display: flex;
   gap: 16px;
 }
 
 .active {
+  color: var(--accent-cl);
+}
+
+@media screen and (min-width: 768px) {
+  .logo-link {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+.logo-begin {
   color: var(--accent-cl);
 }
 
