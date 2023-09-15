@@ -41,9 +41,17 @@
 stroke: var(--cl-number-pages);
 }
 
+@media (hover:hover) {
 .close-rating-svg:hover,
 .close-rating-svg:focus {
 stroke: var(--accent-cl);
+}
+}
+
+@media not (hover:hover) {
+    .close-rating-svg:active {
+        stroke: var(--accent-cl);
+    }
 }
 
 /*RATING_HEADER*/
@@ -61,12 +69,14 @@ gap:8px;
 
 .rating-result{
     font-size: 16px;
+    font-weight:500;
     line-height: 1.5; 
 }
 
 .rating-stars-container{
     display: flex;
     flex-direction: row;
+    gap:2px;
 }
 
 .rating-star{
@@ -79,24 +89,43 @@ fill: rgb(217, 217, 217);
 transition: fill 250ms var(--timing-function);
 }
 
+@media (hover:hover) {
 .rating-star-svg:hover,
 .rating-star-svg:focus{
 fill: var(--cl-rating);
 cursor: pointer;
 }
+    }
+    
+    @media not (hover:hover) {
+        .rating-star-svg:active {
+            fill: var(--cl-rating);
+            cursor: pointer;
+            }
+    }
+
 /*RATING_EMAIL*/
 .rating-form-input {
-    display: flex;
-    align-items: flex-start;
     border-radius: 15px;
     border: 1px solid var(--txt-cl-50-light-theme);
     padding-left:18px;
+    padding-top: 14px;
+    padding-bottom: 14px;
 }
 
+@media (hover:hover) {
 .rating-form-input:focus{
 border-color:var(--txt-cl-50-light-theme);
 outline: none;
-}
+    }
+        }
+        
+        @media not (hover:hover) {
+            .rating-form-input:active {
+                border-color:var(--txt-cl-50-light-theme);
+                outline: none;
+                }
+        }
 
 .rating-form-input::placeholder {
     position: absolute;
@@ -113,11 +142,19 @@ outline: none;
  color: var(--bg-cl-light-theme);
 transition: color 250ms var(--timing-function); 
  }
-              
+       
+ @media (hover:hover) {
 .rating-send:hover,
 .rating-send:focus{
 color: var(--txt-cl-100-light-theme);
  }
+            }
+            
+            @media not (hover:hover) {
+                .rating-send:active {
+                    color: var(--txt-cl-100-light-theme);
+                    }
+            }
 
  /*DESKTOP and TABLET*/
  @media screen and (min-width: 768px){
@@ -161,7 +198,7 @@ height: 48px;
 }
 
 /*MOBILE375*/
-@media screen and (min-width: 375px) and (max-width: 767px){
+@media screen and (min-width: 375px) and (max-width: 767.9px){
      /*FORM*/
     .modal-rating-form {
         width:335px;
@@ -203,7 +240,7 @@ height: 48px;
 }
 
 /*MOBILE320*/
-@media screen and (max-width: 374px){
+@media screen and (max-width: 374.9px){
  /*FORM*/
     .modal-rating-form {
         min-width:300px;
