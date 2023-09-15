@@ -17,3 +17,5 @@ import 'swiper/css/bundle';
 // import {} from './js/popular-api';
 
 import {} from './js/actions/rating-modal';
+
+import {} from './js/actions/hero';
