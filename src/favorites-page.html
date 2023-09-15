@@ -13,6 +13,54 @@
   <body>
     <!--Підключення хедера-->
     <load src="partials/header.html" />
-    <main></main>
+    <main>
+      <section class="hero-section">
+        <div>
+          <img
+            class="hero-img"
+            srcset="
+              ./img/favorites/hero_335.jpg   335w,
+              ./img/favorites/hero_670.jpg   670w,
+              ./img/favorites/hero_704.jpg   704w,
+              ./img/favorites/hero_1080.jpg 1080w,
+              ./img/favorites/hero_1408.jpg 1408w,
+              ./img/favorites/hero_2160.jpg 2160w
+            "
+            sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 375px) 335px, 100vw"
+            src="./img/favorites/hero_335.jpg   335w,"
+            alt="tasty food"
+          />
+        </div>
+      </section>
+
+      <section class="categories-section">
+        <ul class="catigories-list">
+          <li class="catigories-item">
+            <button type="button" class="catigories-btn">Breakfast</button>
+          </li>
+          <li class="catigories-item">
+            <button type="button" class="catigories-btn">Breakfast</button>
+          </li>
+          <li class="catigories-item">
+            <button type="button" class="catigories-btn">Breakfast</button>
+          </li>
+          <li class="catigories-item">
+            <button type="button" class="catigories-btn">Breakfast</button>
+          </li>
+          <li class="catigories-item">
+            <button type="button" class="catigories-btn">Breakfast</button>
+          </li>
+          <li class="catigories-item">
+            <button type="button" class="catigories-btn">Breakfast</button>
+          </li>
+          <li class="catigories-item">
+            <button type="button" class="catigories-btn">Breakfast</button>
+          </li>
+          <li class="catigories-item">
+            <button type="button" class="catigories-btn">Breakfast</button>
+          </li>
+        </ul>
+      </section>
+    </main>
   </body>
 </html>

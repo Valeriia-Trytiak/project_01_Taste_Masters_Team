@@ -1,0 +1,17 @@
+.hero-img {
+  margin: 0 auto;
+  min-width: 375px;
+}
+
+.hero-section {
+  margin-bottom: 40px;
+}
+.catigories-list {
+  display: flex;
+  column-gap: 12px;
+}
+
+.catigories-btn {
+  width: 100px;
+  height: 46px;
+}
