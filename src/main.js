@@ -16,4 +16,4 @@ import 'swiper/css/bundle';
 // import {} from './js/ingredients-api';
 // import {} from './js/popular-api';
 
-import {} from './js/actions/rating-modal';
+import { setupRating } from './js/actions/rating-modal';
