@@ -7,7 +7,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Open+Sans:wght@400;600;700&family=Raleway:wght@700&display=swap');
 @import url('../../node_modules/normalize.css/normalize.css');
 @import url('./reset.css');
-@import url('./helpers.css');
 @import url('./header.css');
 @import url('./hero-section.css');
 @import url('./categories-section.css');
