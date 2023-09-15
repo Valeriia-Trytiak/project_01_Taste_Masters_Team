@@ -1,4 +1,4 @@
-<section class="hero">
+<section class="section-hero">
     <div class="container">
         <div class="hero-left">
             <h1 class="hero-title">
@@ -10,26 +10,39 @@
             <p class="hero-desc">TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step Video
                 Guides.
             </p>
-            <button class="btn hero-btn">Order now</button>
+            <button class="btn hero-btn" type="button">Order now</button>
         </div>
         <div class="hero-rigth">
 
             <!-- Slider main container -->
-            <div class="swiper">
+            <div class="swiper js-hero-slider">
                 <!-- Additional required wrapper -->
                 <div class="hero-swiper-wrapper">
                     <!-- Slides -->
+
                     <div class="hero-swiper-slide">
                         <div class="chef">
-                            <img class="chef-image" src="../img/chief1.png" alt="">
+                            <picture>
+                                <source srcset="${imgWebpUrl}" type="img/webp" />
+                                <source srcset="${imgUrl}" type="img/png" />
+                                <img class="chef-image" src="../img/chief1.png" alt="">
+                            </picture>
                         </div>
                         <div class="hero-preview">
-                            <img class="preview-image" src="../img/preview1.png" alt="">
-                            <h2 class="hero-swiper-title">Grilled, smoky, delicious barbecue</h2>
-                            <p class="hero-swiper-desc"> Spanish</p>
+                            <picture>
+                                <source srcset="${previewWebpUrl}" type="img/webp" />
+                                <source srcset="${previewUrl}" type="img/png" />
+                                <img class="preview-image" src="../img/preview1.png" alt="">
+                            </picture>
+                            <h2 class="hero-swiper-title">${topic.name}</h2>
+                            <p class="hero-swiper-desc">${topic.area}</p>
                         </div>
                         <div class="hero-dish">
-                            <img class="dish-image" src="../img/dish1.png" alt="">
+                            <picture>
+                                <source srcset="${imgWebpUrl}" type="img/webp" />
+                                <source srcset="${imgUrl}" type="img/png" />
+                                <img class="dish-image" src="../img/dish1.png" alt="">
+                            </picture>
                         </div>
                     </div>
 
