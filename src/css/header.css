@@ -59,3 +59,52 @@
     text-decoration: none;
   }
   
+/* ================== second day =================== */
+
+.mobile-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mob-btn {
+  display: flex;
+  align-items: center;
+}
+
+.active {
+  color: #9bb537;
+}
+
+.mob-menu-link {
+  color: #f8f8f8;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .menu-desc {
+      display: none;
+  }
+}
+
+@media screen and (min-width: 767px) {
+  .burger-btn {
+      display: none;
+  }
+
+  .mobile-menu,
+  .backdrop {
+      display: none;
+  }
+
+  .mobile-icons {
+      display: none;
+  }
+
+}
