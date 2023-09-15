@@ -15,6 +15,7 @@
 .mob-btn {
   display: flex;
   align-items: center;
+  gap: 14px;
 }
 
 .mob-menu-link {
@@ -37,13 +38,47 @@
   }
 }
 
-.logo-link {
+.logo-link-mob {
   color: var(--txt-cl-100-light-theme);
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 18px;
   letter-spacing: -0.72px;
+}
+
+.logo-begin-mob {
+  color: var(--accent-cl);
+}
+
+.burger-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.burger {
+  stroke: var(--txt-cl-100-light-theme);
+}
+
+.burger:hover
+.burger:focus {
+  color: var(--accent-cl);
+}
+
+.order-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.order-icon {
+  stroke: var(--txt-cl-100-light-theme);
+}
+
+.order-icon:hover
+.order-icon:focus {
+  color: var(--accent-cl);
 }
 
 
@@ -70,11 +105,13 @@
   color: var(--accent-cl);
 }
 
-@media screen and (min-width: 768px) {
-  .logo-link {
-    font-size: 18px;
-    line-height: 20px;
-  }
+.logo-link {
+  color: var(--txt-cl-100-light-theme);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.72px;
 }
 
 .logo-begin {
@@ -102,4 +139,6 @@
 .menu-link:hover {
   color: var(--accent-cl);
 }
+
+/* ============================ Mobile Menu ============================ */
 
