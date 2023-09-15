@@ -1,0 +1,65 @@
+<section class="modal-overlay .visually-hidden">
+  <div class="modal-new-order modal-container">
+    <button type="button" class="modal-close-btn new-order-btn">
+      <svg class="modal-close-svg">
+        <use href="./img/icons.svg#x"></use>
+      </svg>
+    </button>
+    <h3 class="modal-title">ORDER NOW</h3>
+
+    <form class="modal-form form" name="modal_form">
+      <div class="form-wrapper">
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_name">Name</label>
+
+          <input
+            class="form-field"
+            type="text"
+            name="modal_name"
+            id="modal_name"
+            pattern="[a-z]{4,8}"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_phone">Phone number</label>
+
+          <input
+            class="form-field"
+            type="text"
+            name="modal_phone"
+            id="modal_phone"
+            pattern="[0-9]{12}"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_email">Email</label>
+
+          <input
+            class="form-field"
+            type="email"
+            name="modal_email"
+            id="modal_email"
+            pattern="[a-z]{4,8}"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_comment">Comment</label>
+
+          <input
+            class="form-field form-field-comment"
+            type="text"
+            name="modal_name"
+            id="modal_name"
+            pattern="[a-z]{4,25}"
+            required
+          />
+        </div>
+      </div>
+
+      <button class="form-btn btn" type="submit">Send</button>
+    </form>
+  </div>
+</section>
