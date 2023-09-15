@@ -1,0 +1,17 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+.search-input {
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--txt-cl-50-light-theme);
+}
+label {
+  margin-bottom: 8px;
+  display: block;
+}

@@ -1,6 +1,6 @@
 <section class="search-section">
   <div class="container">
-    <form class="search-form">
+    <div class="search-form">
       <div class="form-group">
         <label for="search-input">Search</label>
         <input
@@ -10,31 +10,33 @@
           placeholder="Enter text"
         />
       </div>
-
-      <div class="form-group">
-        <label for="time-select">Time</label>
-        <select id="time-select" name="time">
-          <option value=""></option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="area-select">Area</label>
-        <select id="area-select" name="area">
-          <option value=""></option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="Ingredients-select">Ingredients</label>
-        <select id="ingredients-select" name="ingredients">
-          <option value=""></option>
-        </select>
-      </div>
-
+        <ul>
+          <li>
+            <label for="time-select">Time</label>
+            <select id="time-select" name="time">
+            <option value=""></option>
+            </select>
+          </li>
+          <li>
+            <label for="area-select">Area</label>
+            <select id="area-select" name="area">
+            <option value=""></option>
+            </select>
+          </li>
+          <li>     
+            <label for="Ingredients-select">Ingredients</label>
+            <select id="ingredients-select" name="ingredients">
+            <option value=""></option>
+            </select>
+          </li>
+        </ul>
       <div class="buttons">
-        <button type="button">Reset the filter</button>
+        <button type="button">
+          <!-- <svg class="reset-filter">
+            <use href="./img/icons.svg#x"></use>
+          </svg> -->
+        </button>
+        <p>Reset the filter</p>
       </div>
-    </form>
   </div>
 </section>
