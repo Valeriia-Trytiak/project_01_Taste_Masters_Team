@@ -11,53 +11,48 @@
   }
   
   .menu-link {
-    color: #050505;
-    font-family: Inter;
+    color: var(--txt-cl-100-light-theme);
     font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    font-weight: 500;
+    line-height: 1.21;
   
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms var(--timing-function);
   
     display: block;
+  }
+
+  @media screen and (min-width: 768px) {
+    .menu-link {
+      font-weight: 400;
+    }
   }
   
   .menu-link:focus,
   .menu-link:hover {
-    color: #9bb537;
+    color: var(--accent-cl);
   }
   
   .logo-link {
-    color: #050505;
-    font-family: Inter;
-    font-size: 18px;
+    color: var(--txt-cl-100-light-theme);
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 20px;
+    line-height: 18px;
     letter-spacing: -0.72px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .logo-link {
+      font-size: 18px;
+      line-height: 20px;
+    }
   }
   
   .logo-begin {
-    color: #9BB537;
+    color: var(--accent-cl);
   }
   
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-  }
-  
-  li {
-    margin: 0;
-    padding: 0;
-  }
-  
-  a {
-    list-style: none;
-    text-decoration: none;
-  }
+
   
 /* ================== second day =================== */
 
@@ -73,21 +68,19 @@
 }
 
 .active {
-  color: #9bb537;
+  color: var(--accent-cl);
 }
 
 .mob-menu-link {
-  color: #f8f8f8;
-  font-family: Inter;
+  color: var(--bg-cl-light-theme);
   font-size: 12px;
-  font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
 
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .menu-desc {
       display: none;
   }
