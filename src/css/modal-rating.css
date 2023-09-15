@@ -53,11 +53,14 @@ stroke: var(--accent-cl);
 } 
 
 /*RATING_STARS*/
+
+.rating-amount{
+display: flex;
+gap:8px;
+}
+
 .rating-result{
-    margin-right:8px;
     font-size: 16px;
-    font-style: normal;
-    font-weight: 500;
     line-height: 1.5; 
 }
 
@@ -69,6 +72,17 @@ stroke: var(--accent-cl);
 .rating-star{
     width: 24px;
     height:24px;
+}
+
+.rating-star-svg{
+fill: rgb(217, 217, 217);
+transition: fill 250ms var(--timing-function);
+}
+
+.rating-star-svg:hover,
+.rating-star-svg:focus{
+fill: var(--cl-rating);
+cursor: pointer;
 }
 /*RATING_EMAIL*/
 .rating-form-input {
@@ -91,35 +105,26 @@ outline: none;
     color: var(--txt-cl-50-light-theme);
     font-size:16px;
     font-size: 1.2;
-    font-style: normal;
-    font-weight: 500;
      }
 
 /*RATING_SEND_BUTTON*/
- .rating-send {
-    display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 15px;
- background: var(--accent-cl);
- color:var(--bg-cl-light-theme);
-font-style: normal;
-font-weight: 500;
+.rating-send{
+ background-color: var(--accent-cl);
+ color: var(--bg-cl-light-theme);
 transition: color 250ms var(--timing-function); 
  }
               
 .rating-send:hover,
-.rating-send:focus {
-color: var( --txt-cl-100-light-theme);
+.rating-send:focus{
+color: var(--txt-cl-100-light-theme);
  }
-     
- 
- /*DESKTOP*/
-@media screen and (min-width: 1080px) {
+
+ /*DESKTOP and TABLET*/
+ @media screen and (min-width: 768px){
      /*FORM*/
  .modal-rating-form {
     width:424px;
-    min-height: 254px;
+    height: 254px;
     padding: 32px;
     }
 
@@ -155,55 +160,12 @@ height: 48px;
 
 }
 
-
-/*TABLET*/
-@media screen and (min-width: 768px) and (max-width: 1080px){
-     /*FORM*/
-    .modal-rating-form {
-        width:424px;
-        min-height: 254px;
-        padding: 32px;
-        }
-    
-        /*CLOSE_BUTTON*/
-        .close-rating {
-        width:24px;
-        height:24px;
-        top: 16px;
-        right:16px;
-        }
-
-        .close-rating-svg{
-            width:24px;
-            height:24px;
-        }
-    
-        /*RATING_STARS*/
-        .rating-amount{
-    margin-bottom:32px;
-        }
-    
-        /*RATING_EMAIL*/
-        .rating-form-input {
-    margin-bottom:16px;
-    width: 360px;
-    height: 48px;
-        }
-    
-        /*RATING_SEND_BUTTON*/
-        .rating-send {
-    width: 360px;
-    height: 48px;
-        }
-    
-}
-
-/*MOBILE428*/
+/*MOBILE375*/
 @media screen and (min-width: 375px) and (max-width: 767px){
      /*FORM*/
     .modal-rating-form {
         width:335px;
-        min-height: 216px;
+        height: 216px;
         padding: 20px;
         }
     
@@ -241,11 +203,11 @@ height: 48px;
 }
 
 /*MOBILE320*/
-@media screen and (min-width: 320px) and (max-width: 374px){
+@media screen and (max-width: 374px){
  /*FORM*/
     .modal-rating-form {
-        width:300px;
-        min-height: 216px;
+        min-width:300px;
+        height: 216px;
         padding: 18px;
         }
     
@@ -269,14 +231,14 @@ height: 48px;
     
         /*RATING_EMAIL*/
         .rating-form-input {
-     width: 264px;
+     width: 100%;
      height:46px;
     margin-bottom:14px;
         }
     
         /*RATING_SEND_BUTTON*/
         .rating-send {
-    width: 264px;
+    width:100%;
     height: 46px;
         }
 }
