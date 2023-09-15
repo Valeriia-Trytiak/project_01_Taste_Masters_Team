@@ -1,1 +1,1 @@
-import {} from './js/API/rating-api';
+import {} from '../API/rating-api';
