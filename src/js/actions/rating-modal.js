@@ -1,11 +1,11 @@
 import { Notify } from 'notiflix';
 import axios from 'axios';
-import { fetchRating, initializeRating } from '../API/rating-api';
+import { fetchRating, initializeRating, rateRecipe } from '../API/rating-api';
 
 export function setupRating() {
   document.addEventListener("DOMContentLoaded", function () {
     // Replace this line with code to fetch the dynamic recipe ID from our API response
-    const recipeId = getRecipeIdFromApi(); // Replace getRecipeIdFromApi with actual function or method to fetch the recipe ID
+   const recipeId = getRecipeIdFromApi(); // Replace getRecipeIdFromApi with actual function or method to fetch the recipe ID
 
     // Call the function to initialize the rating functionality
     initializeRating(recipeId);
@@ -56,33 +56,30 @@ export function setupRating() {
       }
     });
 
-    // Event listener for clicking on the Send button
-    sendButton.addEventListener("click", function () {
-      if (isValidEmail(userEmail)) {
-        // Send the userRating to the API using axios
-        console.log('Email entered:', userEmail); // Log the email address
-        // Make an API request to update the rating for the recipe with userRating
-        const apiUrl = `https://tasty-treats-backend.p.goit.global/api/recipes/${recipeId}/rating`;
-        axios
-          .patch(apiUrl, { rating: userRating, email: userEmail })
-          .then((response) => {
-            // Handle API response using Notiflix
-            Notify.Success("Rating submitted successfully!");
-            userEmailInput.value = ""; // Clear the email input
-            userRating = 0.0; // Reset the user rating
-            currentRating.textContent = userRating.toFixed(1);
-            updateStarColors(-1); // Reset star colors
-            sendButton.setAttribute("disabled", true); // Disable the Send button
-          })
-          .catch((error) => {
-            // Handle errors using Notiflix
-            Notify.Failure("Error submitting rating. Please try again later.");
-          });
-      } else {
-        // Handle invalid email address using Notiflix
-        Notify.Failure("Please write your email.");
-      }
-    });
+// Event listener for clicking on the Send button
+sendButton.addEventListener("click", function () {
+  if (isValidEmail(userEmail)) {
+    // Send the userRating to the API using the rateRecipe function
+    rateRecipe(recipeId, userRating, userEmail)
+      .then(() => {
+        // Handle success using Notiflix
+        Notify.Success("Rating submitted successfully!");
+        // Reset form state
+        userEmailInput.value = "";
+        userRating = 0.0;
+        currentRating.textContent = userRating.toFixed(1);
+        updateStarColors(-1);
+        sendButton.setAttribute("disabled", true);
+      })
+      .catch((error) => {
+        // Handle error using Notiflix
+        Notify.Failure("Error submitting rating. Please try again later.");
+      });
+  } else {
+    // Handle invalid email address using Notiflix
+    Notify.Failure("Please write your email.");
+  }
+});
 
     // Event listener for clicking on the close button
     closeButton.addEventListener("click", closeModal);

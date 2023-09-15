@@ -27,3 +27,13 @@ export async function initializeRating(recipeId) {
   }
 }
 
+// Function to rate a recipe
+export async function rateRecipe(recipeId, userRating, userEmail) {
+  try {
+    const apiUrl = `https://tasty-treats-backend.p.goit.global/api/recipes/${recipeId}/rating`;
+    const response = await axios.patch(apiUrl, { rating: userRating, email: userEmail });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
