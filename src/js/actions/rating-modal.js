@@ -82,19 +82,27 @@ sendButton.addEventListener("click", function () {
 });
 
     // Event listener for clicking on the close button
-    closeButton.addEventListener("click", closeModal);
+closeButton.addEventListener("click", closeModal);
 
-    // Event listener for pressing the escape key
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        closeModal();
-      }
-    });
+// Event listener for pressing the escape key
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+});
 
-    // Function to close the modal
-    function closeModal() {
-      modalRating.style.display = "none";
-    }
+// Event listener for clicking outside the modal to close it
+document.addEventListener("click", function (event) {
+  if (!modalRating.contains(event.target)) {
+    closeModal();
+  }
+});
+
+// Function to close the modal
+function closeModal() {
+  modalRating.style.display = "none";
+}
+
 
     // Function to validate email using a simple regex pattern
     function isValidEmail(email) {

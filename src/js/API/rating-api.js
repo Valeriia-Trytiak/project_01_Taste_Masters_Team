@@ -9,7 +9,6 @@ export async function fetchRating(recipeId) {
   } catch (error) {
     throw error;
   }
-}
 
 // Function to initialize the rating
 export async function initializeRating(recipeId) {
