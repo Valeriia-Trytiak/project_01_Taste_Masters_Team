@@ -140,4 +140,7 @@ userEmailInput.addEventListener("keydown", function (event) {
     }
   }
 });
+
+//  const recipeId = getRecipeIdFromApi(); Maybe this will be needed
+
 }
