@@ -1,11 +1,6 @@
 .modal-new-order {
   width: 335px;
   height: 582px;
-}
-
-.modal-new-order {
-  width: 335px;
-  height: 582px;
   padding: 28px 20px;
 }
 
@@ -29,16 +24,17 @@
   color: var(--txt-cl-50-light-theme);
 }
 .form-field {
-  width: 295px;
-  height: 46px;
+  width: 100%;
+  height: 48px;
   margin-top: 8px;
   border-radius: 15px;
   border: var(--border-light-theme);
-  padding: 14px;
+  padding: 14px 18px;
 }
 
 .form-field-comment {
   height: 100px;
+  text-align: left;
 }
 
 .form-btn {
@@ -65,8 +61,8 @@
 .new-order-btn {
   width: 20px;
   height: 20px;
-  top: 16px;
-  right: 16px;
+  top: 14px;
+  right: 14px;
 }
 
 @media (hover: hover) {
@@ -80,4 +76,32 @@
   .modal-close-svg:active {
     stroke: var(--accent-cl);
   }
+}
+@media (hover:hover) {
+    .form-field:focus{
+    border-color:var(--txt-cl-50-light-theme);
+    outline: none;
+        }
+            }
+            
+            @media not (hover:hover) {
+                .form-field:active {
+                    border-color:var(--txt-cl-50-light-theme);
+                    outline: none;
+                    }
+            }
+
+/*Tablet styles*/
+@media only screen and (min-width: 768px) {
+.modal-new-order{
+    width: 440px;
+    height: 632px;
+    padding: 40px;
+}
+.new-order-btn{
+width: 24px;
+height: 24px;
+top: 16px;
+right: 16px;
+}
 }
