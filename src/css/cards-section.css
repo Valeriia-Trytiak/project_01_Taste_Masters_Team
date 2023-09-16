@@ -62,30 +62,33 @@
     height: 32px;
     overflow: hidden;
     font-size: 12px;
-    line-height: 16px;
+    line-height: calc(16/12);
 
     margin-bottom: 16px;
 }
 
-.card-rating-box {
+.card-rating-area {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+}
+
+.card-rating-box {
+    display: flex;
+    gap: 7px;
+    
+    height: 18px;
 }
 
 .rating-num {
     font-weight: 500;
-    line-height: 18px;
-    margin-right: 7px;
-    margin-top: 1px;
+    line-height: calc(19/14);
 }
 
 .rating-stars {
     display: flex;
-    margin-top: 3px;
     gap: 3px;
     fill:rgba(248, 248, 248, 0.10);
-
-    margin-right: auto;
 }
 
 .card-btn {
