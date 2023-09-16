@@ -27,11 +27,6 @@
      stroke: var(--cl-number-pages);
      border: none;
      background-color: inherit;
-
-     @media screen and (min-width: 768px) {
-         top: 16px;
-         right: 16px;
-     }
  }
 
  .modal-button-icon {
@@ -52,14 +47,6 @@
     width: 295px;
     height: 295px;
     /* margin-bottom: 20px; */
-
-    @media screen and (min-width: 768px) {
-        width: 467px;
-        height: 250px;
-        margin-top: 30px;
-        margin-bottom: 16px;
-    }
-
 }
 
 /* MODAL_INFO */
@@ -78,13 +65,8 @@
     width: 335px;
     padding: 40px 20px;
     border-radius: 15px;
-
+ 
     overflow-y: auto;
-
-    @media screen and (min-width: 768px) {
-        min-width: 531px;
-        padding: 32px;
-    }
 }
 
 .modal-card-markup {
@@ -99,12 +81,6 @@
     line-height: 1.33;
     text-transform: uppercase;
     /* margin-bottom: 14px; */
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        top: 0;
-        line-height: 1.22;
-    }
 }
 
 .modal-info {
@@ -118,12 +94,8 @@
     font-weight: 500;
     margin-bottom: 33px;
     color: var(--txt-cl-50-light-theme);
-
-    @media screen and (min-width: 768px) {
-        margin-bottom: 32px;
-        margin-left: auto;
-    }
 }
+
 
 /* MODAL_INGR + RECIPE_INSTR */
 .modal-ingredient {
@@ -140,10 +112,6 @@
     overflow: hidden;
     overflow-y: auto;
     margin-bottom: 40px;   
-    
-    @media screen and (min-width: 768px) {
-        margin-bottom: 32px;
-    }
 }
 
 .modal-recipe-instructions {
@@ -174,12 +142,6 @@
 .modal-hashtags {
     margin-bottom: 24px;
     gap: 8px;
-
-    @media screen and (min-width: 768px) {
-        position: absolute;
-        top: 295;
-        margin-bottom: 0px;
-    }
 }   
 
 .modal-hashtag-item {
@@ -199,21 +161,12 @@
     margin-top: 40px;
 
     font-weight: 500;
-
-    @media screen and (min-width: 768px) {
-        gap: 16px;
-        margin-top: 32px;
-    }
 }
 
 .modal-add-favorite,
 .modal-give-rating {
     padding: 12px 24px;
     border-radius: 15px;
-
-    @media screen and (min-width: 768px) {
-        padding: 14px 28px; 
-    }
 
 }
 
@@ -238,3 +191,52 @@
     }
 }
 
+@media screen and (min-width: 768px) {
+    .modal-btn-close {
+        top: 16px;
+        right: 16px;
+    }
+
+    .modal-recipe-card {
+        min-width: 531px;
+        padding: 32px;
+    }
+
+    .iframe-video {
+        width: 467px;
+        height: 250px;
+        margin-top: 30px;
+        margin-bottom: 16px;
+    }
+      
+    .modal-recipe-name {
+        position: absolute;
+        top: 0;
+        line-height: 1.22;
+    }
+
+    .modal-card-stars {
+        margin-bottom: 32px;
+        margin-left: auto;
+    }
+    
+    .modal-ingredients-list {
+        margin-bottom: 32px;
+    }
+
+    .modal-hashtags {
+        position: absolute;
+        top: 295;
+        margin-bottom: 0px;
+    }
+
+    .modal-button {
+        gap: 16px;
+        margin-top: 32px;
+    }
+
+    .modal-add-favorite,
+    .modal-give-rating {
+        padding: 14px 28px;
+    }
+}
