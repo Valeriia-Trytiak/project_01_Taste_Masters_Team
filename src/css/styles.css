@@ -17,6 +17,7 @@
 @import url('./modal-full-recipe.css');
 @import url('./modal-rating.css');
 @import url('./favorites-page.css');
+@import url('./footer.css');
 
 :root {
   --font-family: Inter, sans-serif;
