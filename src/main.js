@@ -16,6 +16,5 @@ import 'swiper/css/bundle';
 // import {} from './js/ingredients-api';
 // import {} from './js/popular-api';
 
-import { setupRating } from './js/actions/rating-modal';
-// Call the setupRating function to initialize the rating modal
-setupRating();
+import {} from './js/actions/rating-modal';
+import {} from './js/actions/header';
