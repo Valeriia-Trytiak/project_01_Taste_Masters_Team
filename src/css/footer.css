@@ -1,0 +1,70 @@
+.footer {
+  padding-bottom: 80px;
+}
+
+.container-footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0;
+}
+
+.nav-btns {
+  display: flex;
+  gap: 4px;
+}
+
+.pages-btns-box {
+  display: flex;
+  gap: 8px;
+}
+
+.pag-btn-hidden {
+  display: none;
+}
+
+.pagination-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+
+  margin: 0;
+  padding: 10px;
+
+  border: none;
+  position: relative;
+}
+
+.prev-btn {
+  background-color: var(--cl-number-pages);
+  fill: rgba(248, 248, 248, 0.5);
+}
+
+.pages-btn {
+  border: 1px solid var(--txt-cl-30-light-theme);
+  background-color: transparent;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.dots-btn {
+  font-size: 20px;
+  letter-spacing: -1px;
+  line-height: 1.15;
+}
+
+.next-btn {
+  background-color: var(--accent-cl);
+}
+
+.right-arrow-icon {
+  position: absolute;
+  left: 13px;
+  top: 10px;
+}
+
+.left-arrow-icon {
+  position: absolute;
+  right: 13px;
+  top: 10px;
+}
