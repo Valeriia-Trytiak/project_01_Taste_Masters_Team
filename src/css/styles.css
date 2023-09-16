@@ -17,6 +17,7 @@
 @import url('./modal-full-recipe.css');
 @import url('./modal-rating.css');
 @import url('./favorites-page.css');
+@import url('./footer.css');
 
 :root {
   --font-family: Inter, sans-serif;
@@ -37,6 +38,7 @@
   --accent-cl: rgb(155, 181, 55);
   --bg-cl-light-theme: rgb(248, 248, 248);
   --bg-cl-dark-theme: rgb(22, 22, 22);
+  --bg-cl-modal-bg: rgb(255,255,255);
 
   --border-light-theme: 1px solid rgba(5, 5, 5, 0.2);
   --border-dark-theme: 1px solid rgba(255, 255, 255, 0.2);
