@@ -1,0 +1,274 @@
+/* ================= for mobile =================== */
+
+.mobile-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-icons {
+    display: none;
+  }
+}
+
+.mob-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.mob-menu-link {
+  color: var(--bg-cl-light-theme);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.active-mob-nav {
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  .burger-btn {
+    display: none;
+  }
+
+  .mobile-menu,
+  .backdrop {
+    display: none;
+  }
+}
+
+.logo-link-mob {
+  color: var(--txt-cl-100-light-theme);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.72px;
+}
+
+.logo-begin-mob {
+  color: var(--accent-cl);
+}
+
+.burger-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.burger {
+  stroke: var(--txt-cl-100-light-theme);
+}
+
+.burger:hover .burger:focus {
+  color: var(--accent-cl);
+}
+
+.order-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.order-icon {
+  stroke: var(--txt-cl-100-light-theme);
+}
+
+.order-icon:hover .order-icon:focus {
+  color: var(--accent-cl);
+}
+
+/* ========================== Tablet and more ========================== */
+
+.menu-desc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .menu-desc {
+    display: none;
+  }
+}
+
+.menu {
+  display: flex;
+  gap: 16px;
+}
+
+
+
+.logo-link {
+  color: var(--txt-cl-100-light-theme);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -0.72px;
+}
+
+.logo-begin {
+  color: var(--accent-cl);
+}
+
+.menu-link {
+  color: var(--txt-cl-100-light-theme);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.21;
+
+  transition: color 250ms var(--timing-function);
+
+  display: block;
+}
+
+.menu-link:focus,
+.menu-link:hover {
+  color: var(--accent-cl);
+}
+
+.active {
+  color: var(--accent-cl);
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-link {
+    font-weight: 400;
+  }
+}
+
+.btn-order-desk {
+  display: flex;
+  gap: 18px;
+  
+}
+
+
+/* ============================ Mobile Menu ============================ */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 200px;
+  background-color: var(--accent-cl);
+  height: 812px;
+
+  transform: translateX(100%);
+  transition: transform var(--timing-function);
+}
+
+.mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+.mob-menu-close-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu-close-icon {
+  stroke: var(--bg-cl-light-theme);
+}
+
+.mobile-nav {
+  position: absolute;
+  top: 200px;
+  right: 74px;
+}
+
+.mob-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+
+
+/* ======================================= Switcher ======================================= */
+
+.switch__input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.switch-mob {
+  display: inline-block;
+    width: 46px;
+    height: 20px;
+
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+
+    border-radius: 14px;
+    box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
+}
+
+.switch-desk {
+    display: inline-block;
+    position: relative;
+    width: 46px;
+    height: 20px;
+
+    margin-top: 3px;
+
+    border-radius: 14px;
+    box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
+}
+
+.switch__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border-radius: 18px;
+    background-color: #CECDCD;
+}
+
+.switch__slider::before {
+    content: '';
+    position: absolute;
+    cursor: pointer;
+
+    bottom: 2px;
+    left: 2px;
+
+    height: 16px;
+    width: 16px;
+
+    border-radius: 50%;
+
+    background-color: var(--secondary-txt-cl-100-light-theme);
+    transition: 250ms;
+}
+
+.switch__input:checked+.switch__slider {
+    background: linear-gradient(91deg, #9BB537 0%, var(--accent-cl) 100%);
+    box-shadow: 7px 5px 15px 0px var(--bg-cl-dark-theme);
+}
+
+.switch__input:checked+.switch__slider::before {
+    transform: translateX(26px);
+}
