@@ -12,12 +12,13 @@
   </head>
   <body>
     <!--Підключення хедера-->
-    <load src="partials/header.html" />
+    <!-- <load src="partials/header.html" /> -->
     <main>
       <section class="hero-section">
-        <div>
+        <div class="hero-container container">
           <img
             class="hero-img"
+            loading="lazy"
             srcset="
               ./img/favorites/hero_335.jpg   335w,
               ./img/favorites/hero_670.jpg   670w,
@@ -33,7 +34,7 @@
         </div>
       </section>
 
-      <section class="categories-section">
+      <section class="categories-section container">
         <ul class="catigories-list">
           <li class="catigories-item">
             <button type="button" class="catigories-btn">Breakfast</button>

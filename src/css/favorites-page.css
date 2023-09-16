@@ -1,17 +1,37 @@
 .hero-img {
   margin: 0 auto;
-  min-width: 375px;
+  /* min-width: 375px; */
 }
 
 .hero-section {
   margin-bottom: 40px;
 }
+
+.hero-container {
+  width: 100%;
+}
+
+.categories-section {
+  overflow: hidden;
+}
+
 .catigories-list {
   display: flex;
   column-gap: 12px;
+  justify-content: flex-start;
 }
 
 .catigories-btn {
   width: 100px;
   height: 46px;
+  padding: 14px 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(5, 5, 5, 0.2);
+  background: #f8f8f8;
+  color: rgba(5, 5, 5, 0.3);
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
 }
