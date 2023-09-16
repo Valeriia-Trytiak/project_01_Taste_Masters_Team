@@ -1,4 +1,4 @@
-function getEvents(slide) {
+export function getEvents(slide) {
   fetch('https://tasty-treats-backend.p.goit.global/api/events')
     .then(response => {
       if (!response.ok) {
@@ -55,3 +55,12 @@ function getEvents(slide) {
 }
 
 getEvents(document.querySelector('.hero-swiper-slide'));
+
+const heroSwiper = new Swiper('.js-hero-slider', {
+  slidesPerView: 1,
+  spaceBetween: 40,
+  pagination: {
+    el: '.hero-swiper-pagination',
+    clickable: true,
+  },
+});

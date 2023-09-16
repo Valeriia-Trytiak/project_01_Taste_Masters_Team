@@ -6,7 +6,7 @@ import { debounce } from 'debounce';
 import 'swiper/css/bundle';
 
 /* імпорт запросів*/
-// import {} from './js/events-api';
+import {} from './js/API/events-api';
 // import {} from './js/order-api';
 // import {} from './js/categories-api';
 // import {} from './js/filter-api';
@@ -17,3 +17,4 @@ import 'swiper/css/bundle';
 // import {} from './js/popular-api';
 
 import {} from './js/actions/rating-modal';
+import {} from './js/actions/hero';
