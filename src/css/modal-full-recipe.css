@@ -1,5 +1,5 @@
 /*OVERLAY*/
-/* .backdrop {
+/* .backdrop-modal {
     position: fixed;
     opacity: 0;
     visibility: hidden;
@@ -26,7 +26,7 @@
      right: 14px;
      stroke: var(--cl-number-pages);
      border: none;
-     background-color: inherit;
+    background: transparent;
  }
 
  .modal-button-icon {
@@ -46,7 +46,8 @@
 .iframe-video {
     width: 295px;
     height: 295px;
-    /* margin-bottom: 20px; */
+    margin-bottom: 22px;
+    border-radius: 8px;
 }
 
 /* MODAL_INFO */
@@ -67,6 +68,7 @@
     border-radius: 15px;
  
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .modal-card-markup {
@@ -80,7 +82,8 @@
     font-weight: 600;
     line-height: 1.33;
     text-transform: uppercase;
-    /* margin-bottom: 14px; */
+    /* margin-top: 20px; */
+    margin-bottom: 14px;
 }
 
 .modal-info {
@@ -92,7 +95,7 @@
 .modal-card-stars {
     display: flex;
     font-weight: 500;
-    margin-bottom: 33px;
+    margin-bottom: 20px;
     color: var(--txt-cl-50-light-theme);
 }
 
@@ -130,12 +133,18 @@
 
 .modal-stars {
     display: flex;
-    margin-right: 6px;
+    margin-right: 8px;
+    padding-top: 2px;
 }
 
-.card-raiting-icon {
+.modal-stars-container {
     width: 18px;
     height: 18px;
+}
+
+
+.card-stars-icon {
+    fill: rgb(217, 217, 217);
 }
 
 /* MODAL_HASHTAGS */
@@ -157,8 +166,9 @@
 /*MODAL_BUTTON*/
 .modal-button {
     display: flex;
-    gap: 14px;
+    /* gap: 14px; */
     margin-top: 40px;
+    justify-content: space-between;
 
     font-weight: 500;
 }
@@ -213,6 +223,7 @@
         position: absolute;
         top: 0;
         line-height: 1.22;
+        margin-top: 0px;
     }
 
     .modal-card-stars {
@@ -226,13 +237,14 @@
 
     .modal-hashtags {
         position: absolute;
-        top: 295;
+        top: 295px;
         margin-bottom: 0px;
     }
 
     .modal-button {
         gap: 16px;
         margin-top: 32px;
+        justify-content: flex-start;
     }
 
     .modal-add-favorite,
@@ -240,3 +252,4 @@
         padding: 14px 28px;
     }
 }
+
