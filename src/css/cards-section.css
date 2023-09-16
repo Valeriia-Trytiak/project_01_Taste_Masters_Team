@@ -1,0 +1,156 @@
+.cards-grid {
+    padding-bottom: 40px;
+}
+
+.card {
+    color: var(--secondary-txt-cl-100-light-theme);
+    height: 335px;
+    background: linear-gradient(1deg, rgba(5, 5, 5, 0.60) 4.82%, rgba(5, 5, 5, 0.00) 108.72%);
+
+    border-radius: 15px;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+
+    position: absolute;
+    z-index: -10;
+}
+
+.card-content {
+    height: 100%;
+    width: 100%;
+
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.btn-heart {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+
+    background-color: transparent;
+    border: none;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+}
+
+.card-title {
+    font-size: inherit;
+    font-weight: 600;    
+    text-transform: uppercase;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    margin-bottom: 8px;
+}
+
+.card-desc {
+    height: 32px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.33;
+
+    margin-bottom: 16px;
+}
+
+.card-rating-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-rating-box {
+    display: flex;
+    gap: 7px;
+    
+    height: 18px;
+}
+
+.rating-num {
+    font-weight: 500;
+    line-height: 1.36;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 3px;
+    fill:rgba(248, 248, 248, 0.10);
+}
+
+.card-btn {
+    width: 89px;
+    height: 31px;
+
+    font-size: 12px;
+    font-weight: 500;
+    color: inherit;
+    border: none;
+    padding: 0;
+
+    border-radius: 8px;
+    background: var(--accent-cl);
+
+    transition: color var(--timing-function);
+}
+
+@media (hover: hover) {
+    .card-btn:hover,
+    .card-btn:focus {
+        color: var(--txt-cl-100-light-theme);
+    }
+}
+
+@media not (hover: hover) {
+    .card-btn:active {
+        color: var(--txt-cl-100-light-theme);
+    }
+}
+
+/* Сітка */
+
+.card-list {
+    --indent-horizontal: 24px;
+}
+
+/*Tablet styles*/
+@media only screen and (min-width: 768px) {
+    .cards-grid {
+        padding-bottom: 64px;
+    }
+    
+    .card-list {
+       --indent-horizontal: 16px;
+    }
+
+    .card {
+        --items: 2;
+        height: 264px;
+    }
+
+}
+
+/*Desktop styles*/
+@media only screen and (min-width: 1280px) {
+    .card-list {
+        --indent-horizontal: 32px;
+    }
+
+    .card {
+        --items: 3;
+        height: 287px;
+    }
+}
