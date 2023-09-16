@@ -62,7 +62,7 @@
     height: 32px;
     overflow: hidden;
     font-size: 12px;
-    line-height: calc(16/12);
+    line-height: 1.33;
 
     margin-bottom: 16px;
 }
@@ -82,7 +82,7 @@
 
 .rating-num {
     font-weight: 500;
-    line-height: calc(19/14);
+    line-height: 1.36;
 }
 
 .rating-stars {
