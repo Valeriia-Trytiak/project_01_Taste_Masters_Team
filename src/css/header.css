@@ -162,11 +162,14 @@
   height: 812px;
 
   transform: translateX(100%);
-  transition: transform var(--timing-function);
+  transition: transform 250ms var(--timing-function);
+
+  z-index: 100;
 }
 
 .mobile-menu.is-open {
   transform: translateX(0);
+  
 }
 
 .mob-menu-close-btn {
