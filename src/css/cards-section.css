@@ -1,5 +1,5 @@
-.card-list {
-    margin-bottom: 40px;
+.cards-grid {
+    padding-bottom: 40px;
 }
 
 .card {
@@ -128,9 +128,12 @@
 
 /*Tablet styles*/
 @media only screen and (min-width: 768px) {
+    .cards-grid {
+        padding-bottom: 64px;
+    }
+    
     .card-list {
-        margin-bottom: 64px;
-        --indent-horizontal: 16px;
+       --indent-horizontal: 16px;
     }
 
     .card {
