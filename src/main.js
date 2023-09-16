@@ -17,4 +17,5 @@ import 'swiper/css/bundle';
 // import {} from './js/popular-api';
 
 import {} from './js/actions/rating-modal';
-import {} from './js/actions/header';
+import { openMobileMenu } from './js/actions/header';
+import { closeMobileMenu } from './js/actions/header';
