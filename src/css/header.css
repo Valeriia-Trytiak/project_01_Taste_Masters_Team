@@ -25,8 +25,6 @@
   line-height: normal;
 }
 
-
-
 @media screen and (min-width: 768px) {
   .burger-btn {
     display: none;
@@ -61,8 +59,7 @@
   stroke: var(--txt-cl-100-light-theme);
 }
 
-.burger:hover
-.burger:focus {
+.burger:hover .burger:focus {
   color: var(--accent-cl);
 }
 
@@ -76,11 +73,9 @@
   stroke: var(--txt-cl-100-light-theme);
 }
 
-.order-icon:hover
-.order-icon:focus {
+.order-icon:hover .order-icon:focus {
   color: var(--accent-cl);
 }
-
 
 /* ========================== Tablet and more ========================== */
 
