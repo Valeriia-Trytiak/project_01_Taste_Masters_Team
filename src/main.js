@@ -17,4 +17,8 @@ import {} from './js/API/events-api';
 // import {} from './js/popular-api';
 
 import {} from './js/actions/rating-modal';
+
 import {} from './js/actions/hero';
+
+import { openMobileMenu } from '/js/actions/header';
+import { closeMobileMenu } from '/js/actions/header';

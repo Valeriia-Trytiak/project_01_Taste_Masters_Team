@@ -20,6 +20,17 @@
   margin-bottom: 24px;
 }
 
+@media only screen and (min-width: 768px) {
+  .categories-section {
+    margin-bottom: 32px;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .categories-section {
+    margin-bottom: 46px;
+  }
+}
 .catigories-list {
   display: flex;
   column-gap: 12px;
@@ -42,6 +53,10 @@
   font-weight: 500;
   line-height: 1.29;
 }
+.catigories-btn:hover,
+.catigories-btn:focus {
+  background: var(--accent-cl);
+}
 
 @media only screen and (min-width: 768px) {
   .catigories-btn {
@@ -61,9 +76,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 16px;
-    /* flex-basis: calc(
-      (100% - var(--indent-vertical) * (var(--items) - 1)) / var(--items)
-    ); */
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .cards-list {
+    row-gap: 32px;
+    column-gap: 16px;
   }
 }
 .cards-item {
@@ -85,8 +104,17 @@
 
 @media only screen and (min-width: 768px) {
   .cards-item {
-    width: 244px;
-    height: 244px;
+    width: 224px;
+    height: 224px;
+    flex-basis: calc((100% - 32px) / 3);
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .cards-item {
+    width: 258px;
+    height: 287px;
+    flex-basis: calc((100% - 48px) / 4);
   }
 }
 .heart-icon {
@@ -134,6 +162,8 @@
 }
 
 .rating-stars {
+  display: flex;
+  gap: 0;
   height: 18px;
 }
 .card-btn {
@@ -142,17 +172,23 @@
   border-style: none;
   background: var(--accent-cl);
   color: var(--bg-cl-light-theme);
-
   font-size: 12px;
-
   font-weight: 500;
   line-height: normal;
+  text-wrap: nowrap;
 }
 
 .star-icon {
   fill: var(--cl-rating);
   margin: 0;
   padding: 1px;
+}
+
+@media only screen and (min-width: 768px) {
+  .star-icon {
+    width: 16px;
+    height: 16px;
+  }
 }
 .star-icon-transparent {
   fill: rgba(248, 248, 248, 0.1);
