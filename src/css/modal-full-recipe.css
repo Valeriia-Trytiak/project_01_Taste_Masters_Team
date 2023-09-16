@@ -1,4 +1,5 @@
- /* .backdrop {
+/*OVERLAY*/
+/* .backdrop {
     position: fixed;
     opacity: 0;
     visibility: hidden;
@@ -18,13 +19,41 @@
      visibility: visible;
  } */
 
+ /*CLOSE_BUTTON*/
+ .modal-btn-close {
+     position: absolute;
+     top: 14px;
+     right: 14px;
+     stroke: var(--cl-number-pages);
+     border: none;
+     background-color: inherit;
 
+     @media screen and (min-width: 768px) {
+         top: 16px;
+         right: 16px;
+     }
+ }
+
+ .modal-button-icon {
+     transition: transform 250ms var(--timing-function);
+     width: 20px;
+     height: 20px;
+     border: none;
+ }
+
+ .modal-btn-close:hover,
+ .modal-btn-close:focus {
+     transform: scale(1.2);
+ }
+
+
+/* MODAL_VIDEO */
 .iframe-video {
     width: 295px;
     height: 295px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         width: 467px;
         height: 250px;
         margin-top: 30px;
@@ -33,11 +62,12 @@
 
 }
 
+/* MODAL_INFO */
 .modal-card-markup {
     position: relative;
     font-size: 14px;
     line-height: 1.28;
-    
+
 }
 
 .modal-recipe-card {
@@ -46,35 +76,15 @@
     transform: translate(-50%);
 
     width: 335px;
-    padding: 40 20;
+    padding: 40px 20px;
     border-radius: 15px;
 
     overflow-y: auto;
 
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         min-width: 531px;
         padding: 32px;
     }
-}
-
-.modal-btn-close {
-    position: absolute;
-    top: 14;
-    right: 14;
-
-    @media only screen and (min-width: 768px) {
-        top: 16;
-        right: 16;
-    }
-}
-
-.modal-button-icon {
-    transition: transform 250ms var(--timing-function);
-}
-
-.modal-btn-close:hover .modal-button-icon,
-.modal-btn-close:focus .modal-button-icon {
-    transform: scale(1.2);
 }
 
 .modal-card-markup {
@@ -86,15 +96,14 @@
 .modal-recipe-name {
     font-size: 18px;
     font-weight: 600;
-    /* line-height: 1.33; */
+    line-height: 1.33;
     text-transform: uppercase;
-    margin-bottom: 14px;
+    /* margin-bottom: 14px; */
 
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         position: absolute;
         top: 0;
-        /* line-height: 1.22; */
-        margin-bottom: 0px;
+        line-height: 1.22;
     }
 }
 
@@ -104,22 +113,19 @@
     padding-top: 3px;
 }
 
-.modal-hashtags {
-    display: flex;
-}
-
 .modal-card-stars {
     display: flex;
     font-weight: 500;
     margin-bottom: 33px;
     color: var(--txt-cl-50-light-theme);
 
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         margin-bottom: 32px;
         margin-left: auto;
     }
 }
 
+/* MODAL_INGR + RECIPE_INSTR */
 .modal-ingredient {
     display: flex;
     justify-content: space-between;
@@ -135,16 +141,21 @@
     overflow-y: auto;
     margin-bottom: 40px;   
     
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         margin-bottom: 32px;
     }
+}
+
+.modal-recipe-instructions {
+    color: var(--txt-cl-80-light-theme);
 }
 
 .modal-ing-measure {
     color: var(--txt-cl-50-light-theme);
 }
 
-.modal-rating {
+/* MODAL_RATING */
+.modal-stars-rating {
     margin-right: 12px;
     color: var(--txt-cl-50-light-theme);
 }
@@ -154,11 +165,17 @@
     margin-right: 6px;
 }
 
+.card-raiting-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* MODAL_HASHTAGS */
 .modal-hashtags {
     margin-bottom: 24px;
     gap: 8px;
 
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         position: absolute;
         top: 295;
         margin-bottom: 0px;
@@ -171,10 +188,11 @@
     border: var(--border-light-theme);
 }
 
-.modal-recipe-instructions {
-    color: var(--txt-cl-80-light-theme);
+.modal-hashtags {
+    display: flex;
 }
 
+/*MODAL_BUTTON*/
 .modal-button {
     display: flex;
     gap: 14px;
@@ -182,7 +200,7 @@
 
     font-weight: 500;
 
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         gap: 16px;
         margin-top: 32px;
     }
@@ -193,7 +211,7 @@
     padding: 12px 24px;
     border-radius: 15px;
 
-    @media only screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         padding: 14px 28px; 
     }
 
