@@ -1,9 +1,23 @@
 .categories-btn {
     margin-bottom: 24px;
     padding: 14px 29px;    
-    border: 1px solid var(--txt-cl-50-light-theme);
-    /* color: var(--border-light-theme); */
+    border: 1px solid var(--border-light-theme);
+    color: var(--txt-cl-50-light-theme);
     background-color: transparent;
+    width: 176px;
+    height: 50px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    line-height: normal;
+}
+.categories-btn:hover,
+.categories-btn:focus,
+.categories-btn:active {
+    background-color: var(--accent-cl);
+    color: var(--secondary-txt-cl-100-light-theme);
+    border: none;
 }
 @media only screen and (min-width: 768px) {
     .categories-btn {
@@ -12,8 +26,11 @@
     }
 @media only screen and (min-width: 1280px){
     .categories-btn {
-    margin-bottom: 56px;
-    font-size: 18px;
+    margin-bottom: 42px;      
+    width: 174px;
+    height: 50px;
+    padding: 14px 28px;   
+
         }
 }   
 
@@ -39,14 +56,14 @@
     color: var(--accent-cl);
 }
 
-.button-container {
+/* .button-container {
     width: 326px;
     height: 198px;
     overflow: auto;
     border: 0;
     margin-bottom: 40px;
     padding-left: 0;
-}
+} */
 @media only screen and (min-width: 768px){
     .button-container {
         width: 176px;
