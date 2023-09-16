@@ -44,6 +44,8 @@
     width: 22px;
     height: 22px;
     padding: 0;
+
+    cursor: pointer;
 }
 
 .card-title {
@@ -85,7 +87,7 @@
     line-height: 1.36;
 }
 
-.rating-stars {
+.rating-stars-list {
     display: flex;
     gap: 3px;
     fill:rgba(248, 248, 248, 0.10);
@@ -105,6 +107,7 @@
     background: var(--accent-cl);
 
     transition: color var(--timing-function);
+    cursor: pointer;
 }
 
 @media (hover: hover) {
@@ -141,6 +144,21 @@
         height: 264px;
     }
 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .rating-star-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .card-rating-box {
+        height: 16px;
+    }
+
+    .rating-num {
+        line-height: 1.14;
+    }
 }
 
 /*Desktop styles*/
