@@ -21,8 +21,12 @@
 .mob-menu-link {
   color: var(--bg-cl-light-theme);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
+}
+
+.active-mob-nav {
+  font-weight: 500;
 }
 
 @media screen and (min-width: 768px) {
@@ -114,7 +118,7 @@
 .menu-link {
   color: var(--txt-cl-100-light-theme);
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.21;
 
   transition: color 250ms var(--timing-function);
@@ -129,6 +133,7 @@
 
 .active {
   color: var(--accent-cl);
+  font-weight: 500;
 }
 
 @media screen and (min-width: 768px) {
@@ -140,6 +145,7 @@
 .btn-order-desk {
   display: flex;
   gap: 18px;
+  
 }
 
 
@@ -194,6 +200,8 @@
   gap: 16px;
 }
 
+
+
 /* ======================================= Switcher ======================================= */
 
 .switch__input {
@@ -220,6 +228,8 @@
     position: relative;
     width: 46px;
     height: 20px;
+
+    margin-top: 3px;
 
     border-radius: 14px;
     box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
