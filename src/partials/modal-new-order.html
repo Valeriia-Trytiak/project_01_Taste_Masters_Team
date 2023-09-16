@@ -1,4 +1,4 @@
-<section class="modal-overlay visually-hidden">
+<section class="modal-overlay .visually-hidden">
   <div class="modal-new-order modal-container">
     <button type="button" class="modal-close-btn new-order-btn">
       <svg class="modal-close-svg">
@@ -17,7 +17,7 @@
             type="text"
             name="modal_name"
             id="modal_name"
-            pattern="[a-z]{4,8}"
+            pattern="[A-Za-z]{3,10}"
             required
           />
         </div>
@@ -26,10 +26,10 @@
 
           <input
             class="form-field"
-            type="text"
+            type="tel"
             name="modal_phone"
             id="modal_phone"
-            pattern="[0-9]{12}"
+            pattern="[0-9]{10}"
             required
           />
         </div>
@@ -41,7 +41,7 @@
             type="email"
             name="modal_email"
             id="modal_email"
-            pattern="[a-z]{4,8}"
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
             required
           />
         </div>
@@ -54,7 +54,7 @@
             type="text"
             name="modal_name"
             id="modal_name"
-            pattern="[a-z]{4,25}"
+            pattern="[A-Za-z]{3,30}"
           >
           </textarea>
         </div>
