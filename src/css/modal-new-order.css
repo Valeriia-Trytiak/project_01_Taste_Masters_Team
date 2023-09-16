@@ -33,7 +33,7 @@
   height: 46px;
   margin-top: 8px;
   border-radius: 15px;
-  border: 1px solid var( --border-light-theme);
+  border: var(--border-light-theme);
   padding: 14px;
 }
 
@@ -43,6 +43,23 @@
 
 .form-btn {
   width: 100%;
+  border-radius: 15px;
+  background: var(--accent-cl);
+  color: var(--bg-cl-light-theme);
+  transition: color 250ms var(--timing-function);
+}
+
+@media (hover: hover) {
+  .form-btn:hover,
+  .form-btn:focus {
+    color: var(--txt-cl-100-light-theme);
+  }
+}
+
+@media not (hover: hover) {
+  .form-btn:active {
+    color: var(--txt-cl-100-light-theme);
+  }
 }
 
 .new-order-btn {
@@ -52,7 +69,15 @@
   right: 16px;
 }
 
-.modal-close-svg:hover,
-.modal-close-svg:focus {
-  stroke: var(--accent-cl);
+@media (hover: hover) {
+  .modal-close-svg:hover,
+  .modal-close-svg:focus {
+    stroke: var(--accent-cl);
+  }
+}
+
+@media not (hover: hover) {
+  .modal-close-svg:active {
+    stroke: var(--accent-cl);
+  }
 }
