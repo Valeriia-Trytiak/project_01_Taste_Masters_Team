@@ -96,9 +96,7 @@
   gap: 16px;
 }
 
-.active {
-  color: var(--accent-cl);
-}
+
 
 .logo-link {
   color: var(--txt-cl-100-light-theme);
@@ -124,16 +122,26 @@
   display: block;
 }
 
+.menu-link:focus,
+.menu-link:hover {
+  color: var(--accent-cl);
+}
+
+.active {
+  color: var(--accent-cl);
+}
+
 @media screen and (min-width: 768px) {
   .menu-link {
     font-weight: 400;
   }
 }
 
-.menu-link:focus,
-.menu-link:hover {
-  color: var(--accent-cl);
+.btn-order-desk {
+  display: flex;
+  gap: 18px;
 }
+
 
 /* ============================ Mobile Menu ============================ */
 
@@ -186,8 +194,71 @@
   gap: 16px;
 }
 
+/* ======================================= Switcher ======================================= */
+
+.switch__input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .switch-mob {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  display: inline-block;
+    width: 46px;
+    height: 20px;
+
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+
+    border-radius: 14px;
+    box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
+}
+
+.switch-desk {
+    display: inline-block;
+    position: relative;
+    width: 46px;
+    height: 20px;
+
+    border-radius: 14px;
+    box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
+}
+
+.switch__slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    border-radius: 18px;
+    background-color: #CECDCD;
+}
+
+.switch__slider::before {
+    content: '';
+    position: absolute;
+    cursor: pointer;
+
+    bottom: 2px;
+    left: 2px;
+
+    height: 16px;
+    width: 16px;
+
+    border-radius: 50%;
+
+    background-color: var(--secondary-txt-cl-100-light-theme);
+    transition: 250ms;
+}
+
+.switch__input:checked+.switch__slider {
+    background: linear-gradient(91deg, #9BB537 0%, var(--accent-cl) 100%);
+    box-shadow: 7px 5px 15px 0px var(--bg-cl-dark-theme);
+}
+
+.switch__input:checked+.switch__slider::before {
+    transform: translateX(26px);
 }
