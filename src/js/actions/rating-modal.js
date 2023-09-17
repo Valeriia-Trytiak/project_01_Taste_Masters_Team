@@ -29,11 +29,11 @@ export function setupRating() {
   });
 
   // Event listener for clicking outside the modal to close it
-  document.addEventListener('click', function (event) {
-    if (!modalRating.contains(event.target)) {
-      closeModal();
-    }
-  });
+  // document.addEventListener('click', function (event) {
+  //   if (!modalRating.contains(event.target)) {
+  //     closeModal();
+  //   }
+  // });
 
   // Function to validate email using a simple regex pattern
   function isValidEmail(email) {
