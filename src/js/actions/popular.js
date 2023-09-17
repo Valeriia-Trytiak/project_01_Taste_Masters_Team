@@ -1,4 +1,4 @@
-import { fetchPopular } from '../API/popular-api';
+import { fetchPopular } from '/js/API/popular-api';
 
 const popularList = document.querySelector('.popular-recipes-list');
 
