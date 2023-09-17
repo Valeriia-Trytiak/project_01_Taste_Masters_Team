@@ -8,6 +8,6 @@ export async function fetchPopular() {
 
     return resp.data;
   } catch (error) {
-    console.error('Error:', error);
+    throw error;
   }
 }
