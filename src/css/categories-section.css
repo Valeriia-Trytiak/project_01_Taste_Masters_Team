@@ -35,6 +35,9 @@
 }   
 
 .btn-dishes {
+    min-width: 64px;
+    text-align: left;
+    cursor: pointer;
     border: none;
     color: var(--txt-cl-30-light-theme);
     background-color: transparent;
@@ -45,6 +48,7 @@
 }
 @media only screen and (min-width: 768px) {
     .btn-dishes {
+        min-width: 110px;
         margin-bottom: 24px;
         font-size: 16px;
         line-height: 1.25;
@@ -52,18 +56,19 @@
 }
 
 .btn-dishes:hover,
-.btn-dishes:focus {
+.btn-dishes:focus,
+.btn-dishes:active {
     color: var(--accent-cl);
 }
 
-/* .button-container {
+.button-container {
     width: 326px;
     height: 198px;
     overflow: auto;
     border: 0;
     margin-bottom: 40px;
     padding-left: 0;
-} */
+}
 @media only screen and (min-width: 768px){
     .button-container {
         width: 176px;
