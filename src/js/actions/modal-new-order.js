@@ -1,27 +1,27 @@
 import { Notify } from 'notiflix';
-import { submitForm } from '/js/API/order-api';
+import { addNewOrder } from '/js/API/order-api';
 
 const cartBtn = document.querySelector('.order-icon');
 const closeModalBtn = document.querySelector('.modal-close-btn');
 const modalWindow = document.querySelector('.modal-overlay');
 const form = document.querySelector('.form');
 
-cartBtn.addEventListener('click', handlerClick);
-closeModalBtn.addEventListener('click', closeModal);
-form.addEventListener('submit', onSubmit);
+cartBtn.addEventListener('click',openModalNewOrder);
+closeModalBtn.addEventListener('click', closeModalNewOrder);
+form.addEventListener('submit', onSubmitNewOrder);
 
 // open modal
-function handlerClick() {
+function openModalNewOrder() {
   modalWindow.classList.remove('visually-hidden');
 }
 
 // close modal
-function closeModal() {
+function closeModalNewOrder() {
   modalWindow.classList.add('visually-hidden');
 }
 
 // function submit data of form
-function onSubmit(evt) {
+function onSubmitNewOrder(evt) {
   evt.preventDefault();
 
   const userName = evt.currentTarget.elements.modal_name.value;
@@ -32,11 +32,11 @@ function onSubmit(evt) {
   if (userName == '' || phone == '' || email == '') {
     Notify.failure('Ensure you input a value in both fields!');
   } else {
-    submitForm(userName, phone, email, comment)
+    addNewOrder(userName, phone, email, comment)
       .then(() => {
         Notify.success('This form has been successfully submitted!');
         evt.currentTarget.reset();
-        closeModal();
+        closeModalNewOrder();
       })
       .catch(error => {
         Notify.failure('Oops! Something went wrong. Please try again later.');
@@ -44,4 +44,4 @@ function onSubmit(evt) {
   }
 }
 
-export { handlerClick, closeModal };
+export { openModalNewOrder, closeModalNewOrder };

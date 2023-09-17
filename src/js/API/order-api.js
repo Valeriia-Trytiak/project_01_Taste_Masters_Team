@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-export async function submitForm(userName, phone, email, comment) {
+export async function addNewOrder(userName, phone, email, comment) {
     try {
         const {data} = await axios.post('https://tasty-treats-backend.p.goit.global/api/orders', JSON.stringify( {
             name: userName,
