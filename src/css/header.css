@@ -170,8 +170,9 @@
 
 .mobile-menu.is-open {
   transform: translateX(0);
-  
 }
+
+
 
 .mob-menu-close-btn {
   border: none;
@@ -185,7 +186,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  
+
 }
+
 
 .mobile-menu-close-icon {
   stroke: var(--bg-cl-light-theme);
