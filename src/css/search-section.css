@@ -1,0 +1,133 @@
+.search-form {
+  width: 335px;
+  margin-bottom: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-form {
+    width: 278px;
+  }
+}
+
+.search-form label,
+.filter-item label {
+  display: block;
+  font-size: 12px;
+  line-height: 1.17;
+  font-weight: 500;
+
+  margin-bottom: 8px;
+  color: var(--txt-cl-50-light-theme);
+}
+@media only screen and (min-width: 768px) {
+  .search-form label,
+  .filter-item label {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}
+
+.search-input-wrapper {
+  position: relative;
+}
+
+.search-form input {
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 48px;
+
+  font-size: 14px;
+  line-height: 1.17;
+
+  border: 1px solid var(--border-light-theme);
+  border-radius: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-form input {
+    width: 278px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 19px;
+  transform: translateY(-50%);
+  transition: stroke 250ms var(--timing-function);
+  pointer-events: none;
+  height: 18px;
+  stroke: var(--txt-cl-50-light-theme);
+}
+
+.filter-list {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.filter-item select {
+  width: 100%;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  padding-left: 18px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.17;
+
+  color: var(--txt-cl-50-light-theme);
+  border: 1px solid var(--border-light-theme);
+  border-radius: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .filter-item select {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  .filter-item:first-child {
+    position: absolute;
+
+    bottom: 89px;
+
+    left: 294px;
+  }
+}
+
+.filter-list li {
+  min-width: 160px;
+}
+
+.filter-list li:last-child {
+  min-width: 188px;
+}
+.reset-desc {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--txt-cl-50-light-theme);
+}
+.btn-reset-thumb {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+.reset-btn {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.reset-filter-icon {
+  height: 16px;
+  stroke: var(--accent-cl);
+}
