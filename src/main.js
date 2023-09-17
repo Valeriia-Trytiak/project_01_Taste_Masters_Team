@@ -7,7 +7,7 @@ import 'swiper/css/bundle';
 
 /* імпорт запросів*/
 // import {} from './js/events-api';
-// import {} from './js/order-api';
+// import {} from '/js/API/order-api';
 // import {} from './js/categories-api';
 // import {} from './js/filter-api';
 // import {} from './js/recipe-api';
@@ -18,6 +18,6 @@ import 'swiper/css/bundle';
 import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
-
+import{} from '/js/actions/modal-new-order';
 
 setupRating();
