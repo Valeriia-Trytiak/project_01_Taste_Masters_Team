@@ -23,7 +23,7 @@
   .filter-wrapper {
     display: flex;
     gap: 16px;
-    max-width: 780px;
+    width: 780px;
   }
 }
 
