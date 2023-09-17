@@ -28,7 +28,7 @@
   height: 48px;
   margin-top: 8px;
   border-radius: 15px;
-  border: var(--border-light-theme);
+  border: 1px solid var(--border-light-theme);
   padding: 14px 18px;
 }
 
