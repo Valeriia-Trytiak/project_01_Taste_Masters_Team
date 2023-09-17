@@ -1,7 +1,5 @@
 import { fetchPopular } from '../API/popular-api';
 
-// console.log(fetchPopular);
-
 const popularList = document.querySelector('.popular-recipes-list');
 
 function createPopularList() {
@@ -16,6 +14,7 @@ function createPopularList() {
 
 createPopularList();
 
+// Функція створення розмітки (винести в папку Markup)
 function createPopularMarkup(arr) {
   return arr
     .map(
