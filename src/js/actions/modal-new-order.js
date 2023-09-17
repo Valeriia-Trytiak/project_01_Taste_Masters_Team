@@ -32,11 +32,15 @@ function onSubmit(evt) {
   if (userName == '' || phone == '' || email == '') {
     Notify.failure('Ensure you input a value in both fields!');
   } else {
-    Notify.success('This form has been successfully submitted!');
-
-    submitForm(userName, phone, email, comment);
-    evt.currentTarget.reset();
-    closeModal();
+    submitForm(userName, phone, email, comment)
+      .then(() => {
+        Notify.success('This form has been successfully submitted!');
+        evt.currentTarget.reset();
+        closeModal();
+      })
+      .catch(error => {
+        Notify.failure('Oops! Something went wrong. Please try again later.');
+      });
   }
 }
 
