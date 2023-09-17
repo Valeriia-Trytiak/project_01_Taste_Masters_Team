@@ -1,0 +1,258 @@
+/*OVERLAY*/
+.backdrop-modal {
+    position: fixed;
+    visibility: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+
+    background-color: rgba(30, 40, 39, 0.5);
+ }
+
+ /* .backdrop.is-open {
+     opacity: 1;
+     visibility: visible;
+ } */
+
+ /*CLOSE_BUTTON*/
+ .modal-btn-close {
+     position: absolute;
+     top: 14px;
+     right: 14px;
+     stroke: var(--cl-number-pages);
+     border: none;
+    background: transparent;
+ }
+
+ .modal-button-icon {
+     transition: transform 250ms var(--timing-function);
+     width: 20px;
+     height: 20px;
+     border: none;
+ }
+
+ .modal-btn-close:hover,
+ .modal-btn-close:focus {
+     transform: scale(1.2);
+ }
+
+
+/* MODAL_VIDEO */
+.iframe-video {
+    width: 295px;
+    height: 295px;
+    margin-bottom: 22px;
+    border-radius: 8px;
+}
+
+/* MODAL_INFO */
+.modal-card-markup {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.28;
+
+}
+
+.modal-recipe-card {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+
+    background-color: var(--bg-cl-modal-bg);
+    width: 335px;
+    padding: 40px 20px;
+    border-radius: 15px;
+ 
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.modal-card-markup {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.28;
+}
+
+.modal-recipe-name {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+    text-transform: uppercase;
+    /* margin-top: 20px; */
+    margin-bottom: 14px;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.modal-card-stars {
+    display: flex;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--txt-cl-50-light-theme);
+}
+
+
+/* MODAL_INGR + RECIPE_INSTR */
+.modal-ingredient {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 14px;
+    padding-bottom: 6px;
+    padding-right: 6px;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.1);
+}
+
+.modal-ingredients-list {
+    max-height: 156px;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-bottom: 40px;   
+}
+
+.modal-recipe-instructions {
+    color: var(--txt-cl-80-light-theme);
+    margin-bottom: 40px;
+}
+
+.modal-ing-measure {
+    color: var(--txt-cl-50-light-theme);
+}
+
+/* MODAL_RATING */
+.modal-stars-rating {
+    margin-right: 12px;
+    color: var(--txt-cl-50-light-theme);
+}
+
+.modal-stars {
+    display: flex;
+    margin-right: 8px;
+    padding-top: 2px;
+}
+
+.modal-stars-container {
+    width: 18px;
+    height: 18px;
+}
+
+
+.card-stars-icon {
+    fill: rgb(217, 217, 217);
+}
+
+/* MODAL_HASHTAGS */
+.modal-hashtags {
+    margin-bottom: 24px;
+    gap: 8px;
+}   
+
+.modal-hashtag-item {
+    padding: 8px 16px;
+    border-radius: 35px;
+    border: var(--border-light-theme);
+}
+
+.modal-hashtags {
+    display: flex;
+}
+
+/*MODAL_BUTTON*/
+.modal-button {
+    display: flex;
+    /* gap: 14px; */
+    justify-content: space-between;
+
+    font-weight: 500;
+}
+
+.modal-add-favorite,
+.modal-give-rating {
+    padding: 12px 24px;
+    border-radius: 15px;
+
+}
+
+.modal-add-favorite {
+    color: var(--bg-cl-light-theme);
+    background-color: var(--accent-cl);
+
+    &:hover,
+    &:focus {
+        color: var(--cl-number-pages)
+    }
+
+}
+
+.modal-give-rating {
+    border: solid 1px var(--accent-cl);
+
+    &:hover,
+    &:focus {
+        color: var(--bg-cl-light-theme);
+        background-color: var(--accent-cl);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .modal-btn-close {
+        top: 16px;
+        right: 16px;
+    }
+
+    .modal-recipe-card {
+        min-width: 531px;
+        padding: 32px;
+    }
+
+    .iframe-video {
+        width: 467px;
+        height: 250px;
+        margin-top: 30px;
+        margin-bottom: 16px;
+    }
+      
+    .modal-recipe-name {
+        position: absolute;
+        top: 0;
+        line-height: 1.22;
+        margin-top: 0px;
+    }
+
+    .modal-recipe-instructions {
+        margin-bottom: 32px;
+    }
+
+    .modal-card-stars {
+        margin-bottom: 32px;
+        margin-left: auto;
+    }
+    
+    .modal-ingredients-list {
+        margin-bottom: 32px;
+    }
+
+    .modal-hashtags {
+        position: absolute;
+        top: 295px;
+        margin-bottom: 0px;
+    }
+
+    .modal-button {
+        gap: 16px;
+        justify-content: flex-start;
+    }
+
+    .modal-add-favorite,
+    .modal-give-rating {
+        padding: 14px 28px;
+    }
+}
+
