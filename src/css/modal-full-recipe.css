@@ -1,5 +1,5 @@
 /*OVERLAY*/
-/* .backdrop-modal {
+.backdrop-modal {
     position: fixed;
     opacity: 0;
     visibility: hidden;
@@ -12,7 +12,7 @@
     padding-top: 20px;
 
     background-color: rgba(30, 40, 39, 0.5);
- } */
+ }
 
  /* .backdrop.is-open {
      opacity: 1;
@@ -63,6 +63,7 @@
     left: 50%;
     transform: translate(-50%);
 
+    background-color: var(--bg-cl-modal-bg);
     width: 335px;
     padding: 40px 20px;
     border-radius: 15px;
@@ -89,7 +90,7 @@
 .modal-info {
     display: flex;
     flex-direction: column;
-    padding-top: 3px;
+
 }
 
 .modal-card-stars {
@@ -119,6 +120,7 @@
 
 .modal-recipe-instructions {
     color: var(--txt-cl-80-light-theme);
+    margin-bottom: 40px;
 }
 
 .modal-ing-measure {
@@ -167,7 +169,6 @@
 .modal-button {
     display: flex;
     /* gap: 14px; */
-    margin-top: 40px;
     justify-content: space-between;
 
     font-weight: 500;
@@ -226,6 +227,10 @@
         margin-top: 0px;
     }
 
+    .modal-recipe-instructions {
+        margin-bottom: 32px;
+    }
+
     .modal-card-stars {
         margin-bottom: 32px;
         margin-left: auto;
@@ -243,7 +248,6 @@
 
     .modal-button {
         gap: 16px;
-        margin-top: 32px;
         justify-content: flex-start;
     }
 
