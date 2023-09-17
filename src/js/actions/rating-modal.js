@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix';
 import axios from 'axios';
-import { fetchRatingById, rateRecipeById } from './API/rating-api';
+import { fetchRatingById, rateRecipeById } from '/src/js/API/rating-api';
 
 export function setupRating() {
   const stars = document.querySelectorAll('.rating-star-svg');
