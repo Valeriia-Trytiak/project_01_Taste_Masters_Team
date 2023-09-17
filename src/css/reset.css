@@ -92,6 +92,7 @@ body {
 .btn:focus,
 .btn:active {
   background-color: var(--accent-cl);
+  color: var();
 }
 
 .visually-hidden {
