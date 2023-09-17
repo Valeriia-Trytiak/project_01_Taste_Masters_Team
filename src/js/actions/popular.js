@@ -17,9 +17,8 @@ createPopularList();
 // Функція створення розмітки (винести в папку Markup)
 function createPopularMarkup(arr) {
   return arr
-    .map(
-      ({ _id, title, description, preview }) =>
-        `<li class="popular-recipe-item" data-id="${_id}">
+    .map(({ _id, title, description, preview }) => {
+      return `<li class="popular-recipe-item" data-id="${_id}">
         <div class="popular-recipe-img-wrapper">
           <img
             src="${preview}"
@@ -34,7 +33,8 @@ function createPopularMarkup(arr) {
             ${description}
           </p>
         </div>
-      </li>`
-    )
+      </li>`;
+    })
+
     .join('');
 }
