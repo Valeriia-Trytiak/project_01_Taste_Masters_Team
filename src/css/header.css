@@ -101,8 +101,6 @@
   gap: 16px;
 }
 
-
-
 .logo-link {
   color: var(--txt-cl-100-light-theme);
   font-size: 18px;
@@ -146,9 +144,7 @@
 .btn-order-desk {
   display: flex;
   gap: 18px;
-  
 }
-
 
 /* ============================ Mobile Menu ============================ */
 
@@ -170,7 +166,6 @@
 
 .mobile-menu.is-open {
   transform: translateX(0);
-  
 }
 
 .mob-menu-close-btn {
@@ -204,8 +199,6 @@
   gap: 16px;
 }
 
-
-
 /* ======================================= Switcher ======================================= */
 
 .switch__input {
@@ -216,63 +209,63 @@
 
 .switch-mob {
   display: inline-block;
-    width: 46px;
-    height: 20px;
+  width: 46px;
+  height: 20px;
 
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
 
-    border-radius: 14px;
-    box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
+  border-radius: 14px;
+  box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
 }
 
 .switch-desk {
-    display: inline-block;
-    position: relative;
-    width: 46px;
-    height: 20px;
+  display: inline-block;
+  position: relative;
+  width: 46px;
+  height: 20px;
 
-    margin-top: 3px;
+  margin-top: 3px;
 
-    border-radius: 14px;
-    box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
+  border-radius: 14px;
+  box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
 }
 
 .switch__slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-    border-radius: 18px;
-    background-color: #CECDCD;
+  border-radius: 18px;
+  background-color: #cecdcd;
 }
 
 .switch__slider::before {
-    content: '';
-    position: absolute;
-    cursor: pointer;
+  content: '';
+  position: absolute;
+  cursor: pointer;
 
-    bottom: 2px;
-    left: 2px;
+  bottom: 2px;
+  left: 2px;
 
-    height: 16px;
-    width: 16px;
+  height: 16px;
+  width: 16px;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background-color: var(--secondary-txt-cl-100-light-theme);
-    transition: 250ms;
+  background-color: var(--secondary-txt-cl-100-light-theme);
+  transition: 250ms;
 }
 
-.switch__input:checked+.switch__slider {
-    background: linear-gradient(91deg, #9BB537 0%, var(--accent-cl) 100%);
-    box-shadow: 7px 5px 15px 0px var(--bg-cl-dark-theme);
+.switch__input:checked + .switch__slider {
+  background: linear-gradient(91deg, #9bb537 0%, var(--accent-cl) 100%);
+  box-shadow: 7px 5px 15px 0px var(--bg-cl-dark-theme);
 }
 
-.switch__input:checked+.switch__slider::before {
-    transform: translateX(26px);
+.switch__input:checked + .switch__slider::before {
+  transform: translateX(26px);
 }
