@@ -1,5 +1,5 @@
 import { Notify } from 'notiflix';
-import { submitForm } from 'js/API/order-api';
+import { submitForm } from '/js/API/order-api';
 
 const cartBtn = document.querySelector('.order-icon');
 const closeModalBtn = document.querySelector('.modal-close-btn');
