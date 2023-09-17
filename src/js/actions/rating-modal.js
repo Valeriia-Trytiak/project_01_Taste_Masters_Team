@@ -1,4 +1,4 @@
-import { Notify } from 'notiflix';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
 import { fetchRatingById, rateRecipeById } from '/js/API/rating-api';
 
@@ -87,7 +87,7 @@ export function setupRating() {
           rateRecipeById(recipeId, userRating, userEmail)
             .then(() => {
               // Handle success using Notiflix
-              Notify.Success('Rating submitted successfully!');
+              Notify.success('Rating submitted successfully!');
               // Reset form state
               userEmailInput.value = '';
               userRating = 0.0;
@@ -98,18 +98,18 @@ export function setupRating() {
             })
             .catch(error => {
               // Handle error using Notiflix
-              Notify.Failure(
+              Notify.failure(
                 'Error submitting rating. Please try again later.'
               );
             });
         })
         .catch(error => {
           // Handle error fetching the recipe ID
-          Notify.Failure('Oops! Something went wrong. Please try again later.');
+          Notify.failure('Oops! Something went wrong. Please try again later.');
         });
     } else {
       // Handle invalid email address using Notiflix
-      Notify.Failure('Please enter a valid email.');
+      Notify.failure('Please enter a valid email.');
     }
   });
 
@@ -122,7 +122,7 @@ export function setupRating() {
         rateRecipeById(recipeId, userRating, userEmail)
           .then(() => {
             // Handle success using Notiflix
-            Notify.Success('Rating submitted successfully!');
+            Notify.success('Rating submitted successfully!');
             // Reset form state
             userEmailInput.value = '';
             userRating = 0.0;
@@ -133,11 +133,11 @@ export function setupRating() {
           })
           .catch(error => {
             // Handle error using Notiflix
-            Notify.Failure('Error submitting rating. Please try again later.');
+            Notify.failure('Error submitting rating. Please try again later.');
           });
       } else {
         // Handle invalid email address using Notiflix
-        Notify.Failure('Please enter a valid email.');
+        Notify.failure('Please enter a valid email.');
       }
     }
   });
