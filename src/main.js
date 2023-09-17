@@ -18,6 +18,8 @@ import 'swiper/css/bundle';
 import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
+import { cardsGenerate } from '/js/actions/cards';
 
 
 setupRating();
+cardsGenerate();

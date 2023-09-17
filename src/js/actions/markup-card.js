@@ -32,7 +32,7 @@ export function createMarkupCard(array) {
           <div class="card-rating-area">
             <div class="card-rating-box">
               <p class="rating-num">${rating || 0}</p>
-              <ul class="rating-stars-list">
+              <ul class="rating-stars-list js-rating-stars-list">
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
                     <use href="/img/icons.svg#star"></use>
