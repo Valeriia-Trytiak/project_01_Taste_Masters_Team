@@ -3,6 +3,7 @@ import axios from 'axios';
 import { fetchRatingById, rateRecipeById } from '/js/API/rating-api';
 
 export function setupRating() {
+  document.addEventListener("DOMContentLoaded", function () {
   const stars = document.querySelectorAll('.rating-star-svg');
   const currentRating = document.querySelector('.rating-result');
   const userEmailInput = document.querySelector('.rating-form-input');
@@ -140,7 +141,9 @@ export function setupRating() {
         Notify.Failure('Please enter a valid email.');
       }
     }
-  });
 
+  setupRating();
+  });
   //  const recipeId = getRecipeIdFromApi(); Maybe this will be needed
+});
 }
