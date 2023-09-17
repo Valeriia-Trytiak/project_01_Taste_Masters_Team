@@ -1,10 +1,17 @@
-import 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js';
+// import Swiper from 'swiper';
 
-const heroSwiper = new Swiper('.js-hero-slider', {
-  slidesPerView: 1,
-  spaceBetween: 40,
-  pagination: {
-    el: '.hero-swiper-pagination',
-    clickable: true,
-  },
-});
+// import 'swiper/css';
+
+// const swiper = new Swiper('.js-hero-slider', {
+//   direction: 'vertical',
+//   loop: true,
+
+//   pagination: {
+//     el: '.hero-swiper-pagination',
+//   },
+
+//   scrollbar: {
+//     el: '.hero-swiper-scrollbar',
+//   },
+// });
+// console.log(`hero-hello`);
