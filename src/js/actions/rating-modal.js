@@ -1,6 +1,7 @@
 import { Notify } from 'notiflix';
 import axios from 'axios';
 import { fetchRatingById, rateRecipeById } from '/js/API/rating-api';
+//import { getRecipeIdFromApi } from '/js/API/recipe-api';
 
 export function setupRating() {
   document.addEventListener("DOMContentLoaded", function () {
@@ -10,6 +11,8 @@ export function setupRating() {
   const sendButton = document.querySelector('.rating-send');
   const closeButton = document.querySelector('.close-rating');
   const modalRating = document.querySelector('.modal-rating');
+
+   //  const recipeId = getRecipeIdFromApi(); Maybe this will be needed
 
   let userRating = 0.0;
   let userEmail = ''; // Store the user's email
@@ -81,6 +84,7 @@ export function setupRating() {
   // Event listener for clicking on the Send button
   sendButton.addEventListener('click', function () {
     if (isValidEmail(userEmail)) {
+      console.log("Email address:", userEmail);
       // Fetch the recipe ID dynamically
       getRecipeIdFromApi()
         .then(recipeId => {
@@ -88,7 +92,7 @@ export function setupRating() {
           rateRecipeById(recipeId, userRating, userEmail)
             .then(() => {
               // Handle success using Notiflix
-              Notify.Success('Rating submitted successfully!');
+              Notiflix.Notify.Success('Rating submitted successfully!');
               // Reset form state
               userEmailInput.value = '';
               userRating = 0.0;
@@ -99,18 +103,18 @@ export function setupRating() {
             })
             .catch(error => {
               // Handle error using Notiflix
-              Notify.Failure(
+              Notiflix.Notify.Failure(
                 'Error submitting rating. Please try again later.'
               );
             });
         })
         .catch(error => {
           // Handle error fetching the recipe ID
-          Notify.Failure('Oops! Something went wrong. Please try again later.');
+          Notiflix.Notify.Failure('Oops! Something went wrong. Please try again later.');
         });
     } else {
       // Handle invalid email address using Notiflix
-      Notify.Failure('Please enter a valid email.');
+      Notiflix.Notify.Failure('Please enter a valid email.');
     }
   });
 
@@ -119,11 +123,12 @@ export function setupRating() {
     if (event.key === 'Enter') {
       event.preventDefault(); // Prevent the default form submission behavior
       if (isValidEmail(userEmail)) {
+        console.log("Email address:", userEmail);
         // Send the userRating to the API using the rateRecipeById function
         rateRecipeById(recipeId, userRating, userEmail)
           .then(() => {
             // Handle success using Notiflix
-            Notify.Success('Rating submitted successfully!');
+            Notiflix.Notify.Success('Rating submitted successfully!');
             // Reset form state
             userEmailInput.value = '';
             userRating = 0.0;
@@ -134,16 +139,15 @@ export function setupRating() {
           })
           .catch(error => {
             // Handle error using Notiflix
-            Notify.Failure('Error submitting rating. Please try again later.');
+            Notiflix.Notify.Failure('Error submitting rating. Please try again later.');
           });
       } else {
         // Handle invalid email address using Notiflix
-        Notify.Failure('Please enter a valid email.');
+        Notiflix.Notify.Failure('Please enter a valid email.');
       }
     }
 
   setupRating();
   });
-  //  const recipeId = getRecipeIdFromApi(); Maybe this will be needed
 });
 }
