@@ -89,7 +89,9 @@
 }
 
 @media only screen and (min-width: 1280px) {
-  gap: 16px;
+  .filter-list {
+    gap: 16px;
+  }
 }
 
 .filter-item select {
