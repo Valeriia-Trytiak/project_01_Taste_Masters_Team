@@ -132,6 +132,17 @@
 .swiper-pagination-hero {
 }
 
+.swiper-pagination-bullet {
+  background: var(--cl-number-pages) !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: var(--accent-cl) !important;
+}
+.swiper-pagination-bullets {
+  bottom: 0px !important;
+}
+
 /* rigth */
 .hero-rigth {
 }
