@@ -10,13 +10,23 @@
 
 /* section hero */
 /* lest  */
+.section-hero {
+  padding-top: 0;
+}
+
+@media only screen and (min-width: 1440px) {
+  .section-hero {
+    padding-top: 94px;
+  }
+}
+
 .hero-left {
   margin-top: 85px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1140px) {
   .hero-left {
-    width: 66%;
+    width: 60%;
   }
 }
 @media only screen and (min-width: 1440px) {
@@ -85,6 +95,8 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  border-radius: 15px;
+  border: 1px solid var(--accent-cl);
 }
 
 /* swiper */
@@ -94,11 +106,6 @@
   height: 302px;
 }
 @media only screen and (min-width: 768px) {
-  .swiper {
-    height: 442px;
-  }
-}
-@media only screen and (min-width: 1440px) {
   .swiper {
     height: 468px;
   }
@@ -184,7 +191,6 @@
   height: auto;
   border-radius: 15px;
   text-align: center;
-  background-image: url(../img/hero/hero-sprite.svg);
 }
 
 @media only screen and (min-width: 768px) {
