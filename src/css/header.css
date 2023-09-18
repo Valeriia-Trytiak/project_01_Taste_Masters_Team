@@ -63,8 +63,9 @@
   stroke: var(--txt-cl-100-light-theme);
 }
 
-.burger:hover .burger:focus {
-  color: var(--accent-cl);
+.burger:hover,
+.burger:focus {
+  stroke: var(--accent-cl);
 }
 
 .order-btn {
@@ -78,8 +79,22 @@
   stroke: var(--txt-cl-100-light-theme);
 }
 
-.order-icon:hover .order-icon:focus {
-  color: var(--accent-cl);
+.order-icon:hover,
+.order-icon:focus {
+  stroke: var(--accent-cl);
+}
+
+@media (hover: hover) {
+  .order-icon:hover 
+  .order-icon:focus {
+    stroke: var(--accent-cl);
+  }
+}
+
+@media not (hover: hover) {
+  .order-icon:active {
+    stroke: var(--accent-cl);
+  }
 }
 
 /* ========================== Tablet and more ========================== */
