@@ -7,8 +7,82 @@ import debounce from 'debounce';
 //   select: '#selectElement',
 // });
 
-axios.defaults.baseURL =
-  'https://tasty-treats-backend.p.goit.global/api/recipes';
+const refs = {
+  inputSearch: document.querySelector('#search-input'),
+  filterTime: document.querySelector('[name="time"]'),
+  filterArea: document.querySelector('[name= "area"]'),
+  filterInred: document.querySelector('[name="ingredients"]'),
+};
+
+// Створення селекту часу
+function changeSelectTime() {
+  for (let i = 5; i <= 120; i += 5) {
+    let optionText = i + ' min';
+    let option = new Option(optionText, i.toString());
+    refs.filterTime.appendChild(option);
+  }
+}
+changeSelectTime();
+changeSelectAreas();
+// Створення селектору країни
+function changeSelectAreas() {
+  serviceChangeAllAreas()
+    .then(data => {
+      data.map(function (area) {
+        return area.name;
+      });
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
+
+// axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api/areas';
+
+async function serviceChangeAllAreas() {
+  try {
+    const response = await axios.get(
+      'https://tasty-treats-backend.p.goit.global/api/areas'
+    );
+    console.log(response);
+    return response.data;
+  } catch (error) {
+    Notify.failure(error.message);
+  }
+}
+
+// async function fetchRecipesWithFilters() {
+//   const params = new URLSearchParams({
+//     area,
+//     ingredient,
+//   });
+//   try {
+//     const response = await axios.get(`?${params}`);
+//     console.log(response);
+
+//     const { data } = response;
+
+//     if (data && data.result) {
+//       const { time, area, ingredient } = data.result;
+
+//       console.log('Time:', time);
+//       console.log('Area:', area);
+//       console.log('Ingredient:', ingredient);
+
+//       // Возвращаем значения ключей
+//       return { time, area, ingredient };
+//     } else {
+//       console.error('Response format is not as expected.');
+//       return null;
+//     }
+//   } catch (error) {
+//     console.error('Error:', error);
+//     throw error; // Обработайте ошибку по вашему усмотрению
+//   }
+// }
+
+// fetchRecipesWithFilters();
+// async function serviceSelectParams() {}
 
 // async function serviceSerchFilter(currentCategori, searchValue) {
 //   const params = new URLSearchParams({
