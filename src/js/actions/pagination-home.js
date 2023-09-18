@@ -15,8 +15,11 @@ export async function initializePagination() {
 
   async function calculateTotalPages() {
     const response = await serviceAllRecipes(perPage, currentPage);
-    const totalResults = response.data.totalResults;
-    const totalPages = Math.ceil(totalResults / perPage);
+    console.log('API Response:', response.data);
+  
+    const totalPages = response.data.totalPages;
+    console.log('Total Pages:', totalPages);
+  
     return totalPages;
   }
 
@@ -27,45 +30,42 @@ export async function initializePagination() {
 
   async function updatePageButtons() {
     const totalPages = await calculateTotalPages();
-  
+
     prevBtns.forEach((btn) => {
       btn.disabled = currentPage === 1;
     });
-  
+
     nextBtns.forEach((btn) => {
       btn.disabled = currentPage === totalPages;
     });
 
-    // Calculate which page buttons to show
-  let startPage = Math.max(currentPage - 1, 1);
-  let endPage = Math.min(currentPage + 1, totalPages);
+    const maxPagesToShow = 3;
+    let startPage = currentPage - 1;
+    let endPage = currentPage + maxPagesToShow - 2;
 
-  if (totalPages <= 3) {
-    // If there are 3 or fewer pages, show all page buttons
-    startPage = 1;
-    endPage = totalPages;
-  } else {
-    if (currentPage <= 2) {
-      startPage = 1;
-      endPage = 3;
-    } else if (currentPage >= totalPages - 1) {
-      startPage = totalPages - 2;
+    if (endPage > totalPages) {
       endPage = totalPages;
+      startPage = endPage - maxPagesToShow + 1;
     }
+
+    if (startPage < 1) {
+      startPage = 1;
+    }
+
+    for (let i = 0; i < maxPagesToShow; i++) {
+      const pageNumber = startPage + i;
+      const button = pageButtons[i];
+
+      if (pageNumber <= totalPages) {
+        button.textContent = pageNumber;
+        button.style.display = 'inline-block';
+      } else {
+        button.style.display = 'none';
+      }
+    }
+
+    dotsBtn.style.display = totalPages > endPage ? 'inline-block' : 'none';
   }
-
-  pageButtons.forEach((btn, index) => {
-    const pageNumber = startPage + index;
-    if (pageNumber <= endPage) {
-      btn.textContent = pageNumber;
-      btn.style.display = 'inline-block';
-    } else {
-      btn.style.display = 'none';
-    }
-  });
-
-  dotsBtn.style.display = currentPage < totalPages - 1 ? 'inline-block' : 'none';
-}
 
   function calculatePerPage() {
     const gridBox = document.querySelector('.js-card-list');
@@ -94,11 +94,11 @@ export async function initializePagination() {
     });
   });
 
-// Event listener for the "..." (dots) button
-dotsBtn.addEventListener('click', async () => {
+  // Event listener for the "..." (dots) button
+  dotsBtn.addEventListener('click', async () => {
     const totalPages = await calculateTotalPages();
-    if (currentPage <= totalPages - 2) { // Change this line
-      currentPage += 3;
+    if (currentPage < totalPages) {
+      currentPage = Math.min(currentPage + 3, totalPages);
       await updatePage();
     }
   });
