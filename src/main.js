@@ -19,8 +19,8 @@ import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
 import {} from '/js/actions/popular';
-
-setupRating();
 import {} from '/js/actions/modal-new-order';
+import {} from '/js/actions/search';
+setupRating();
 
 setupRating();
