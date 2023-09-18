@@ -90,7 +90,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .menu-desc {
     display: none;
   }
@@ -130,7 +130,7 @@
   color: var(--accent-cl);
 }
 
-.active {
+.current {
   color: var(--accent-cl);
   font-weight: 500;
 }
@@ -156,7 +156,7 @@
 
   width: 200px;
   background-color: var(--accent-cl);
-  height: 812px;
+  height: 100%;
 
   transform: translateX(100%);
   transition: transform 250ms var(--timing-function);
