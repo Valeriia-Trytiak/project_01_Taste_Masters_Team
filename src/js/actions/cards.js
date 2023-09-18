@@ -1,5 +1,5 @@
-import { serviceAllRecipes } from '../API/filter-api';
-import { createMarkupCard } from '../markup/markup-card';
+import { serviceAllRecipes } from '/js/API/filter-api';
+import { createMarkupCard } from '/js/markup/markup-card';
 import { Notify } from 'notiflix';
 
 export function cardsGenerate() {

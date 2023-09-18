@@ -36,6 +36,14 @@ function changeSelectAreas() {
       console.error(error);
     });
 }
+// Створення опцій
+function createOption(arr) {
+  return arr
+    .map(({ name }) => {
+      return `<option value="${name}">${name}</option>;`;
+    })
+    .join('');
+}
 
 // axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api/areas';
 
