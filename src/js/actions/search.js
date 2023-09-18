@@ -21,7 +21,7 @@ const refs = {
 };
 console.dir(refs.searchForm);
 //контейнер для зберігання карток з секції
-const grisBox = document.querySelector('.js-card-list');
+const gridBox = document.querySelector('.js-card-list');
 //список зірок рейтингу
 const ratingList = document.querySelectorAll('.js-rating-stars-list');
 
@@ -48,7 +48,7 @@ function onChangeInputSearch(evt) {
       //     elem.children[i].style.fill = 'rgb(238, 161, 12)';
       //   }
       // });
-      grisBox.innerHTML = createMarkupCard(data.results);
+      gridBox.innerHTML = createMarkupCard(data.results);
     })
     .catch(error => {
       Notify.failure(error.message);
