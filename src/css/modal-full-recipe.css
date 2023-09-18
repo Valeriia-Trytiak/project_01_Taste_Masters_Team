@@ -256,3 +256,7 @@
     }
 }
 
+.js-stars {
+    fill: #eea10c;
+    stroke: transparent;
+}
