@@ -19,12 +19,12 @@ Notiflix needs to be appended to the "<`+b+'>" element, but you called it before
          <div class="card-content">
           <button class="btn-heart" type="button">
             <svg width="22" height="22">
-              <use href="/img/icons.svg#heart-inactive"></use>
+              <use href="./img/icons.svg#heart-inactive"></use>
             </svg>
           </button>
           <button class="btn-heart visually-hidden" type="button">
             <svg width="22" height="22">
-              <use href="/img/icons.svg#heart-active"></use>
+              <use href="./img/icons.svg#heart-active"></use>
             </svg>
           </button>
           <h3 class="card-title">${n||e.text}</h3>
@@ -47,7 +47,7 @@ Notiflix needs to be appended to the "<`+b+'>" element, but you called it before
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="./img/icons.svg#star.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
                 <li>
