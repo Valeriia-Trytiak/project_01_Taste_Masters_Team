@@ -6,7 +6,9 @@ import { debounce } from 'debounce';
 import 'swiper/css/bundle';
 
 /* імпорт запросів*/
-import {} from './js/API/events-api';
+/// секція hero
+import { loadHero } from './js/actions/hero-swiper';
+///
 // import {} from './js/order-api';
 // import {} from './js/events-api';
 // import {} from '/js/API/order-api';
@@ -18,8 +20,6 @@ import {} from './js/API/events-api';
 // import {} from './js/popular-api';
 
 import {} from './js/actions/rating-modal';
-
-import {} from './js/actions/hero';
 
 import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
@@ -34,3 +34,4 @@ import {} from '/js/actions/search';
 
 setupRating();
 cardsGenerate();
+loadHero();

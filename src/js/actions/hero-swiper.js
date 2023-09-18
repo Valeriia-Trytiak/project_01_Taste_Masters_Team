@@ -1,26 +1,25 @@
-// // import Swiper JS
-// import Swiper from 'swiper';
-// // import Swiper styles
-// import 'swiper/css';
+import { getEvents } from '../API/events-api';
+import { markupHeroSlide } from './hero-event';
 
-// const swiper = new Swiper('.swiper', {
-//   // Optional parameters
-//   direction: 'vertical',
-//   loop: true,
+import Swiper from 'swiper/bundle';
 
-//   // If we need pagination
-//   pagination: {
-//     el: '.swiper-pagination',
-//   },
+const heroSwiperWrapper = document.querySelector('.js-hero-swiper-wrapper');
 
-//   // Navigation arrows
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev',
-//   },
+export async function loadHero() {
+  try {
+    const events = await getEvents();
+    const markupSlide = markupHeroSlide(events);
+    heroSwiperWrapper.insertAdjacentHTML('beforeend', markupSlide);
 
-//   // And if we need scrollbar
-//   scrollbar: {
-//     el: '.swiper-scrollbar',
-//   },
-// });
+    const heroSwiper = new Swiper('.js-swiper-hero', {
+      slidesPerView: 0.8,
+      spaceBetween: 40,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
