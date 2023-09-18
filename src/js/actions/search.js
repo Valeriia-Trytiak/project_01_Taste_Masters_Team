@@ -38,13 +38,13 @@ function onChangeInputSearch(evt) {
       }
       createMarkupCard(data.results);
 
-      ratingList.forEach(elem => {
-        const ratingNum = Math.round(elem.previousElementSibling.textContent);
+      // ratingList.forEach(elem => {
+      //   const ratingNum = Math.round(elem.previousElementSibling.textContent);
 
-        for (let i = 0; i < ratingNum; i++) {
-          elem.children[i].style.fill = 'rgb(238, 161, 12)';
-        }
-      });
+      //   for (let i = 0; i < ratingNum; i++) {
+      //     elem.children[i].style.fill = 'rgb(238, 161, 12)';
+      //   }
+      // });
       grisBox.innerHTML = createMarkupCard(data.results);
     })
     .catch(error => {
