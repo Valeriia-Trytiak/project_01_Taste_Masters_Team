@@ -1,11 +1,12 @@
-import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select';
 import { debounce } from 'debounce';
 
 import { serviceChangeAllAreas } from '/js/API/areas-api.js';
 import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
+import { serviceAllRecipesSearch } from '/js/API/filter-api.js';
 import { createOption } from '/js/markup/markup-option-search.js';
+import { createMarkupCard } from '/js/markup/markup-card.js';
 
 // new SlimSelect({
 //   select: '#selectElement',
@@ -17,12 +18,38 @@ const refs = {
   filterArea: document.querySelector('[name= "area"]'),
   filterIngred: document.querySelector('[name="ingredients"]'),
 };
+//контейнер для зберігання карток з секції
+const grisBox = document.querySelector('.js-card-list');
+//список зірок рейтингу
+const ratingList = document.querySelectorAll('.js-rating-stars-list');
 
-refs.inputSearch.addEventListener('input', onChangeInputSearch);
+refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
 
+//забираю значення з інпуту та роблю запит з подальшою відмальовкою
 function onChangeInputSearch(evt) {
-  const valueSearch = evt.currentTarget.value.trim();
-  serviceSerch(valueSearch);
+  const valueSearch = evt.target.value.trim();
+  serviceAllRecipesSearch(valueSearch)
+    .then(data => {
+      console.log(data.totalPages);
+      if (data.totalPages === null) {
+        Notify.failure(
+          'Sorry, there are no recipes matching your search query. Please try again.'
+        );
+      }
+      createMarkupCard(data.results);
+
+      // ratingList.forEach(elem => {
+      //   const ratingNum = Math.round(elem.previousElementSibling.textContent);
+
+      //   for (let i = 0; i < ratingNum; i++) {
+      //     elem.children[i].style.fill = 'rgb(238, 161, 12)';
+      //   }
+      // });
+      grisBox.innerHTML = createMarkupCard(data.results);
+    })
+    .catch(error => {
+      Notify.failure(error.message);
+    });
 }
 
 // Створення селекту часу
@@ -60,29 +87,6 @@ function changeSelectIngred() {
       Notify.failure(error.message);
     });
 }
-
-// fetchRecipesWithFilters();
-// async function serviceSelectParams() {}
-
-// async function serviceSerchFilter(currentCategori, searchValue) {
-//   const params = new URLSearchParams({
-//     category: `${currentCategori}`,
-//   });
-//   try {
-//     const response = await axios.get(`?${params}`);
-//     if (response.data.total === 0) {
-//       Notify.failure(
-//         'Sorry, there are no images matching your search query. Please try again.'
-//       );
-//     }
-//     return response.data;
-//   } catch (error) {
-//     throw error;
-//     Notify.failure(error.message);
-//   }
-// }
-
-// export { serviceSerchFilter };
 
 // import axios from 'axios';
 // import debounce from 'lodash/debounce';
