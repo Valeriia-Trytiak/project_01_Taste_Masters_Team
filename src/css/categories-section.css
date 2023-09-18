@@ -12,6 +12,11 @@
     font-size: 18px;
     line-height: normal;
 }
+.all-categories-active {
+    background-color: var(--accent-cl);
+    color: var(--secondary-txt-cl-100-light-theme);
+    border: none;
+}
 .categories-btn:hover,
 .categories-btn:focus,
 .categories-btn:active {
