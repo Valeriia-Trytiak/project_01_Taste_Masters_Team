@@ -37,27 +37,27 @@ Notiflix needs to be appended to the "<`+b+'>" element, but you called it before
               <ul class="rating-stars-list js-rating-stars-list">
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star.svg#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
               </ul>
