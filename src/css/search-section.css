@@ -143,7 +143,7 @@
 }
 
 .filter-list li:last-child {
-  min-width: 188px;
+  width: 188px;
 }
 .reset-desc {
   font-weight: 500;
