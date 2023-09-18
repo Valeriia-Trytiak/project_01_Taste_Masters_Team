@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select';
-import debounce from 'debounce';
+import { debounce } from 'debounce';
+
+import { serviceChangeAllAreas } from '/js/API/areas-api.js';
+import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
+import { createOption } from '/js/markup/markup-option-search.js';
 
 // new SlimSelect({
 //   select: '#selectElement',
@@ -11,75 +15,51 @@ const refs = {
   inputSearch: document.querySelector('#search-input'),
   filterTime: document.querySelector('[name="time"]'),
   filterArea: document.querySelector('[name= "area"]'),
-  filterInred: document.querySelector('[name="ingredients"]'),
+  filterIngred: document.querySelector('[name="ingredients"]'),
 };
+
+refs.inputSearch.addEventListener('input', onChangeInputSearch);
+
+function onChangeInputSearch(evt) {
+  const valueSearch = evt.currentTarget.value.trim();
+  serviceSerch(valueSearch);
+}
 
 // Створення селекту часу
 function changeSelectTime() {
   for (let i = 5; i <= 120; i += 5) {
     let optionText = i + ' min';
-    let option = new Option(optionText, i.toString());
+    let option = new Option(optionText, i.toString(), false, true);
     refs.filterTime.appendChild(option);
   }
 }
 changeSelectTime();
 changeSelectAreas();
+changeSelectIngred();
+
 // Створення селектору країни
 function changeSelectAreas() {
   serviceChangeAllAreas()
     .then(data => {
-      data.map(function (area) {
-        return area.name;
-      });
+      createOption(data);
+      refs.filterArea.innerHTML = createOption(data);
     })
     .catch(error => {
-      console.error(error);
+      Notify.failure(error.message);
     });
 }
 
-// axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api/areas';
-
-async function serviceChangeAllAreas() {
-  try {
-    const response = await axios.get(
-      'https://tasty-treats-backend.p.goit.global/api/areas'
-    );
-    console.log(response);
-    return response.data;
-  } catch (error) {
-    Notify.failure(error.message);
-  }
+// Створення селектору інгридієнту
+function changeSelectIngred() {
+  serviceChangeAllIngred()
+    .then(data => {
+      createOption(data);
+      refs.filterIngred.innerHTML = createOption(data);
+    })
+    .catch(error => {
+      Notify.failure(error.message);
+    });
 }
-
-// async function fetchRecipesWithFilters() {
-//   const params = new URLSearchParams({
-//     area,
-//     ingredient,
-//   });
-//   try {
-//     const response = await axios.get(`?${params}`);
-//     console.log(response);
-
-//     const { data } = response;
-
-//     if (data && data.result) {
-//       const { time, area, ingredient } = data.result;
-
-//       console.log('Time:', time);
-//       console.log('Area:', area);
-//       console.log('Ingredient:', ingredient);
-
-//       // Возвращаем значения ключей
-//       return { time, area, ingredient };
-//     } else {
-//       console.error('Response format is not as expected.');
-//       return null;
-//     }
-//   } catch (error) {
-//     console.error('Error:', error);
-//     throw error; // Обработайте ошибку по вашему усмотрению
-//   }
-// }
 
 // fetchRecipesWithFilters();
 // async function serviceSelectParams() {}

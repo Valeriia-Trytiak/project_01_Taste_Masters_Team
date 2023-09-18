@@ -17,12 +17,12 @@ export function createMarkupCard(array) {
          <div class="card-content">
           <button class="btn-heart" type="button">
             <svg width="22" height="22">
-              <use href="/img/icons.svg#heart-inactive"></use>
+              <use href="./img/icons.svg#heart-inactive"></use>
             </svg>
           </button>
           <button class="btn-heart visually-hidden" type="button">
             <svg width="22" height="22">
-              <use href="/img/icons.svg#heart-active"></use>
+              <use href="./img/icons.svg#heart-active"></use>
             </svg>
           </button>
           <h3 class="card-title">${title || defaults.text}</h3>
@@ -35,27 +35,27 @@ export function createMarkupCard(array) {
               <ul class="rating-stars-list js-rating-stars-list">
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="./img/icons.svg#star"></use>
                   </svg>
                 </li>
               </ul>

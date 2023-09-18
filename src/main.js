@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import Swiper from 'swiper/bundle';
-import { debounce } from 'debounce';
+
 import 'swiper/css/bundle';
 
 /* імпорт запросів*/
