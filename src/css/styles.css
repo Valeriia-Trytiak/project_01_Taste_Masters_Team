@@ -9,6 +9,7 @@
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./hero-section.css');
+@import url('../../node_modules/swiper/swiper-bundle.css');
 @import url('./categories-section.css');
 @import url('./search-section.css');
 @import url('./cards-section.css');

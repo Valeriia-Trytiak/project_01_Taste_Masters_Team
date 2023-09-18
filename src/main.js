@@ -27,5 +27,3 @@ import { closeMobileMenu } from '/js/actions/header';
 
 setupRating();
 import {} from '/js/actions/modal-new-order';
-
-setupRating();
