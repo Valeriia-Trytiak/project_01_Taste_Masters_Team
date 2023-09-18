@@ -269,3 +269,15 @@
 .switch__input:checked + .switch__slider::before {
   transform: translateX(26px);
 }
+
+
+/* ================ change the theme =============== */
+
+html.dark body {
+	color: #fff;
+	background-color: #333;
+}
+html.light body {
+	background-color: #fff;
+	color: #333;
+}
