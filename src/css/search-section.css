@@ -132,6 +132,10 @@
   min-width: 160px;
 }
 
+#time-select {
+  max-height: 124px;
+  overflow-y: auto;
+}
 @media only screen and (min-width: 768px) {
   .filter-list li {
     min-width: 141px;
