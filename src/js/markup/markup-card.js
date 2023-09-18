@@ -6,7 +6,7 @@ export function createMarkupCard(array) {
     
   return array
     .map(
-      ({ _id, title, description, preview, rating }) => `
+      ({ _id, title, description, preview, rating, category }) => `
         <li class="card card-sed-item" data-id="${_id}">
          <img
            class="card-img"
@@ -14,13 +14,14 @@ export function createMarkupCard(array) {
            loading="lazy"
            alt="${title || defaults.text}"
          />
+         <p class="visually-hidden">${category || defaults.text}</p>
          <div class="card-content">
-          <button class="btn-heart" type="button">
+          <button class="btn-heart js-btn-heart-inactive" type="button">
             <svg width="22" height="22">
               <use href="./img/icons.svg#heart-inactive"></use>
             </svg>
           </button>
-          <button class="btn-heart visually-hidden" type="button">
+          <button class="btn-heart js-btn-heart-active visually-hidden" type="button">
             <svg width="22" height="22">
               <use href="./img/icons.svg#heart-active"></use>
             </svg>
