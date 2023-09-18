@@ -18,9 +18,10 @@ import 'swiper/css/bundle';
 import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
+import { cardsGenerate } from '/js/actions/cards';
 import {} from '/js/actions/popular';
 import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
-setupRating();
 
 setupRating();
+cardsGenerate();
