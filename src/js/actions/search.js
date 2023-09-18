@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select';
-import debounce from 'lodash/debounce';
+import debounce from 'debounce';
 
 // new SlimSelect({
 //   select: '#selectElement',
