@@ -17,10 +17,18 @@
     <main>
       <!--Підключення секцій-->
       <load src="partials/hero-section.html" />
-      <load src="partials/categories-section.html" />
-      <load src="partials/search-section.html" />
-      <load src="partials/cards-section.html" />
-      <load src="partials/popular-recipes-section.html" />
+     
+      <div class="general-section container">
+        <aside class="sidebar">
+          <load src="partials/categories-section.html" />
+          <load src="partials/popular-recipes-section.html" />
+        </aside>
+        <div>
+          <load src="partials/search-section.html" />
+          <load src="partials/cards-section.html" />
+        </div>
+      </div>
+      
       <load src="partials/modal-new-order.html" />
       <load src="partials/modal-full-recipe.html" />
       <load src="partials/modal-rating.html" />

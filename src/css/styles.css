@@ -38,7 +38,7 @@
   --accent-cl: rgb(155, 181, 55);
   --bg-cl-light-theme: rgb(248, 248, 248);
   --bg-cl-dark-theme: rgb(22, 22, 22);
-  --bg-cl-modal-bg: rgb(255,255,255);
+  --bg-cl-modal-bg: rgb(255, 255, 255);
 
   --border-light-theme: rgba(5, 5, 5, 0.2);
   --border-dark-theme: 1px solid rgba(255, 255, 255, 0.2);
@@ -53,4 +53,13 @@
 
   /*анімація*/
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* розмітка головної сторінки */
+.general-section {
+  display: flex;
+}
+
+.sidebar {
+  width: 176px;
 }
