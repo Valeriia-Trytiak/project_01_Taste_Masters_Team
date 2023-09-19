@@ -1,3 +1,19 @@
+.container-plug {
+  padding-top: 0;
+}
+
+.fav-hero-section {
+  --visible: false;
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .fav-hero-section {
+  --visible: true;
+  padding-bottom: 64px;
+}
+}
+
 .fav-hero-img {
   margin: 0 auto;
 }
@@ -13,7 +29,7 @@
   }
 }
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1280px) {
   .fav-categories-section {
     margin-bottom: 46px;
   }
@@ -66,10 +82,26 @@
   }
 }
 
-@media only screen and (min-width: 1080px) {
+@media only screen and (min-width: 1280px) {
   .fav-cards-list {
     row-gap: 32px;
     column-gap: 16px;
+  }
+}
+
+.favorites-plug {
+  padding: 272px 0 329px;
+}
+
+@media only screen and (min-width: 768px) {
+  .favorites-plug {
+    padding: 0 0 319px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .favorites-plug {
+    padding-bottom: 64px;
   }
 }
 
@@ -86,7 +118,6 @@
   }
 }
 .plug-text {
-  width: 335px;
   margin: 0 auto;
   color: var(--txt-cl-100-light-theme);
   text-align: center;

@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites Page</title>
     <!--Підключення стилів-->
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <!--Підключення js-->
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/favorites-main.js"></script>
   </head>
   <body>
     <!--Підключення хедера-->
     <load src="partials/header.html" />
     <main>
-      <section class="fav-hero-section">
+      <section class="fav-hero-section js-fav-hero-section">
         <div class="container">
           <h1 class="visually-hidden">Favorites</h1>
         <img
@@ -35,26 +35,23 @@
         </div>
       </section>
 
-      <section class="fav-categories-section">
+      <section class="fav-categories-section js-fav-categories-section">
         <div class="container">
           <h2 class="visually-hidden">Favorites categories</h2>
-          <ul class="fav-categories-list">
+          <ul class="fav-categories-list js-fav-categories-list">
           <!-- розмітка кнопок з локал сторедж -->
-          <!-- <li class="catigories-item">
-            <button type="button" class="fav-categories-btn">Breakfast</button>
-          </li> -->
         </ul>
         </div>
       </section>
 
       <section class="fav-cards-section">
-        <div class="container">
-          <ul class="fav-cards-list">
+        <div class="container container-plug">
+          <ul class="fav-cards-list js-fav-cards-list">
           <!-- розмітка з локал сторедж -->
         </ul>
 
         <!-- Розмітка заглушки (у разі відсутності зецептів у favorites) -->
-        <div class="favorites-plug container-plug">
+        <div class="favorites-plug js-favorites-plug">
           <svg class="icon-favorites-plug" width="68" height="58">
             <use href="/img/icons.svg#favorites-plug"></use>
           </svg>
@@ -69,5 +66,6 @@
     </main>
     <!-- Підключення футера -->
     <load src="partials/footer.html" />
+    <load src="partials/modal-new-order.html" />
   </body>
 </html>
