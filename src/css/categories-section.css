@@ -70,7 +70,7 @@
   height: 198px;
   overflow: auto;
   border: 0;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   padding-left: 0;
 }
 @media only screen and (min-width: 768px) {

@@ -19,6 +19,7 @@
 @import url('./modal-rating.css');
 @import url('./favorites-page.css');
 @import url('./footer.css');
+@import url('./home.css');
 
 :root {
   --font-family: Inter, sans-serif;
@@ -54,16 +55,4 @@
 
   /*анімація*/
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* розмітка головної сторінки */
-.general-section {
-  display: flex;
-  flex-direction: column;
-}
-
-@media only screen and (min-width: 768px) {
-  .sidebar {
-    width: 176px;
-  }
 }
