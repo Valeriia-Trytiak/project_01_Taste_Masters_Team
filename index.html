@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!--Підключення фавікону-->
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>TastyTreats.</title>
-    <!--Підключення стилів-->
-    
-    <!--Підключення js-->
-    
-    <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/main-0c7bc156.js"></script>
-    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/main-4153f725.css">
-  </head>
-    <!--Підключення хедера-->
-    <header class="header">
+<head>
+  <meta charset="UTF-8" />
+  <!--Підключення фавікону-->
+  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TastyTreats.</title>
+  <!--Підключення стилів-->
+  
+
+  <!--Підключення js-->
+  
+  <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/main-3faa97ee.js"></script>
+  <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/main-f9f7381a.css">
+</head>
+
+<body>
+  <!--Підключення хедера-->
+  <header class="header">
   <div class="container header-container">
     <div class="menu-desc">
       <nav class="page-nav">
@@ -91,10 +95,26 @@
   <div class="backdrop"></div>
 
 </header>
-    <main>
-      <!--Підключення секцій-->
-      
-      <section class="section">
+  <main>
+    <!--Підключення секцій-->
+    <section class="section-hero container">
+    <div class="hero-left">
+        <h1 class="hero-title">
+            Learn to Cook
+            <span class="hero-title-active">Tasty Treats' </span> Customizable Masterclass
+        </h1>
+        <p class="hero-block-text">
+            TastyTreats - Customize Your Meal with Ingredient Options and Step-by-Step
+            Video Guides.
+        </p>
+        <button class="hero-btn btn" type="button">Order now</button>
+    </div>
+    <div class="swiper hero-swiper js-swiper-hero">
+        <div class="swiper-wrapper js-hero-swiper-wrapper"></div>
+        <div class="swiper-pagination swiper-pagination-hero"></div>
+    </div>
+</section>
+    <section class="section">
     <h2 class="visually-hidden">Categoties section</h2>
         <div class="container categories-container">
             <button class="categories-btn all-categories-active" type="button">All categories</button>
@@ -117,7 +137,7 @@
         </div>       
 
     </section>
-      <section class="search-section">
+    <section class="search-section">
   <h2 class="visually-hidden">Search filter</h2>
   <div class="container">
     <div class="filter-wrapper">
@@ -170,7 +190,7 @@
   </div>
 </section>
 
-      <section class="cards-grid">
+    <section class="cards-grid">
   <div class="container">
     <h2 class="visually-hidden">List of recipes</h2>
     <ul class="card-list card-set js-card-list">
@@ -179,7 +199,7 @@
   </div>
 </section>
 
-      <section class="popular-recipes">
+    <section class="popular-recipes">
   <div class="popular-recipes-container">
     <h3 class="popular-recipes-title">Popular recipes</h3>
     <ul class="popular-recipes-list">
@@ -211,7 +231,7 @@
   </div>
 </section>
 
-      <section class="modal-overlay visually-hidden">
+    <section class="modal-overlay visually-hidden">
   <div class="modal-new-order modal-container">
     <button type="button" class="modal-close-btn new-order-btn">
       <svg class="modal-close-svg">
@@ -276,7 +296,7 @@
   </div>
 </section>
 
-      <div class="modal-backdrop backdrop-modal">
+    <div class="modal-backdrop backdrop-modal">
   <div class="modal-wrap">
     <div class="modal-recipe-card">
       <button class="modal-btn-close">
@@ -355,7 +375,7 @@
   </div>
 </div>
 
-      <div class="modal-overlay visually-hidden">
+    <div class="modal-overlay visually-hidden">
   <div class="modal-container modal-rating-form">
     <button class="close-rating modal-close-btn">
       <svg class="close-rating-svg modal-close-svg">
@@ -407,8 +427,9 @@
   </div>
 </div>
 
-    </main>
-    <footer class="footer">
+
+  </main>
+  <footer class="footer">
   <div class="container container-footer">
     <div class="pagination-panel">
       <div class="nav-btns">
@@ -451,5 +472,6 @@
   </div>
 </footer>
 
-  </body>
+</body>
+
 </html>
