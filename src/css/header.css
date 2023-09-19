@@ -63,8 +63,17 @@
   stroke: var(--txt-cl-100-light-theme);
 }
 
-.burger:hover .burger:focus {
-  color: var(--accent-cl);
+@media (hover: hover) {
+  .burger:hover,
+  .burger:focus {
+    stroke: var(--accent-cl);
+  }
+}
+
+@media not (hover: hover) {
+  .burger:active {
+    stroke: var(--accent-cl);
+  }
 }
 
 .order-btn {
@@ -78,8 +87,17 @@
   stroke: var(--txt-cl-100-light-theme);
 }
 
-.order-icon:hover .order-icon:focus {
-  color: var(--accent-cl);
+@media (hover: hover) {
+  .order-icon:hover,
+  .order-icon:focus {
+    stroke: var(--accent-cl);
+  }
+}
+
+@media not (hover: hover) {
+  .order-icon:active {
+    stroke: var(--accent-cl);
+  }
 }
 
 /* ========================== Tablet and more ========================== */
@@ -90,7 +108,7 @@
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .menu-desc {
     display: none;
   }
@@ -125,12 +143,20 @@
   display: block;
 }
 
-.menu-link:focus,
-.menu-link:hover {
-  color: var(--accent-cl);
+@media (hover: hover) {
+  .menu-link:hover,
+  .menu-link:focus {
+    color: var(--accent-cl);
+  }
 }
 
-.active {
+@media not (hover: hover) {
+  .menu-link:active {
+    color: var(--accent-cl);
+  }
+}
+
+.current {
   color: var(--accent-cl);
   font-weight: 500;
 }
@@ -156,7 +182,7 @@
 
   width: 200px;
   background-color: var(--accent-cl);
-  height: 812px;
+  height: 100%;
 
   transform: translateX(100%);
   transition: transform 250ms var(--timing-function);
@@ -268,4 +294,188 @@
 
 .switch__input:checked + .switch__slider::before {
   transform: translateX(26px);
+}
+
+/* ================ change the theme =============== */
+
+html.dark body {
+  color: var(--bg-cl-light-theme);
+  background-color: #1e1e1e;
+}
+
+/* ========= header ======== */
+
+html.dark .link-fav {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .logo-end {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .logo-end-mob {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .order-icon {
+  stroke: var(--bg-cl-light-theme);
+}
+
+html.dark .order-icon:hover,
+html.dark .order-icon:focus {
+  stroke: var(--accent-cl);
+}
+
+html.dark .burger {
+  stroke: var(--bg-cl-light-theme);
+}
+
+html.dark .burger:hover,
+html.dark .burger:focus {
+  stroke: var(--accent-cl);
+}
+
+html.dark .mobile-menu {
+  background-color: #050505;
+}
+
+/* ============ Categories ============ */
+
+html.dark .btn-dishes {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .btn-dishes:hover,
+html.dark .btn-dishes:focus,
+html.dark .btn-dishes:active {
+  color: var(--accent-cl);
+}
+
+html.dark .categories-btn {
+  color: var(--txt-cl-50-dark-theme);
+  border: 1px solid var(--txt-cl-50-dark-theme);
+}
+
+html.dark .categories-btn:hover,
+html.dark .categories-btn:focus,
+html.dark .categories-btn:active {
+  background-color: var(--accent-cl);
+  color: var(--secondary-txt-cl-100-light-theme);
+  border: none;
+}
+
+html.dark ::-webkit-scrollbar {
+  border-radius: 12px;
+  background: var(--bg-cl-dark-theme);
+}
+
+html.dark .scroll-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+}
+
+/* ================== popular-recipe ================= */
+
+html.dark .popular-recipe-text {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .popular-recipes-title {
+  color: var(--bg-cl-light-theme);
+}
+
+/* ==================== Modal new order ==================== */
+
+html.dark .modal-new-order {
+  background-color: var(--txt-cl-100-light-theme);
+}
+
+html.dark .modal-title {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .form-field {
+  background-color: transparent;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .form-label {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-close-btn {
+  background-color: transparent;
+}
+
+html.dark .modal-close-svg {
+  stroke: var(--bg-cl-light-theme);
+}
+
+/* ================== Modal rating ================= */
+
+html.dark .modal-rating-form {
+  background-color: var(--bg-cl-dark-theme);
+}
+
+html.dark .close-rating {
+  background-color: var(--bg-cl-dark-theme);
+}
+
+html.dark .close-rating-svg {
+  stroke: var(--bg-cl-light-theme);
+}
+
+html.dark .rating-form-input {
+  background-color: var(--bg-cl-dark-theme);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .rating-form-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==================== Search ==================== */
+
+html.dark .search-form input {
+  background-color: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .search-icon {
+  fill: rgba(255, 255, 255, 0.2);
+}
+
+html.dark .filter-item select {
+  background-color: #1e1e1e;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+html.dark .reset-desc {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===================== Favorites ==================== */
+
+html.dark .hero-img {
+  border-radius: 15px;
+}
+
+html.dark .catigories-btn {
+  background: #1e1e1e;
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .catigories-btn:hover,
+html.dark .catigories-btn:focus {
+  background: var(--accent-cl);
+  color: var(--bg-cl-light-theme);
+}
+
+/* ========================= Cards ======================= */
+
+html.dark .card {
+  background: linear-gradient(1deg, #050505 4.82%, rgba(5, 5, 5, 0) 108.72%);
 }
