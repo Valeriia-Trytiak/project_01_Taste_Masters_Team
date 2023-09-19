@@ -1,4 +1,5 @@
 import sprite from '../../img/icons.svg';
+
 export function createMarkupCard(array) {
   const defaults = {
     url: 'https://st2.depositphotos.com/4410397/7644/v/450/depositphotos_76444781-stock-illustration-valentines-day-meal-line-icon.jpg',
