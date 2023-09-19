@@ -19,6 +19,7 @@
     "debounce": "^1.2.1",
     "normalize.css": "^8.0.1",
     "notiflix": "^3.2.6",
+    "notifyjs": "^3.0.0",
     "slim-select": "^2.6.0",
     "swiper": "^10.2.0",
     "vite-plugin-full-reload": "^1.0.5",
