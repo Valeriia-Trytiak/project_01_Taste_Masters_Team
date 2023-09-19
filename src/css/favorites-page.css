@@ -53,9 +53,6 @@
   }
 }
 
-.fav-all-categ-btn {
-}
-
 .fav-categories-btn {
   white-space: nowrap;
   padding: 14px 18px;
@@ -70,6 +67,12 @@
   transition: color 250ms var(--timing-function);
   transition: background-color 250ms var(--timing-function);
   transition: border-color 250ms var(--timing-function);
+}
+
+.categ-btn-active {
+  color: var(--secondary-txt-cl-100-light-theme);
+  background-color: var(--accent-cl);
+  border-color: var(--accent-cl);
 }
 
 @media (hover: hover) {
