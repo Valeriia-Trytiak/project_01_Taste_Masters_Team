@@ -5,39 +5,37 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
-  allCards: document.querySelector('.cards-list'),
-  modalCardCont: document.querySelector('.modal-card-markup'),
-  modalBackdrop: document.querySelector('.modal-backdrop'),
+  allCards: document.querySelector('.s-card-list'), //що це? якщо список усіх карток, то там селектор js-card-list
+  modalCardCont: document.querySelector('.modal-card-markup'), // контейнер для відмальовки модалки
+  modalBackdrop: document.querySelector('.modal-backdrop'), //бекдроп модального вікна
   modalButtonClose: document.querySelector('.modal-btn-close'),
   giveRatingModalBtn: document.querySelector('.modal-give-rating'),
   addToFavorite: document.querySelector('.modal-add-favorite'),
-  inputStar: document.querySelectorAll('.rating-star'),
-
+  inputStar: document.querySelectorAll('.rating-star'), //зірки у модалці рейтингу
 };
-
+console.log(refs.allCards);
 refs.allCards.addEventListener('click', handlerGetIdCard);
 refs.addToFavorite.addEventListener('click', addToLocalStorage);
 
+//функція відкриття модального вікна та забору id рецепту
 async function handlerGetIdCard(event) {
-  if (event.target.nodeName !== 'BUTTON') {
-    return;
+  if (event.target.classList.contains('card-btn')) {
+    Loading.standard('Loading...', { svgColor: '#9bb537' });
+
+    const buttonId = event.target.getAttribute('id');
+    refs.addToFavorite.id = buttonId;
+    const dataById = await getRecipeIdFromApi(buttonId);
+    const modalMarkup = createMarkupModal(dataById);
+    refs.modalCardCont.innerHTML = modalMarkup;
+    fillStars();
+    openModal();
+    Loading.remove();
   }
-  Loading.standard('Loading...', { svgColor: '#9bb537' });
-  const buttonId = event.target.getAttribute('id');
-  refs.addToFavorite.id = buttonId;
-  const dataById = await getRecipeIdFromApi(`/recipes/${buttonId}`);
-    // const dataById = await fetchDataByPath(`/recipes/${buttonId}`);
-  const modalMarkup = createMarkupModal(dataById);
-  refs.modalCardCont.innerHTML = modalMarkup;
-  fillStars();
-  openModal();
-  Loading.remove();
 }
 
 function fillStars() {
   const starRatings = document.querySelectorAll('.card_star-rating');
   starRatings.forEach(starRating => {
-    
     //Отримую рейтинг(текст контент) з елемента
     const rating = parseFloat(
       starRating.querySelector('.cards-raiting').textContent
@@ -48,14 +46,14 @@ function fillStars() {
 
     const stars = starRating.querySelectorAll('#all-stars');
 
-    // Циклом по кожній зірці замальовую 
+    // Циклом по кожній зірці замальовую
     stars.forEach((star, index) => {
       if (index < roundedRating) {
         star.classList.add('js-stars');
       }
     });
   });
-};  
+}
 
 function createMarkupModal(data) {
   const youtubeLink = data.youtube;
@@ -69,10 +67,8 @@ function createMarkupModal(data) {
 
   const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
-
   const roundedRating = parseFloat(data.rating).toFixed(1);
- 
-    
+
   const tagsToRender = data.tags.slice(0, 2);
 
   const tagsMarkup = tagsToRender
@@ -81,9 +77,9 @@ function createMarkupModal(data) {
       <li class="modal-hashtag-item">#${tag}</li>
     `
     )
-      .join('');
-    
-      const ingredientsMarkup = data.ingredients
+    .join('');
+
+  const ingredientsMarkup = data.ingredients
     .map(
       ingredient => `
     <li class="modal-ingredient">
@@ -94,7 +90,7 @@ function createMarkupModal(data) {
     )
     .join('');
 
-    const modalCardMarkup = `
+  const modalCardMarkup = `
         <iframe
           src="${embedUrl}"
           title="YouTube video player"
@@ -156,6 +152,7 @@ function createMarkupModal(data) {
 }
 
 function openModal() {
+  console.log(message`открітие окна`);
   refs.modalButtonClose.addEventListener('click', closeModal);
   refs.modalBackdrop.addEventListener('click', closeModalOnBackdrop);
   window.addEventListener('keydown', handleKeyDown);
@@ -166,7 +163,6 @@ function openModal() {
 function handleKeyDown(event) {
   if (event.key === 'Escape') {
     closeModal();
-    
   }
 }
 
