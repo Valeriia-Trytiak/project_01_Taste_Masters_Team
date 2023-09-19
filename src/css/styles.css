@@ -9,6 +9,7 @@
 @import url('./reset.css');
 @import url('./header.css');
 @import url('./hero-section.css');
+@import url('../../node_modules/swiper/swiper-bundle.css');
 @import url('./categories-section.css');
 @import url('./search-section.css');
 @import url('./cards-section.css');
@@ -38,7 +39,7 @@
   --accent-cl: rgb(155, 181, 55);
   --bg-cl-light-theme: rgb(248, 248, 248);
   --bg-cl-dark-theme: rgb(22, 22, 22);
-  --bg-cl-modal-bg: rgb(255,255,255);
+  --bg-cl-modal-bg: rgb(255, 255, 255);
 
   --border-light-theme: rgba(5, 5, 5, 0.2);
   --border-dark-theme: 1px solid rgba(255, 255, 255, 0.2);
