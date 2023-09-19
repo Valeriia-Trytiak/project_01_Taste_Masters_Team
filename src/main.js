@@ -23,6 +23,7 @@ import { initializePagination } from '/js/actions/pagination-home';
 import {} from '/js/actions/popular';
 import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
+import {} from '/js/action/full-recipe.js';
 
 setupRating();
 cardsGenerate();
