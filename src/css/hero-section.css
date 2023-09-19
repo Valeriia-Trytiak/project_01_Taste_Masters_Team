@@ -120,14 +120,6 @@
   }
 }
 
-.swiper-wrapper {
-}
-
-.swiper-pagination {
-}
-.swiper-pagination-hero {
-}
-
 .swiper-pagination-bullet {
   background: var(--cl-number-pages) !important;
   opacity: 1 !important;
@@ -140,8 +132,7 @@
 }
 
 /* rigth */
-.hero-rigth {
-}
+
 .hero-event {
   display: flex;
   gap: 8px;
@@ -190,8 +181,6 @@
   }
 }
 
-.hero-block-prewiew {
-}
 .hero-block-prewiew-img {
   margin-bottom: 20px;
   width: auto;
