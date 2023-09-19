@@ -63,9 +63,17 @@
   stroke: var(--txt-cl-100-light-theme);
 }
 
-.burger:hover,
-.burger:focus {
-  stroke: var(--accent-cl);
+@media (hover: hover) {
+  .burger:hover,
+  .burger:focus {
+    stroke: var(--accent-cl);
+  }
+}
+
+@media not (hover: hover) {
+  .burger:active {
+    stroke: var(--accent-cl);
+  }
 }
 
 .order-btn {
@@ -79,13 +87,10 @@
   stroke: var(--txt-cl-100-light-theme);
 }
 
-.order-icon:hover,
-.order-icon:focus {
-  stroke: var(--accent-cl);
-}
 
 @media (hover: hover) {
-  .order-icon:hover .order-icon:focus {
+  .order-icon:hover,
+  .order-icon:focus {
     stroke: var(--accent-cl);
   }
 }
@@ -139,9 +144,17 @@
   display: block;
 }
 
-.menu-link:hover,
-.menu-link:focus {
-  color: var(--accent-cl);
+@media (hover: hover) {
+  .menu-link:hover,
+  .menu-link:focus {
+    color: var(--accent-cl);
+  }
+}
+
+@media not (hover: hover) {
+  .menu-link:active {
+    color: var(--accent-cl);
+  }
 }
 
 .current {
