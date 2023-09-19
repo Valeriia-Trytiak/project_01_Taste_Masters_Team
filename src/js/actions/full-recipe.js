@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { fetchRecipeByID } from '/js/API/recipe-id-api';
-import { getRecipeIdFromApi } from '/js/API/recipe-api';
+import { serviceAllRecipes } from '/js/API/recipe-api';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
