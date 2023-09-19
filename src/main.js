@@ -9,6 +9,7 @@ import 'swiper/css/bundle';
 /// секція hero
 import { loadHero } from '/js/actions/hero-swiper';
 ///
+import { windowLoad } from '/js/actions/header';
 // import {} from './js/order-api';
 // import {} from './js/events-api';
 // import {} from '/js/API/order-api';
@@ -24,7 +25,6 @@ import {} from './js/actions/rating-modal';
 import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
-import { windowLoad } from '/js/actions/header';
 
 setupRating();
 import {} from '/js/actions/modal-new-order';
