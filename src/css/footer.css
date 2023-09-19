@@ -39,7 +39,8 @@
   cursor: pointer;
 }
 
-.prev-btn {
+.prev-btn,
+.first-page-btn {
   background-color: var(--cl-number-pages);
   fill: rgba(248, 248, 248, 0.5);
 }
@@ -54,13 +55,32 @@
   transition: background-color var(--timing-function);
 }
 
+.pages-btn.current-page {
+  background-color: var(--accent-cl);
+  border-color: var(--accent-cl);
+}
+
+/* Add styles for hover and focus states */
+.pages-btn.current-page:hover,
+.pages-btn.current-page:focus {
+  background-color: var(--accent-cl);
+  border-color: var(--accent-cl);
+}
+
+/* Add styles for active state */
+.pages-btn.current-page:active {
+  background-color: var(--accent-cl);
+  border-color: var(--accent-cl);
+}
+
 .dots-btn {
   font-size: 20px;
   letter-spacing: -1px;
   line-height: 1.15;
 }
 
-.next-btn {
+.next-btn,
+.last-page-btn {
   background-color: var(--accent-cl);
 }
 

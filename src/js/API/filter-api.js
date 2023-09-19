@@ -25,4 +25,22 @@ async function serviceAllRecipesSearch(valueSearch) {
   }
 }
 
+//запит пошуку по ключовому слову по категоріях
+// async function serviceRecipesSearch(searchParams) {
+//   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+//   const params = new URLSearchParams({
+//     title:
+//     category:
+//     area:
+//     ingredient:
+//     time:
+//   });
+//   try {
+//     const response = await axios.get(`${BASE_URL}?${params}`
+//     );
+//     console.log('Response data:', response.data);
+//   }catch (error) {
+//     Notify.failure(error.message);
+//   }
+// }
 export { serviceAllRecipes, serviceAllRecipesSearch };

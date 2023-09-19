@@ -17,13 +17,16 @@ const refs = {
   filterTime: document.querySelector('[name="time"]'),
   filterArea: document.querySelector('[name= "area"]'),
   filterIngred: document.querySelector('[name="ingredients"]'),
+  searchForm: document.querySelector('.search-form-js'),
 };
+console.dir(refs.searchForm);
 //контейнер для зберігання карток з секції
-const grisBox = document.querySelector('.js-card-list');
+const gridBox = document.querySelector('.js-card-list');
 //список зірок рейтингу
 const ratingList = document.querySelectorAll('.js-rating-stars-list');
 
 refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
+refs.searchForm.addEventListener('change', onChangeSelectFilter);
 
 //забираю значення з інпуту та роблю запит з подальшою відмальовкою
 function onChangeInputSearch(evt) {
@@ -45,11 +48,15 @@ function onChangeInputSearch(evt) {
       //     elem.children[i].style.fill = 'rgb(238, 161, 12)';
       //   }
       // });
-      grisBox.innerHTML = createMarkupCard(data.results);
+      gridBox.innerHTML = createMarkupCard(data.results);
     })
     .catch(error => {
       Notify.failure(error.message);
     });
+}
+
+function onChangeSelectFilter(evt) {
+  console.log(evt.target.value);
 }
 
 // Створення селекту часу
@@ -88,24 +95,21 @@ function changeSelectIngred() {
     });
 }
 
-// import axios from 'axios';
-// import debounce from 'lodash/debounce';
-
-// // Функция для отправки запроса на бекенд
-// async function sendRequest(searchParams) {
-//   try {
-//     const response = await axios.get(
-//       'https://tasty-treats-backend.p.goit.global/api/recipes',
-//       {
-//         params: searchParams,
-//       }
-//     );
-//     // Обработка полученных данных
-//     console.log('Response data:', response.data);
-//   } catch (error) {
-//     console.error('Error:', error);
-//   }
-// }
+// Функция для отправки запроса на бекенд
+async function sendRequest(searchParams) {
+  try {
+    const response = await axios.get(
+      'https://tasty-treats-backend.p.goit.global/api/recipes',
+      {
+        params: searchParams,
+      }
+    );
+    // Обработка полученных данных
+    console.log('Response data:', response.data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 // // Функция для обработки изменения значения в поле поиска
 // function handleSearchInputChange(event) {
 //   const searchInput = event.target;
@@ -123,6 +127,3 @@ function changeSelectIngred() {
 //     sendRequest(searchParams);
 //   }
 // }
-// // Добавляем обработчик события ввода текста с debounce
-// const searchInput = document.getElementById('search-input');
-// searchInput.addEventListener('input', debounce(handleSearchInputChange, 300));
