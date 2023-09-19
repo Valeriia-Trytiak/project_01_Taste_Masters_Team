@@ -1,4 +1,4 @@
-import sprite from './src/img/icons.svg';
+import sprite from '../../img/icons.svg';
 console.log(sprite);
 export function createMarkupCard(array) {
   const defaults = {
