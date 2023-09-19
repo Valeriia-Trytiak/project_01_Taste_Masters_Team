@@ -16,31 +16,6 @@ const refs = {
 refs.allCards.addEventListener('click', handlerGetIdCard);
 
 //функція відкриття модального вікна та забору id рецепту
-// function handlerGetIdCard(evt) {
-//   const card = evt.target.closest('.card');
-//   if (card) {
-//     const cardId = card.dataset.id;
-//     Loading.standard('Loading...', { svgColor: '#9bb537' });
-
-//     fetchRecipeByID(cardId)
-//       .then(data => {
-//         const modalMarkup = createMarkupModal(data);
-//         refs.modalCardCont.innerHTML = modalMarkup;
-//         fillStars();
-//         const addToFavorite = document.querySelector('.modal-add-favorite');
-//         Loading.remove();
-
-//         if (addToFavorite) {
-//           openModal();
-//           addToFavorite.addEventListener('click', addToLocalStorage);
-//         }
-//       })
-//       .catch(error => {
-//         console.error('Error fetching or rendering data:', error);
-//         Notify.failure(error.message);
-//       });
-//   }
-// }
 function handlerGetIdCard(evt) {
   const cardBtn = evt.target.closest('.card-btn');
   if (cardBtn) {
