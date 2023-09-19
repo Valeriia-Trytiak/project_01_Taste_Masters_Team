@@ -13,9 +13,17 @@
   background-color: rgba(30, 40, 39, 0.5);
 }
 
-.backdrop.is-open {
+.backdrop-modal.is-open-modal {
   opacity: 1;
   visibility: visible;
+  overflow-y: auto;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+
+  background-color: rgba(30, 40, 39, 0.5);
 }
 
 /*CLOSE_BUTTON*/
