@@ -9,8 +9,9 @@
     
     <!--Підключення js-->
     
-    <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/main-8a1c594b.js"></script>
-    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/main-9d519c9e.css">
+    <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/favorites-page-02f0c6d2.js"></script>
+    <link rel="modulepreload" crossorigin href="/project_01_Taste_Masters_Team/assets/cards-9cc89773.js">
+    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/cards-1284414a.css">
   </head>
   <body>
     <!--Підключення хедера-->
@@ -120,272 +121,176 @@
 </header>
 
     <main>
-      <section class="hero-section container">
-        <h1 class="visually-hidden">Favorites</h1>
-        <img
-          class="hero-img"
-          loading="lazy"
-          srcset="/project_01_Taste_Masters_Team/assets/hero_335-4ae1ab05.jpg 335w, /project_01_Taste_Masters_Team/assets/hero_670-6eb8532e.jpg 670w, /project_01_Taste_Masters_Team/assets/hero_704-b668de49.jpg 704w, /project_01_Taste_Masters_Team/assets/hero_1080-b46f47d0.jpg 1080w, /project_01_Taste_Masters_Team/assets/hero_1408-e8cb18b0.jpg 1408w, /project_01_Taste_Masters_Team/assets/hero_2160-1ceebe08.jpg 2160w"
-          sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 375px) 335px, 100vw"
-          src="./img/favorites/hero_335.jpg   335w,"
-          alt="tasty food"
-        />
+      <section class="fav-hero-section js-fav-hero-section">
+        <div class="container fav-container">
+          <h1 class="visually-hidden">Favorites</h1>
+          <img
+            class="fav-hero-img"
+            loading="lazy"
+            srcset="/project_01_Taste_Masters_Team/assets/hero_335-4ae1ab05.jpg 335w, /project_01_Taste_Masters_Team/assets/hero_670-6eb8532e.jpg 670w, /project_01_Taste_Masters_Team/assets/hero_704-b668de49.jpg 704w, /project_01_Taste_Masters_Team/assets/hero_1080-b46f47d0.jpg 1080w, /project_01_Taste_Masters_Team/assets/hero_1408-e8cb18b0.jpg 1408w, /project_01_Taste_Masters_Team/assets/hero_2160-1ceebe08.jpg 2160w"
+            sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 375px) 335px, 100vw"
+            src="./img/favorites/hero_335.jpg   335w,"
+            alt="tasty food"
+          />
+        </div>
       </section>
 
-      <section class="categories-section container">
-        <ul class="catigories-list">
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-        </ul>
+      <section class="fav-categories-section js-fav-categories-section">
+        <div class="container fav-cat-container fav-categories-list">
+          <h2 class="visually-hidden">Favorites categories</h2>
+          <button type="button" class="fav-categories-btn fav-all-categ-btn categ-btn-active">
+            All categories
+          </button>
+          <div class="fav-categories-list js-fav-categories-list">
+            <!-- розмітка кнопок з локал сторедж -->
+          </div>
+        </div>
       </section>
 
-      <section class="cards-section container">
-        <ul class="cards-list">
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-        </ul>
+      <section class="fav-cards-section cards-grid">
+        <div class="container fav-container">
+          <ul class="fav-cards-list card-list card-set js-fav-cards-list">
+            <!-- розмітка з локал сторедж -->
+          </ul>
 
-        <!-- Розмітка заглушки (у разі відсутності зецептів у favorites) -->
-        <div class="favorites-plug container-plug">
-          <svg class="icon-favorites-plug" width="68" height="58">
-            <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#favorites-plug"></use>
-          </svg>
-          <p class="plug-text">
-            It appears that you haven't added any recipes to your favorites yet.
-            To get started, you can add recipes that you like to your favorites
-            for easier access in the future.
-          </p>
+          <!-- Розмітка заглушки (у разі відсутності зецептів у favorites) -->
+          <div class="favorites-plug js-favorites-plug">
+            <svg class="icon-favorites-plug" width="68" height="58">
+              <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#favorites-plug"></use>
+            </svg>
+            <p class="plug-text">
+              It appears that you haven't added any recipes to your favorites
+              yet. To get started, you can add recipes that you like to your
+              favorites for easier access in the future.
+            </p>
+          </div>
         </div>
       </section>
     </main>
     <!-- Підключення футера -->
-    <footer class="footer">
-  <div class="container container-footer">
-    <div class="pagination-panel">
-      <div class="nav-btns">
-        <button class="pagination-btn first-page-btn">
-          <svg class="arrow-pag-icon left-arrow-icon" width="20" height="20">
-            <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-left"></use>
-          </svg>
-          <svg class="arrow-pag-icon right-arrow-icon" width="20" height="20">
-            <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-left"></use>
-          </svg>
-        </button>
-        <button class="pagination-btn prev-btn">
-          <svg class="arrow-pag-icon" width="20" height="20">
-            <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-left"></use>
-          </svg>
-        </button>
+    <footer class="footer js-fav-footer">
+      <div class="container container-footer">
+        <div class="pagination-panel-fav">
+          <div class="nav-btns">
+            <button class="pagination-btn first-page-btn">
+              <svg
+                class="arrow-pag-icon left-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-left"></use>
+              </svg>
+              <svg
+                class="arrow-pag-icon right-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-left"></use>
+              </svg>
+            </button>
+            <button class="pagination-btn prev-btn">
+              <svg class="arrow-pag-icon" width="20" height="20">
+                <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-left"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="pages-btns-box">
+            <button class="pagination-btn pages-btn">1</button>
+            <button class="pagination-btn pages-btn">2</button>
+            <button class="pagination-btn pages-btn pag-btn-hidden">3</button>
+            <button class="pagination-btn pages-btn dots-btn">...</button>
+          </div>
+          <div class="nav-btns">
+            <button class="pagination-btn next-btn">
+              <svg class="arrow-pag-icon" width="20" height="20">
+                <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-right"></use>
+              </svg>
+            </button>
+            <button class="pagination-btn last-page-btn">
+              <svg
+                class="arrow-pag-icon right-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-right"></use>
+              </svg>
+              <svg
+                class="arrow-pag-icon left-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
-      <div class="pages-btns-box">
-        <button class="pagination-btn pages-btn">1</button>
-        <button class="pagination-btn pages-btn">2</button>
-        <button class="pagination-btn pages-btn pag-btn-hidden">3</button>
-        <button class="pagination-btn pages-btn dots-btn">...</button>
+    </footer>
+    <!-- підключення модалки -->
+    <section class="modal-overlay visually-hidden">
+  <div class="modal-new-order modal-container">
+    <button type="button" class="modal-close-btn new-order-btn">
+      <svg class="modal-close-svg">
+        <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#x"></use>
+      </svg>
+    </button>
+    <h3 class="modal-title">ORDER NOW</h3>
+
+    <form class="modal-form form form-js" name="modal_form">
+      <div class="form-wrapper">
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_name">Name</label>
+
+          <input
+            class="form-field"
+            type="text"
+            name="modal_name"
+            id="modal_name"
+            pattern="[A-Za-z]{3,10}"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_phone">Phone number</label>
+
+          <input
+            class="form-field"
+            type="tel"
+            name="modal_phone"
+            id="modal_phone"
+            pattern="^\+380\d{9}$"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_email">Email</label>
+
+          <input
+            class="form-field"
+            type="email"
+            name="modal_email"
+            id="modal_email"
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+            required
+          />
+        </div>
+        <div class="input-wrapper">
+          <label class="form-label" for="modal_comment">Comment</label>
+          <textarea
+            rows="5"
+            cols="33"
+            class="form-field form-field-comment"
+            name="modal_comment"
+            id="modal_comment"
+          >
+          </textarea>
+        </div>
       </div>
-      <div class="nav-btns">
-        <button class="pagination-btn next-btn">
-          <svg class="arrow-pag-icon" width="20" height="20">
-            <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-right"></use>
-          </svg>
-        </button>
-        <button class="pagination-btn last-page-btn">
-          <svg class="arrow-pag-icon right-arrow-icon" width="20" height="20">
-            <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-right"></use>
-          </svg>
-          <svg class="arrow-pag-icon left-arrow-icon" width="20" height="20">
-            <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#arrow-right"></use>
-          </svg>
-        </button>
-      </div>
-    </div>
+
+      <button class="form-btn btn" type="submit">Send</button>
+    </form>
   </div>
-</footer>
+</section>
 
   </body>
 </html>
