@@ -38,4 +38,3 @@ setupRating();
 cardsGenerate();
 loadHero();
 initializePagination();
-
