@@ -85,8 +85,7 @@
 }
 
 @media (hover: hover) {
-  .order-icon:hover 
-  .order-icon:focus {
+  .order-icon:hover .order-icon:focus {
     stroke: var(--accent-cl);
   }
 }
@@ -140,8 +139,8 @@
   display: block;
 }
 
-.menu-link:focus,
-.menu-link:hover {
+.menu-link:hover,
+.menu-link:focus {
   color: var(--accent-cl);
 }
 
@@ -285,14 +284,62 @@
   transform: translateX(26px);
 }
 
-
 /* ================ change the theme =============== */
 
 html.dark body {
-	color: #fff;
-	background-color: #333;
+  color: var(--bg-cl-light-theme);
+  background-color: #1e1e1e;
 }
-html.light body {
-	background-color: #fff;
-	color: #333;
+
+/* ========= header ======== */
+
+html.dark .link-fav {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .logo-end {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .logo-end-mob {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .order-icon {
+  stroke: var(--bg-cl-light-theme);
+}
+
+html.dark .order-icon:hover,
+html.dark .order-icon:focus {
+  stroke: var(--accent-cl);
+}
+
+html.dark .burger {
+  stroke: var(--bg-cl-light-theme);
+}
+
+html.dark .burger:hover,
+html.dark .burger:focus {
+  stroke: var(--accent-cl);
+}
+
+html.dark .mobile-menu {
+  background-color: #050505;
+}
+
+/* ============ Categories ============ */
+
+
+html.dark .categories-btn {
+  border: 1px solid var(--border-light-theme);
+  color: var(--txt-cl-50-light-theme);
+  background-color: transparent;
+}
+
+html.dark .categories-btn:hover,
+html.dark .categories-btn:focus,
+html.dark .categories-btn:active {
+  background-color: var(--accent-cl);
+  color: var(--secondary-txt-cl-100-light-theme);
+  border: none;
 }

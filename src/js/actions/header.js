@@ -6,6 +6,7 @@ const menuLinkFavElement = document.querySelector('.link-fav');
 const mobMenuLinkHomeElement = document.querySelector('.mob-menu-link-home');
 const mobMenuLinkFavElement = document.querySelector('.mob-menu-link-fav');
 
+
 menuLinkFavElement.addEventListener('click', handlerMenuLink);
 mobMenuLinkFavElement.addEventListener('click', handlerMobMenuLink);
 
