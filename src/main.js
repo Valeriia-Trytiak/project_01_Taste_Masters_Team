@@ -24,6 +24,7 @@ import {} from './js/actions/rating-modal';
 import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
+import { windowLoad } from '/js/actions/header';
 
 setupRating();
 import {} from '/js/actions/modal-new-order';
