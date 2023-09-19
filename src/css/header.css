@@ -329,11 +329,19 @@ html.dark .mobile-menu {
 
 /* ============ Categories ============ */
 
+html.dark .btn-dishes {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .btn-dishes:hover,
+html.dark .btn-dishes:focus,
+html.dark .btn-dishes:active {
+  color: var(--accent-cl);
+}
 
 html.dark .categories-btn {
-  border: 1px solid var(--border-light-theme);
-  color: var(--txt-cl-50-light-theme);
-  background-color: transparent;
+  color: var(--txt-cl-50-dark-theme);
+  border: 1px solid var(--txt-cl-50-dark-theme);
 }
 
 html.dark .categories-btn:hover,
@@ -343,3 +351,119 @@ html.dark .categories-btn:active {
   color: var(--secondary-txt-cl-100-light-theme);
   border: none;
 }
+
+html.dark ::-webkit-scrollbar {
+  border-radius: 12px;
+  background: var(--bg-cl-dark-theme);
+}
+
+html.dark .scroll-container::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+}
+
+/* ================== popular-recipe ================= */
+
+html.dark .popular-recipe-text {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .popular-recipes-title {
+  color: var(--bg-cl-light-theme);
+}
+
+/* ==================== Modal new order ==================== */
+
+html.dark .modal-new-order {
+  background-color: var(--txt-cl-100-light-theme);
+}
+
+html.dark .modal-title {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .form-field {
+  background-color: transparent;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .form-label {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-close-btn {
+  background-color: transparent;
+}
+
+html.dark .modal-close-svg {
+  stroke: var(--bg-cl-light-theme);
+}
+
+/* ================== Modal rating ================= */
+
+html.dark .modal-rating-form {
+  background-color: var(--bg-cl-dark-theme);
+}
+
+html.dark .close-rating {
+  background-color: var(--bg-cl-dark-theme);
+}
+
+html.dark .close-rating-svg {
+  stroke: var(--bg-cl-light-theme);
+}
+
+html.dark .rating-form-input {
+  background-color: var(--bg-cl-dark-theme);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .rating-form-input::placeholder {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+/* ==================== Search ==================== */
+
+
+html.dark .search-form input {
+  background-color: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+html.dark .search-icon {
+  fill: rgba(255, 255, 255, 0.20);
+}
+
+html.dark .filter-item select {
+  background-color: #1e1e1e;
+  color: rgba(255, 255, 255, 0.50);
+  border: 1px solid rgba(255, 255, 255, 0.50);
+}
+
+html.dark .reset-desc {
+  color: rgba(255, 255, 255, 0.50);
+}
+
+
+
+/* ===================== Favorites ==================== */
+
+html.dark .hero-img {
+  border-radius: 15px;
+}
+
+html.dark .catigories-btn {
+  background: #1e1e1e;
+  color: rgba(255, 255, 255, 0.30);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+}
+
+html.dark .catigories-btn:hover,
+html.dark .catigories-btn:focus {
+  background: var(--accent-cl);
+  color: var(--bg-cl-light-theme);
+}
+
+/* ========================= Pagination ======================= */
+
