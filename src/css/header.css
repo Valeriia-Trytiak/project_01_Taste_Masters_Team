@@ -465,5 +465,9 @@ html.dark .catigories-btn:focus {
   color: var(--bg-cl-light-theme);
 }
 
-/* ========================= Pagination ======================= */
+/* ========================= Cards ======================= */
+
+html.dark .card {
+  background: linear-gradient(1deg, #050505 4.82%, rgba(5, 5, 5, 0.00) 108.72%);
+}
 
