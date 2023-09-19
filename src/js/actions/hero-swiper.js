@@ -20,6 +20,6 @@ export async function loadHero() {
       },
     });
   } catch (err) {
-    console.log(err);
+    Notify.failure('Oops! No upcoming events. Please try again later.');
   }
 }
