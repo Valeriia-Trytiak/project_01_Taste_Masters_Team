@@ -1,6 +1,7 @@
 import sprite from '../../img/icons.svg';
 
 export function createMarkupModal(data) {
+  console.log(data);
   const youtubeLink = data.youtube;
 
   function getYoutubeVideoId(url) {
@@ -17,6 +18,7 @@ export function createMarkupModal(data) {
   const tagsToRender = data.tags.slice(0, 2);
 
   const tagsMarkup = tagsToRender
+    .filter(tag => tag !== '') // Фільтрую порожні теги
     .map(
       tag => `
         <li class="modal-hashtag-item">#${tag}</li>
@@ -38,41 +40,42 @@ export function createMarkupModal(data) {
   const modalCardMarkup = `<iframe
   src="${embedUrl}"
   title="YouTube video player"
+  poster="${data.preview}"
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
   allowfullscreen
   class="iframe-video"
-></iframe>
+  loading="lazy"></iframe>
           <h2 class="modal-recipe-name">${data.title}</h2>
           <div class="modal-info">
             <div class="modal-card-stars stars-block-js">
               <p class="modal-stars-rating cards-raiting">${roundedRating}</p>
               <div class="modal-stars rating-wrapper">
-                <svg class="card-stars-icon" data-raiting="one" id="all-stars" width="18" height="18">
+                <svg class="card-stars-icon" id="stars-full-modal" width="18" height="18">
                 <use href="${sprite}#star"></use>
                 </svg>
-                <svg class="card-stars-icon" data-raiting="two" id="all-stars" width="18" height="18">
+                <svg class="card-stars-icon" id="stars-full-modal" width="18" height="18">
                 <use href="${sprite}#star"></use>
                 </svg>
-                <svg class="card-stars-icon" data-raiting="three" id="all-stars" width="18" height="18">
+                <svg class="card-stars-icon" id="stars-full-modal" width="18" height="18">
                 <use href="${sprite}#star"></use>
                 </svg>
-                <svg class="card-stars-icon" data-raiting="four" id="all-stars" width="18" height="18">
+                <svg class="card-stars-icon" id="stars-full-modal" width="18" height="18">
                 <use href="${sprite}#star"></use>
                 </svg>
-                <svg class="card-stars-icon" data-raiting="five" id="all-stars" width="18" height="18">
+                <svg class="card-stars-icon" id="stars-full-modal" width="18" height="18">
                 <use href="${sprite}#star"></use>
                 </svg>
               </div>
               <p class="modal-card-time">${data.time} min</p>
             </div>
             <ul class="modal-ingredients-list">${ingredientsMarkup}</ul>
-            <ul class="modal-hashtags">${tagsMarkup}</ul>
+            <ul class="modal-hashtags"><li class="modal-hashtag-item modal-category-js">#${data.category}</li>${tagsMarkup}</ul>
             <p class="modal-recipe-instructions">${data.instructions}</p>
           </div>
           <div class="modal-button">
-                <button class="modal-add-favorite btn">Add to favorite</button>
-                <button class="modal-give-rating btn">Give a rating</button>
+                <button class="modal-add-favorite btn" type="button" id=${data._id}>Add to favorite</button>
+                <button class="modal-give-rating btn" type="button">Give a rating</button>
               </div>
     `;
 

@@ -256,3 +256,8 @@
     padding: 14px 28px;
   }
 }
+
+.js-stars {
+  fill: var(--cl-rating);
+  stroke: transparent;
+}
