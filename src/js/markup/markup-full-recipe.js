@@ -47,7 +47,7 @@ export function createMarkupModal(data) {
           <div class="modal-info">
             <div class="modal-card-stars stars-block-js">
               <p class="modal-stars-rating cards-raiting">${roundedRating}</p>
-              <div class="modal-stars rating-wrapper ">
+              <div class="modal-stars rating-wrapper">
                 <svg class="card-stars-icon" data-raiting="one" id="all-stars" width="18" height="18">
                 <use href="${sprite}#star"></use>
                 </svg>

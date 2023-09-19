@@ -6,13 +6,13 @@ import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
-  allCards: document.querySelector('.js-card-list'), //що це? якщо список усіх карток, то там селектор js-card-list
-  modalCardCont: document.querySelector('.modal-card-markup'), // контейнер для відмальовки модалки
-  modalBackdrop: document.querySelector('.modal-backdrop'), //бекдроп модального вікна
+  allCards: document.querySelector('.js-card-list'),
+  modalCardCont: document.querySelector('.modal-card-markup'),
+  modalBackdrop: document.querySelector('.modal-backdrop'),
   modalButtonClose: document.querySelector('.modal-btn-close'),
   giveRatingModalBtn: document.querySelector('.modal-give-rating'),
   addToFavorite: document.querySelector('.modal-add-favorite'),
-  inputStar: document.querySelectorAll('.rating-star'), //зірки у модалці рейтингу
+  inputStar: document.querySelectorAll('.rating-star'),
 };
 
 refs.allCards.addEventListener('click', handlerGetIdCard);
@@ -42,6 +42,7 @@ function handlerGetIdCard(evt) {
 
 function fillStars() {
   const starRatings = document.querySelectorAll('.stars-block-js');
+  console.log(starRatings);
   starRatings.forEach(starRating => {
     //Отримую рейтинг(текст контент) з елемента
     const rating = parseFloat(
