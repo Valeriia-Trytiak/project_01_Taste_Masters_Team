@@ -7,7 +7,7 @@ import 'swiper/css/bundle';
 
 /* імпорт запросів*/
 /// секція hero
-import { loadHero } from './js/actions/hero-swiper';
+import { loadHero } from '/js/actions/hero-swiper';
 ///
 // import {} from './js/order-api';
 // import {} from './js/events-api';
