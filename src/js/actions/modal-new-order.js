@@ -2,13 +2,15 @@ import { Notify } from 'notiflix';
 import { addNewOrder } from '/js/API/order-api';
 
 const cartBtn = document.querySelector('.order-btn');
-const cartBtnMobile = document.querySelector('.order-btn-mob')
+const cartBtnMobile = document.querySelector('.order-btn-mob');
+const heroBtn = document.querySelector('.hero-btn-js');
 const closeModalBtn = document.querySelector('.modal-close-btn');
 const modalWindow = document.querySelector('.modal-overlay');
 const form = document.querySelector('.form');
 
 cartBtn.addEventListener('click', openModalNewOrder);
 cartBtnMobile.addEventListener('click', openModalNewOrder);
+heroBtn.addEventListener('click', openModalNewOrder);
 closeModalBtn.addEventListener('click', closeModalNewOrder);
 form.addEventListener('submit', onSubmitNewOrder);
 
