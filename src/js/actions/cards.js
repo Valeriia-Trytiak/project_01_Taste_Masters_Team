@@ -23,21 +23,10 @@ export async function cardsGenerate(currentPage, perPage) {
 
     const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
 
-    [...gridBox.children].map(elem => {
-      favoritesArr.map(({ id }) => {
-        if (id === elem.dataset.id) {
-          elem.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.classList.add(
-            'visually-hidden'
-          );
-          elem.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.classList.remove(
-            'visually-hidden'
-          );
-        }
-      });
-    });
-
     addRating();
+    heartIsActive(gridBox, favoritesArr);
     addCartInLocalStorage();
+    removeCartInLocalStorage()
 
     // Update the rating stars based on data
     const ratingList = document.querySelectorAll('.js-rating-stars-list');
@@ -57,7 +46,7 @@ export async function cardsGenerate(currentPage, perPage) {
   }
 }
 
-function addRating() {
+export function addRating() {
   const ratingList = document.querySelectorAll('.js-rating-stars-list');
 
   ratingList.forEach(elem => {
@@ -70,16 +59,10 @@ function addRating() {
 }
 
 function addCartInLocalStorage() {
-  const elements = {
-    inactiveHearts: document.querySelectorAll('.js-btn-heart-inactive'),
-    activeHearts: document.querySelectorAll('.js-btn-heart-active'),
-  };
+  const inactiveHearts = document.querySelectorAll('.js-btn-heart-inactive');
 
-  elements.inactiveHearts.forEach(elem =>
+  inactiveHearts.forEach(elem =>
     elem.addEventListener('click', handlerAddRecipe)
-  );
-  elements.activeHearts.forEach(elem =>
-    elem.addEventListener('click', handlerRemoveRecipe)
   );
 
   function handlerAddRecipe(evt) {
@@ -87,7 +70,7 @@ function addCartInLocalStorage() {
     evt.currentTarget.nextElementSibling.classList.remove('visually-hidden');
 
     const arrData = {
-      id: evt.currentTarget.parentNode.parentNode.dataset.id,
+      _id: evt.currentTarget.parentNode.parentNode.dataset.id,
       title:
         evt.currentTarget.nextElementSibling.nextElementSibling.textContent,
       description:
@@ -106,6 +89,14 @@ function addCartInLocalStorage() {
     fav.push(arrData);
     localStorage.setItem('cardsArray', JSON.stringify(fav));
   }
+}
+
+export function removeCartInLocalStorage() {
+  const activeHearts = document.querySelectorAll('.js-btn-heart-active');
+
+  activeHearts.forEach(elem =>
+    elem.addEventListener('click', handlerRemoveRecipe)
+  );
 
   function handlerRemoveRecipe(evt) {
     evt.currentTarget.classList.add('visually-hidden');
@@ -119,4 +110,19 @@ function addCartInLocalStorage() {
     fav.splice(fav.indexOf(fav.find(item => item.id === cardId)), 1);
     localStorage.setItem('cardsArray', JSON.stringify(fav));
   }
+}
+
+export function heartIsActive(listBox, localArr) {
+  [...listBox.children].map(elem => {
+    localArr.map(({ _id }) => {
+      if (_id === elem.dataset.id) {
+        elem.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.classList.add(
+          'visually-hidden'
+        );
+        elem.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.classList.remove(
+          'visually-hidden'
+        );
+      }
+    });
+  });
 }
