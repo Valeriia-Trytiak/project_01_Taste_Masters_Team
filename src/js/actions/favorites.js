@@ -35,8 +35,8 @@ export function favoritesPage() {
       }
       favElements.categories.style.display = 'none';
       favElements.cardsList.style.display = 'none';
-        favElements.footer.style.display = 'none';
-        favElements.plug.style.display = 'block';
+      favElements.footer.style.display = 'none';
+      favElements.plug.style.display = 'block';
       return;
     }
 
@@ -46,9 +46,7 @@ export function favoritesPage() {
     favElements.cardsList.innerHTML = createMarkupCard(storageArray);
 
     addRating();
-      heartIsActive(favElements.cardsList, storageArray);
-      
-      
+    heartIsActive(favElements.cardsList, storageArray);
 
     const activeHearts = document.querySelectorAll('.js-btn-heart-active');
 

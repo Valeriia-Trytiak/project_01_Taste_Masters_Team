@@ -15,57 +15,118 @@
     <load src="partials/header.html" />
     <main>
       <section class="fav-hero-section js-fav-hero-section">
-        <div class="container">
+        <div class="container fav-container">
           <h1 class="visually-hidden">Favorites</h1>
-        <img
-          class="fav-hero-img"
-          loading="lazy"
-          srcset="
-            /img/favorites/hero_335.jpg   335w,
-            /img/favorites/hero_670.jpg   670w,
-            /img/favorites/hero_704.jpg   704w,
-            /img/favorites/hero_1080.jpg 1080w,
-            /img/favorites/hero_1408.jpg 1408w,
-            /img/favorites/hero_2160.jpg 2160w
-          "
-          sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 375px) 335px, 100vw"
-          src="./img/favorites/hero_335.jpg   335w,"
-          alt="tasty food"
-        />
+          <img
+            class="fav-hero-img"
+            loading="lazy"
+            srcset="
+              /img/favorites/hero_335.jpg   335w,
+              /img/favorites/hero_670.jpg   670w,
+              /img/favorites/hero_704.jpg   704w,
+              /img/favorites/hero_1080.jpg 1080w,
+              /img/favorites/hero_1408.jpg 1408w,
+              /img/favorites/hero_2160.jpg 2160w
+            "
+            sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 375px) 335px, 100vw"
+            src="./img/favorites/hero_335.jpg   335w,"
+            alt="tasty food"
+          />
         </div>
       </section>
 
       <section class="fav-categories-section js-fav-categories-section">
-        <div class="container">
+        <div class="container fav-cat-container fav-categories-list">
           <h2 class="visually-hidden">Favorites categories</h2>
-          <ul class="fav-categories-list js-fav-categories-list">
-          <!-- розмітка кнопок з локал сторедж -->
-        </ul>
+          <button type="button" class="fav-categories-btn fav-all-categ-btn">
+            All categories
+          </button>
+          <div class="fav-categories-list js-fav-categories-list">
+            <!-- розмітка кнопок з локал сторедж -->
+          </div>
         </div>
       </section>
 
-      <section class="fav-cards-section">
-        <div class="container container-plug">
-          <ul class="fav-cards-list js-fav-cards-list">
-          <!-- розмітка з локал сторедж -->
-        </ul>
+      <section class="fav-cards-section cards-grid">
+        <div class="container fav-container">
+          <ul class="fav-cards-list card-list card-set js-fav-cards-list">
+            <!-- розмітка з локал сторедж -->
+          </ul>
 
-        <!-- Розмітка заглушки (у разі відсутності зецептів у favorites) -->
-        <div class="favorites-plug js-favorites-plug">
-          <svg class="icon-favorites-plug" width="68" height="58">
-            <use href="/img/icons.svg#favorites-plug"></use>
-          </svg>
-          <p class="plug-text">
-            It appears that you haven't added any recipes to your favorites yet.
-            To get started, you can add recipes that you like to your favorites
-            for easier access in the future.
-          </p>
-        </div>
+          <!-- Розмітка заглушки (у разі відсутності зецептів у favorites) -->
+          <div class="favorites-plug js-favorites-plug">
+            <svg class="icon-favorites-plug" width="68" height="58">
+              <use href="/img/icons.svg#favorites-plug"></use>
+            </svg>
+            <p class="plug-text">
+              It appears that you haven't added any recipes to your favorites
+              yet. To get started, you can add recipes that you like to your
+              favorites for easier access in the future.
+            </p>
+          </div>
         </div>
       </section>
     </main>
     <!-- Підключення футера -->
-    <load src="partials/footer.html" />
+    <footer class="footer js-fav-footer">
+      <div class="container container-footer">
+        <div class="pagination-panel-fav">
+          <div class="nav-btns">
+            <button class="pagination-btn first-page-btn">
+              <svg
+                class="arrow-pag-icon left-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/img/icons.svg#arrow-left"></use>
+              </svg>
+              <svg
+                class="arrow-pag-icon right-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/img/icons.svg#arrow-left"></use>
+              </svg>
+            </button>
+            <button class="pagination-btn prev-btn">
+              <svg class="arrow-pag-icon" width="20" height="20">
+                <use href="/img/icons.svg#arrow-left"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="pages-btns-box">
+            <button class="pagination-btn pages-btn">1</button>
+            <button class="pagination-btn pages-btn">2</button>
+            <button class="pagination-btn pages-btn pag-btn-hidden">3</button>
+            <button class="pagination-btn pages-btn dots-btn">...</button>
+          </div>
+          <div class="nav-btns">
+            <button class="pagination-btn next-btn">
+              <svg class="arrow-pag-icon" width="20" height="20">
+                <use href="/img/icons.svg#arrow-right"></use>
+              </svg>
+            </button>
+            <button class="pagination-btn last-page-btn">
+              <svg
+                class="arrow-pag-icon right-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/img/icons.svg#arrow-right"></use>
+              </svg>
+              <svg
+                class="arrow-pag-icon left-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/img/icons.svg#arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- підключення модалки -->
     <load src="partials/modal-new-order.html" />
   </body>
 </html>

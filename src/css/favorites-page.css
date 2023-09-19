@@ -1,17 +1,25 @@
-.container-plug {
+.fav-container {
   padding-top: 0;
 }
 
 .fav-hero-section {
   --visible: false;
+  padding-top: 45px;
   padding-bottom: 40px;
 }
 
 @media only screen and (min-width: 768px) {
   .fav-hero-section {
-  --visible: true;
-  padding-bottom: 64px;
+    --visible: true;
+    padding-top: 42px;
+    padding-bottom: 64px;
+  }
 }
+
+@media only screen and (min-width: 1280px) {
+  .fav-hero-section {
+    padding-top: 32px;
+  }
 }
 
 .fav-hero-img {
@@ -19,46 +27,66 @@
 }
 
 .fav-categories-section {
-  overflow: hidden;
-  margin-bottom: 24px;
+  padding-bottom: 24px;
 }
 
 @media only screen and (min-width: 768px) {
   .fav-categories-section {
-    margin-bottom: 32px;
+    padding-bottom: 32px;
   }
 }
 
-@media only screen and (min-width: 1280px) {
-  .fav-categories-section {
-    margin-bottom: 46px;
-  }
+.fav-cat-container {
+  overflow: hidden;
+  padding-top: 0;
+  padding-right: 0;
 }
+
 .fav-categories-list {
   display: flex;
-  column-gap: 12px;
-  justify-content: flex-start;
+  gap: 12px;
 }
 
 @media only screen and (min-width: 768px) {
   .fav-categories-list {
-    column-gap: 15px;
+    gap: 15px;
   }
 }
 
+.fav-all-categ-btn {
+}
+
 .fav-categories-btn {
+  white-space: nowrap;
   padding: 14px 18px;
   border-radius: 15px;
-  border: var(--border-light-theme);
-  background: var(--bg-cl-light-theme);
+  border: 1px solid var(--border-light-theme);
+  background-color: transparent;
   color: var(--txt-cl-30-light-theme);
-  font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
+
+  cursor: pointer;
+  transition: color 250ms var(--timing-function);
+  transition: background-color 250ms var(--timing-function);
+  transition: border-color 250ms var(--timing-function);
 }
-.fav-categories-btn:hover,
-.fav-categories-btn:focus {
-  background: var(--accent-cl);
+
+@media (hover: hover) {
+  .fav-categories-btn:hover,
+  .fav-categories-btn:focus {
+    color: var(--secondary-txt-cl-100-light-theme);
+    background-color: var(--accent-cl);
+    border-color: var(--accent-cl);
+  }
+}
+
+@media not (hover: hover) {
+  .fav-categories-btn:active {
+    color: var(--secondary-txt-cl-100-light-theme);
+    background-color: var(--accent-cl);
+    border-color: var(--accent-cl);
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -69,23 +97,24 @@
 }
 
 .fav-cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  --limiter-cards-on-page: 9;
 }
 
 @media only screen and (min-width: 768px) {
   .fav-cards-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
+    --limiter-cards-on-page: 12;
   }
 }
 
-@media only screen and (min-width: 1280px) {
-  .fav-cards-list {
-    row-gap: 32px;
-    column-gap: 16px;
+.pagination-panel-fav {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 768px) {
+  .pagination-panel-fav {
+    width: 446px;
+    margin: auto;
   }
 }
 
@@ -115,20 +144,20 @@
   .icon-favorites-plug {
     width: 97px;
     height: 83px;
+
+    margin-bottom: 32px;
   }
 }
 .plug-text {
-  margin: 0 auto;
-  color: var(--txt-cl-100-light-theme);
   text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.29;
 }
+
 @media only screen and (min-width: 768px) {
   .plug-text {
     width: 481px;
     font-size: 16px;
     line-height: 1.5;
+
+    margin: 0 auto;
   }
 }
