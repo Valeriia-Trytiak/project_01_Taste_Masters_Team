@@ -1,3 +1,5 @@
+import sprite from '../../img/icons.svg';
+console.log(sprite);
 export function createMarkupCard(array) {
   const defaults = {
     url: 'https://st2.depositphotos.com/4410397/7644/v/450/depositphotos_76444781-stock-illustration-valentines-day-meal-line-icon.jpg',
@@ -18,12 +20,12 @@ export function createMarkupCard(array) {
        <div class="card-content">
         <button class="btn-heart js-btn-heart-inactive" type="button">
           <svg width="22" height="22">
-            <use href="/img/icons.svg#heart-inactive"></use>
+            <use href="${sprite}#heart-inactive"></use>
           </svg>
         </button>
         <button class="btn-heart js-btn-heart-active visually-hidden" type="button">
           <svg width="22" height="22">
-            <use href="/img/icons.svg#heart-active"></use>
+            <use href="${sprite}#heart-active"></use>
           </svg>
           </button>
           <h3 class="card-title">${title || defaults.text}</h3>
@@ -36,27 +38,27 @@ export function createMarkupCard(array) {
               <ul class="rating-stars-list js-rating-stars-list">
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="${sprite}#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="${sprite}#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="${sprite}#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="${sprite}#star"></use>
                   </svg>
                 </li>
                 <li>
                   <svg class="rating-star-icon" width="18" height="18">
-                    <use href="/img/icons.svg#star"></use>
+                    <use href="${sprite}#star"></use>
                   </svg>
                 </li>
               </ul>
