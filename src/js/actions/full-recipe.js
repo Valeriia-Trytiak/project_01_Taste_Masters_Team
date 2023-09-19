@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { fetchRecipeByID } from '/js/API/recipe-id-api';
 import { getRecipeIdFromApi } from '/js/API/recipe-api';
-
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -24,7 +24,7 @@ async function handlerGetIdCard(event) {
 
     const buttonId = event.target.getAttribute('id');
     refs.addToFavorite.id = buttonId;
-    const dataById = await getRecipeIdFromApi(buttonId);
+    const dataById = await fetchRecipeByID(buttonId);
     const modalMarkup = createMarkupModal(dataById);
     refs.modalCardCont.innerHTML = modalMarkup;
     fillStars();
