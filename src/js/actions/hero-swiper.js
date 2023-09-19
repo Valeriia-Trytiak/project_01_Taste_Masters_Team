@@ -1,5 +1,5 @@
-import { getEvents } from '../API/events-api';
-import { markupHeroSlide } from './hero-event';
+import { getEvents } from '..//../js/API/events-api';
+import { markupHeroSlide } from '..//../js/actions/hero-event';
 
 import Swiper from 'swiper/bundle';
 
