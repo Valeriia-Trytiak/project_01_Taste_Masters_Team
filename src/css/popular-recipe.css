@@ -16,6 +16,8 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 154px;
+  overflow-y: hidden;
 }
 
 .popular-recipe-item {
@@ -73,6 +75,8 @@
 
   .popular-recipes-list {
     gap: 16px;
+    overflow-y: auto;
+    height: auto;
   }
 
   .popular-recipe-title {
