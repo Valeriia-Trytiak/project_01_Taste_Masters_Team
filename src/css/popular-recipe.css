@@ -97,6 +97,7 @@
     width: 120px;
     font-size: 10px;
     line-height: 1.4;
+    -webkit-line-clamp: 3;
   }
 }
 
@@ -125,6 +126,5 @@
   .popular-recipe-text {
     width: 155px;
     color: var(--txt-cl-80-light-theme);
-    -webkit-line-clamp: 3;
   }
 }
