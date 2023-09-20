@@ -540,3 +540,12 @@ html.dark .modal-hashtag-item {
 html.dark .modal-give-rating {
   color: var(--bg-cl-light-theme);
 }
+
+html.dark .modal-card-time-dark {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-ingredient-dark {
+  border-bottom-color: rgba(255, 255, 255, 0.10);
+}
+
