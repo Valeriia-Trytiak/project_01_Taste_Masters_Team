@@ -511,3 +511,32 @@ html.dark .pages-btn {
   border: 1px solid rgba(255, 255, 255, 0.30);
 }
 
+/* ================ Full recipe ================ */
+
+html.dark .modal-recipe-card {
+  background-color: #050505;
+}
+
+html.dark .modal-btn-close {
+  stroke: var(--bg-cl-light-theme);
+}
+
+html.dark .modal-recipe-instructions {
+  color: var(--txt-cl-80-dark-theme)
+}
+
+html.dark .modal-ing-measure {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-stars-rating {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-hashtag-item {
+  border: var(--border-dark-theme);
+}
+
+html.dark .modal-give-rating {
+  color: var(--bg-cl-light-theme);
+}
