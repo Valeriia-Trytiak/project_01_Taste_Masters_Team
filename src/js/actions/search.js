@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select';
 import { debounce } from 'debounce';
-
+import { addRating } from './cards.js';
 import { serviceChangeAllAreas } from '/js/API/areas-api.js';
 import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
 import { serviceAllRecipesSearch } from '/js/API/filter-api.js';
@@ -19,7 +19,7 @@ const refs = {
   filterIngred: document.querySelector('[name="ingredients"]'),
   searchForm: document.querySelector('.search-form-js'),
 };
-console.dir(refs.searchForm);
+
 //контейнер для зберігання карток з секції
 const gridBox = document.querySelector('.js-card-list');
 //список зірок рейтингу
@@ -40,14 +40,7 @@ function onChangeInputSearch(evt) {
         );
       }
       createMarkupCard(data.results);
-
-      // ratingList.forEach(elem => {
-      //   const ratingNum = Math.round(elem.previousElementSibling.textContent);
-
-      //   for (let i = 0; i < ratingNum; i++) {
-      //     elem.children[i].style.fill = 'rgb(238, 161, 12)';
-      //   }
-      // });
+      addRating();
       gridBox.innerHTML = createMarkupCard(data.results);
     })
     .catch(error => {
