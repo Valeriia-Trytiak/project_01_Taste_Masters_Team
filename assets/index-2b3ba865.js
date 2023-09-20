@@ -46,7 +46,7 @@ import{b as re,n as R,s as lt,d as tt,e as dt,c as We,f as ce,g as Pe}from"./car
       </li>`).join("")}function He(t,e,i){var s,r,a,l,f;e==null&&(e=100);function n(){var d=Date.now()-l;d<e&&d>=0?s=setTimeout(n,e-d):(s=null,i||(f=t.apply(a,r),a=r=null))}var u=function(){a=this,r=arguments,l=Date.now();var d=i&&!s;return s||(s=setTimeout(n,e)),d&&(f=t.apply(a,r),a=r=null),f};return u.clear=function(){s&&(clearTimeout(s),s=null)},u.flush=function(){s&&(f=t.apply(a,r),a=r=null,clearTimeout(s),s=null)},u}He.debounce=He;var fs=He;async function us(){try{return(await re.get("https://tasty-treats-backend.p.goit.global/api/areas")).data}catch(t){R.Notify.failure(t.message)}}async function ps(){try{return(await re.get("https://tasty-treats-backend.p.goit.global/api/ingredients")).data}catch(t){R.Notify.failure(t.message)}}function be(t){return t.map(({_id:e,name:i})=>`<option value="${e}">${i}</option>;`).join("")}const oe={inputSearch:document.querySelector("#search-input"),filterTime:document.querySelector('[name="time"]'),filterArea:document.querySelector('[name= "area"]'),filterIngred:document.querySelector('[name="ingredients"]'),searchForm:document.querySelector(".search-form-js")};console.dir(oe.searchForm);const ms=document.querySelector(".js-card-list");document.querySelectorAll(".js-rating-stars-list");oe.inputSearch.addEventListener("input",fs.debounce(hs,300));oe.searchForm.addEventListener("change",gs);function hs(t){const e=t.target.value.trim();dt(e).then(i=>{console.log(i.totalPages),i.totalPages===null&&R.Notify.failure("Sorry, there are no recipes matching your search query. Please try again."),We(i.results),ms.innerHTML=We(i.results)}).catch(i=>{R.Notify.failure(i.message)})}function gs(t){console.log(t.target.value)}function vs(){for(let t=5;t<=120;t+=5){let e=t+" min",i=new Option(e,t.toString(),!1,!0);oe.filterTime.appendChild(i)}}vs();ws();ys();function ws(){us().then(t=>{be(t),oe.filterArea.innerHTML=be(t)}).catch(t=>{R.Notify.failure(t.message)})}function ys(){ps().then(t=>{be(t),oe.filterIngred.innerHTML=be(t)}).catch(t=>{R.Notify.failure(t.message)})}async function bs(t){try{return(await re.get(`https://tasty-treats-backend.p.goit.global/api/recipes/${t}`)).data}catch(e){throw e}}function Ss(t){console.log(t);const e=t.youtube;function i(d){const o=d.match(/v=([^&]+)/);return o?o[1]:""}const r=`https://www.youtube.com/embed/${i(e)}`,a=parseFloat(t.rating).toFixed(1),f=t.tags.slice(0,2).filter(d=>d!=="").map(d=>`
         <li class="modal-hashtag-item"><p class="modal-hashtag-text">#${d}</p></li>
       `).join(""),n=t.ingredients.map(d=>`
-      <li class="modal-ingredient">
+      <li class="modal-ingredient modal-ingredient-dark">
        <p class="modal-ingredient-text">${d.name}</p>
         <span class="modal-ing-measure">${d.measure}</span>
       </li>
@@ -80,7 +80,7 @@ import{b as re,n as R,s as lt,d as tt,e as dt,c as We,f as ce,g as Pe}from"./car
                 <use href="${ce}#star"></use>
                 </svg>
               </div>
-              <p class="modal-card-time">${t.time} min</p>
+              <p class="modal-card-time modal-card-time-dark">${t.time} min</p>
             </div>
             <ul class="modal-ingredients-list">${n}</ul>
             <ul class="modal-hashtags"><li class="modal-hashtag-item modal-category-js"><p class="modal-hashtag-text">#${t.category}</p></li>${f}</ul>
