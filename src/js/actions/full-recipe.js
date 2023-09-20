@@ -23,7 +23,7 @@ function handlerGetIdCard(evt) {
     const cardId = card.dataset.id;
     Loading.standard('Loading...', { svgColor: '#9bb537' });
 
-    fetchRecipeByID(cardId)
+     fetchRecipeByID(cardId)
       .then(data => {
         const modalMarkup = createMarkupModal(data);
         refs.modalCardCont.innerHTML = modalMarkup;
@@ -44,7 +44,7 @@ function handlerGetIdCard(evt) {
 }
 
 //зірки заливка
-function fillStars() {
+export function fillStars() {
   const starRatings = document.querySelectorAll('.stars-block-js');
   console.log(starRatings);
   starRatings.forEach(starRating => {
@@ -68,7 +68,7 @@ function fillStars() {
 }
 
 //блок кнопок на відкриття та закриття модального вікна
-function openModal() {
+export function openModal() {
   refs.modalButtonClose.addEventListener('click', closeModal);
   refs.modalBackdrop.addEventListener('click', closeModalOnBackdrop);
   window.addEventListener('keydown', handleKeyDown);
@@ -76,13 +76,13 @@ function openModal() {
   document.body.style.overflow = 'hidden';
 }
 
-function handleKeyDown(event) {
+export function handleKeyDown(event) {
   if (event.key === 'Escape') {
     closeModal();
   }
 }
 
-function closeModal() {
+export function closeModal() {
   refs.modalButtonClose.removeEventListener('click', closeModal);
   refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
   window.removeEventListener('keydown', handleKeyDown);
@@ -92,7 +92,7 @@ function closeModal() {
   youtubeIframe.src = '';
 }
 
-function closeModalOnBackdrop(event) {
+export function closeModalOnBackdrop(event) {
   if (event && event.target === refs.modalBackdrop) {
     refs.modalButtonClose.removeEventListener('click', closeModal);
     refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
@@ -105,7 +105,7 @@ function closeModalOnBackdrop(event) {
 }
 
 // запис та видалення з сховища
-function addToLocalStorage(evt) {
+export function addToLocalStorage(evt) {
   console.log('addToLocalStorage called');
   const addButton = evt.target;
   const cardId = addButton.getAttribute('id');
@@ -134,7 +134,7 @@ function addToLocalStorage(evt) {
   saveDataToLocalStorage(savedData);
 }
 
-function createRecipeDataFromModal(cardId) {
+export function createRecipeDataFromModal(cardId) {
   const elements = {
     title: document.querySelector('.modal-recipe-name').textContent,
     description: document.querySelector('.modal-recipe-instructions')
