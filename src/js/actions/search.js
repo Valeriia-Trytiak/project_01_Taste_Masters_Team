@@ -27,33 +27,33 @@ window.addEventListener('DOMContentLoaded', () => {
   changeAllSelectFilter();
 });
 
-refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
+// refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
 refs.searchForm.addEventListener('change', debounce(onChangeSelectFilter, 350));
 
 //забираю значення з інпуту та роблю запит з подальшою відмальовкою
-function onChangeInputSearch(evt) {
-  const gridBox = document.querySelector('.js-card-list');
-  // const ratingList = document.querySelectorAll('.js-rating-stars-list');
+// function onChangeInputSearch(evt) {
+//   const gridBox = document.querySelector('.js-card-list');
 
-  const valueSearch = evt.target.value.trim();
-  serviceAllRecipesSearch(valueSearch)
-    .then(data => {
-      if (data.totalPages === null) {
-        Notify.failure(
-          'Sorry, there are no recipes matching your search query. Please try again.'
-        );
-      }
-      createMarkupCard(data.results);
-      gridBox.innerHTML = createMarkupCard(data.results);
+//   const valueSearch = evt.target.value.trim();
+//   serviceAllRecipesSearch(valueSearch)
+//     .then(data => {
+//       if (data.totalPages === null) {
+//         Notify.failure(
+//           'Sorry, there are no recipes matching your search query. Please try again.'
+//         );
+//       }
+//       createMarkupCard(data.results);
+//       gridBox.innerHTML = createMarkupCard(data.results);
 
-      addRating();
-    })
-    .catch(error => {
-      Notify.failure(error.message);
-    });
-}
+//       addRating();
+//     })
+//     .catch(error => {
+//       Notify.failure(error.message);
+//     });
+// }
 
 function onChangeSelectFilter() {
+  const gridBox = document.querySelector('.js-card-list');
   const formData = new FormData(refs.searchForm);
   const filterParams = {
     // search: formData.get('search'),
@@ -64,7 +64,16 @@ function onChangeSelectFilter() {
 
   serviceAllFilter(filterParams)
     .then(data => {
-      console.log(data.result);
+      console.log(data.results);
+      if (data.totalPages === null) {
+        Notify.failure(
+          'Sorry, there are no recipes matching your search query. Please try again.'
+        );
+      }
+      createMarkupCard(data.results);
+      gridBox.innerHTML = createMarkupCard(data.results);
+
+      addRating();
     })
     .catch(error => {
       Notify.failure(error.message);
@@ -97,39 +106,6 @@ function changeAllSelectFilter() {
       Notify.failure(error.message);
     });
 }
-
-// // Функция для отправки запроса на бекенд
-// async function sendRequest(searchParams) {
-//   try {
-//     const response = await axios.get(
-//       'https://tasty-treats-backend.p.goit.global/api/recipes',
-//       {
-//         params: searchParams,
-//       }
-//     );
-//     // Обработка полученных данных
-//     console.log('Response data:', response.data);
-//   } catch (error) {
-//     console.error('Error:', error);
-//   }
-// }
-// // // Функция для обработки изменения значения в поле поиска
-// // function handleSearchInputChange(event) {
-// //   const searchInput = event.target;
-// //   const searchValue = searchInput.value.trim();
-
-// //   // Выполняем запрос, если длина введенного текста больше или равна 3 символам
-// //   if (searchValue.length >= 3) {
-// //     // Создаем объект параметров запроса
-// //     const searchParams = {
-// //       search: searchValue,
-// //       // Другие параметры запроса, например: category, age, limit, time, area, ingredient
-// //     };
-
-// //     // Отправляем запрос на бекенд с использованием debounce для задержки
-// //     sendRequest(searchParams);
-// //   }
-// // }
 
 // serviceAllFilter({
 //   search: searchValue,

@@ -18,7 +18,6 @@ async function serviceAllRecipesSearch(valueSearch) {
   });
   try {
     const response = await axios.get(`${BASE_URL}?${params}`);
-    console.log(response);
     return response.data;
   } catch (error) {
     Notify.failure(error.message);
@@ -49,11 +48,13 @@ async function serviceAllFilter({
   if (currentTimeFilter !== null && currentTimeFilter !== undefined) {
     params.time = currentTimeFilter;
   }
-  console.log(params);
   try {
     const queryParams = new URLSearchParams(params);
-
+    console.dir(queryParams);
+    console.log(URLSearchParams);
+    URLSearchParams.toString();
     const response = await axios.get(`${BASE_URL}?${queryParams}`);
+    console.log(response);
     console.log('Response data:', response.data);
   } catch (error) {
     Notify.failure(error.message);
