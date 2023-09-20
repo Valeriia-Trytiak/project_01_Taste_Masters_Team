@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Notify } from 'notiflix';
 import { cardsGenerate } from '/js/actions/cards';
 import { serviceAllRecipes } from '/js/API/filter-api';
+import { initializeCategoryFilter } from '/js/actions/filter-results';
 
 export async function initializePagination() {
   let currentPage = 1; // Current page
@@ -12,6 +13,9 @@ export async function initializePagination() {
   const nextBtns = document.querySelectorAll('.next-btn');
   const pageButtons = document.querySelectorAll('.pages-btn');
   const dotsBtn = document.querySelector('.dots-btn');
+
+  // Call the initializeCategoryFilter function to set up the category filter
+  await initializeCategoryFilter();
 
   async function calculateTotalPages() {
     const response = await serviceAllRecipes(perPage, currentPage);
@@ -86,21 +90,21 @@ export async function initializePagination() {
     return parseInt(elemToPage) || 6; // Default to 6 if custom property is not set
   }
 
-// Event listeners for previous page button
-prevBtns.forEach((btn) => {
+  // Event listeners for previous page button
+  prevBtns.forEach((btn) => {
     btn.addEventListener('click', async () => {
       if (currentPage > 1) {
         currentPage--;
         await updatePage();
-  
+
         // Remove the current-page class from all page buttons
         pageButtons.forEach((button) => {
           button.classList.remove('current-page');
         });
-  
+
         // Add the current-page class to the current page button
         document.querySelector(`.pages-btn:nth-child(${currentPage})`).classList.add('current-page');
-  
+
         // Update styles for first-page-btn and prev-btn
         if (currentPage === 1) {
           document.querySelector('.first-page-btn').style.backgroundColor = 'var(--cl-number-pages)';
@@ -120,7 +124,7 @@ prevBtns.forEach((btn) => {
       }
     });
   });
-  
+
   // Event listeners for next page button
   nextBtns.forEach((btn) => {
     btn.addEventListener('click', async () => {
@@ -128,15 +132,15 @@ prevBtns.forEach((btn) => {
       if (currentPage < totalPages) {
         currentPage++;
         await updatePage();
-  
+
         // Remove the current-page class from all page buttons
         pageButtons.forEach((button) => {
           button.classList.remove('current-page');
         });
-  
+
         // Add the current-page class to the current page button
         document.querySelector(`.pages-btn:nth-child(${currentPage})`).classList.add('current-page');
-  
+
         // Update styles for last-page-btn and next-btn
         if (currentPage === totalPages) {
           document.querySelector('.last-page-btn').style.backgroundColor = 'var(--cl-number-pages)';
@@ -152,7 +156,7 @@ prevBtns.forEach((btn) => {
       }
     });
   });
-  
+
   // Event listener for the "..." (dots) button
   dotsBtn.addEventListener('click', async () => {
     const totalPages = await calculateTotalPages();

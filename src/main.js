@@ -25,10 +25,11 @@ import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
 
-setupRating();
 import {} from '/js/actions/modal-new-order';
 import { cardsGenerate } from '/js/actions/cards';
-import { initializePagination } from '/js/actions/pagination-home';
+//import { initializePagination } from '/js/actions/pagination-home';
+import { populateCategoriesSection } from '/js/actions/categories.js';
+
 import {} from '/js/actions/popular';
 import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
@@ -36,4 +37,5 @@ import {} from '/js/actions/search';
 setupRating();
 cardsGenerate();
 loadHero();
-initializePagination();
+//initializePagination();
+populateCategoriesSection();

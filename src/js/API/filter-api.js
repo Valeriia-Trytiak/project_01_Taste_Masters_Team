@@ -25,6 +25,22 @@ async function serviceAllRecipesSearch(valueSearch) {
   }
 }
 
+// Function to fetch recipes by category
+  async function serviceAllRecipesCategory(category) {
+  const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+  const params = new URLSearchParams({
+    category: category,
+  });
+
+  try {
+    const response = await axios.get(`${BASE_URL}?${params}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching recipes by category:', error);
+    throw error; 
+}
+  }
+  
 //запит пошуку по ключовому слову по категоріях
 // async function serviceRecipesSearch(searchParams) {
 //   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
@@ -43,4 +59,4 @@ async function serviceAllRecipesSearch(valueSearch) {
 //     Notify.failure(error.message);
 //   }
 // }
-export { serviceAllRecipes, serviceAllRecipesSearch };
+export { serviceAllRecipes, serviceAllRecipesSearch, serviceAllRecipesCategory};
