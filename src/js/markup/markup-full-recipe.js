@@ -29,7 +29,7 @@ export function createMarkupModal(data) {
   const ingredientsMarkup = data.ingredients
     .map(
       ingredient => `
-      <li class="modal-ingredient">
+      <li class="modal-ingredient modal-ingredient-dark">
        <p class="modal-ingredient-text">${ingredient.name}</p>
         <span class="modal-ing-measure">${ingredient.measure}</span>
       </li>
@@ -67,7 +67,7 @@ export function createMarkupModal(data) {
                 <use href="${sprite}#star"></use>
                 </svg>
               </div>
-              <p class="modal-card-time">${data.time} min</p>
+              <p class="modal-card-time modal-card-time-dark">${data.time} min</p>
             </div>
             <ul class="modal-ingredients-list">${ingredientsMarkup}</ul>
             <ul class="modal-hashtags"><li class="modal-hashtag-item modal-category-js"><p class="modal-hashtag-text">#${data.category}</p></li>${tagsMarkup}</ul>

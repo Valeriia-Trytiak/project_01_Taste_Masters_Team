@@ -40,6 +40,7 @@ export function windowLoad() {
   const htmlBlock = document.documentElement;
 
   const saveUserTheme = localStorage.getItem('user-theme');
+  const userTheme = 'light';
 
   const themeButton = document.querySelector('.switch__input');
   const mobileThemeButton = document.querySelector('.switch__input__mob');

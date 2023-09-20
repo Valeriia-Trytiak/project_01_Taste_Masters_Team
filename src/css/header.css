@@ -352,6 +352,7 @@ html.dark .btn-dishes:active {
 }
 
 html.dark .categories-btn {
+  background-color: #1e1e1e;
   color: var(--txt-cl-50-dark-theme);
   border: 1px solid var(--txt-cl-50-dark-theme);
 }
@@ -432,33 +433,39 @@ html.dark .rating-form-input {
 }
 
 html.dark .rating-form-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--txt-cl-50-dark-theme);
 }
 
 /* ==================== Search ==================== */
 
 html.dark .search-form input {
   background-color: #1e1e1e;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--txt-cl-50-dark-theme);
 }
 
 html.dark .search-icon {
-  fill: rgba(255, 255, 255, 0.2);
+  fill: var(--txt-cl-50-dark-theme);
 }
 
 html.dark .filter-item select {
   background-color: #1e1e1e;
-  color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--txt-cl-50-dark-theme);
+  border: 1px solid var(--txt-cl-50-dark-theme);
 }
 
 html.dark .reset-desc {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--txt-cl-50-dark-theme);
 }
+
+html.dark .search-titles {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+
 
 /* ===================== Favorites ==================== */
 
-html.dark .hero-img {
+html.dark .fav-hero-img {
   border-radius: 15px;
 }
 
@@ -478,4 +485,58 @@ html.dark .catigories-btn:focus {
 
 html.dark .card {
   background: linear-gradient(1deg, #050505 4.82%, rgba(5, 5, 5, 0) 108.72%);
+}
+
+
+/* ======================== Hero ======================== */
+
+html.dark .hero-block-text {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .hero-btn {
+  background-color: #1e1e1e;
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .hero-btn:hover,
+html.dark .hero-btn:focus {
+  background: var(--accent-cl);
+}
+
+/* ========================== Footer =========================== */
+
+html.dark .pages-btn {
+  color: var(--bg-cl-light-theme);
+  border: 1px solid rgba(255, 255, 255, 0.30);
+}
+
+/* ================ Full recipe ================ */
+
+html.dark .modal-recipe-card {
+  background-color: #050505;
+}
+
+html.dark .modal-btn-close {
+  stroke: var(--bg-cl-light-theme);
+}
+
+html.dark .modal-recipe-instructions {
+  color: var(--txt-cl-80-dark-theme)
+}
+
+html.dark .modal-ing-measure {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-stars-rating {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-hashtag-item {
+  border: var(--border-dark-theme);
+}
+
+html.dark .modal-give-rating {
+  color: var(--bg-cl-light-theme);
 }
