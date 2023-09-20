@@ -22,8 +22,6 @@ const refs = {
 
 //контейнер для зберігання карток з секції
 const gridBox = document.querySelector('.js-card-list');
-//список зірок рейтингу
-const ratingList = document.querySelectorAll('.js-rating-stars-list');
 
 refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
 refs.searchForm.addEventListener('change', onChangeSelectFilter);
@@ -33,7 +31,6 @@ function onChangeInputSearch(evt) {
   const valueSearch = evt.target.value.trim();
   serviceAllRecipesSearch(valueSearch)
     .then(data => {
-      console.log(data.totalPages);
       if (data.totalPages === null) {
         Notify.failure(
           'Sorry, there are no recipes matching your search query. Please try again.'
