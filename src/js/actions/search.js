@@ -1,7 +1,12 @@
-import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SlimSelect from 'slim-select';
-import debounce from 'debounce';
+import { debounce } from 'debounce';
+
+import { serviceChangeAllAreas } from '/js/API/areas-api.js';
+import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
+import { serviceAllRecipesSearch } from '/js/API/filter-api.js';
+import { createOption } from '/js/markup/markup-option-search.js';
+import { createMarkupCard } from '/js/markup/markup-card.js';
 
 // new SlimSelect({
 //   select: '#selectElement',
@@ -11,117 +16,100 @@ const refs = {
   inputSearch: document.querySelector('#search-input'),
   filterTime: document.querySelector('[name="time"]'),
   filterArea: document.querySelector('[name= "area"]'),
-  filterInred: document.querySelector('[name="ingredients"]'),
+  filterIngred: document.querySelector('[name="ingredients"]'),
+  searchForm: document.querySelector('.search-form-js'),
 };
+console.dir(refs.searchForm);
+//контейнер для зберігання карток з секції
+const gridBox = document.querySelector('.js-card-list');
+//список зірок рейтингу
+const ratingList = document.querySelectorAll('.js-rating-stars-list');
+
+refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
+refs.searchForm.addEventListener('change', onChangeSelectFilter);
+
+//забираю значення з інпуту та роблю запит з подальшою відмальовкою
+function onChangeInputSearch(evt) {
+  const valueSearch = evt.target.value.trim();
+  serviceAllRecipesSearch(valueSearch)
+    .then(data => {
+      console.log(data.totalPages);
+      if (data.totalPages === null) {
+        Notify.failure(
+          'Sorry, there are no recipes matching your search query. Please try again.'
+        );
+      }
+      createMarkupCard(data.results);
+
+      // ratingList.forEach(elem => {
+      //   const ratingNum = Math.round(elem.previousElementSibling.textContent);
+
+      //   for (let i = 0; i < ratingNum; i++) {
+      //     elem.children[i].style.fill = 'rgb(238, 161, 12)';
+      //   }
+      // });
+      gridBox.innerHTML = createMarkupCard(data.results);
+    })
+    .catch(error => {
+      Notify.failure(error.message);
+    });
+}
+
+function onChangeSelectFilter(evt) {
+  console.log(evt.target.value);
+}
 
 // Створення селекту часу
 function changeSelectTime() {
   for (let i = 5; i <= 120; i += 5) {
     let optionText = i + ' min';
-    let option = new Option(optionText, i.toString());
+    let option = new Option(optionText, i.toString(), false, true);
     refs.filterTime.appendChild(option);
   }
 }
 changeSelectTime();
 changeSelectAreas();
+changeSelectIngred();
+
 // Створення селектору країни
 function changeSelectAreas() {
   serviceChangeAllAreas()
     .then(data => {
-      data.map(function (area) {
-        return area.name;
-      });
+      createOption(data);
+      refs.filterArea.innerHTML = createOption(data);
     })
     .catch(error => {
-      console.error(error);
+      Notify.failure(error.message);
     });
 }
 
-// axios.defaults.baseURL = 'https://tasty-treats-backend.p.goit.global/api/areas';
-
-async function serviceChangeAllAreas() {
-  try {
-    const response = await axios.get(
-      'https://tasty-treats-backend.p.goit.global/api/areas'
-    );
-    console.log(response);
-    return response.data;
-  } catch (error) {
-    Notify.failure(error.message);
-  }
+// Створення селектору інгридієнту
+function changeSelectIngred() {
+  serviceChangeAllIngred()
+    .then(data => {
+      createOption(data);
+      refs.filterIngred.innerHTML = createOption(data);
+    })
+    .catch(error => {
+      Notify.failure(error.message);
+    });
 }
 
-// async function fetchRecipesWithFilters() {
-//   const params = new URLSearchParams({
-//     area,
-//     ingredient,
-//   });
-//   try {
-//     const response = await axios.get(`?${params}`);
-//     console.log(response);
-
-//     const { data } = response;
-
-//     if (data && data.result) {
-//       const { time, area, ingredient } = data.result;
-
-//       console.log('Time:', time);
-//       console.log('Area:', area);
-//       console.log('Ingredient:', ingredient);
-
-//       // Возвращаем значения ключей
-//       return { time, area, ingredient };
-//     } else {
-//       console.error('Response format is not as expected.');
-//       return null;
-//     }
-//   } catch (error) {
-//     console.error('Error:', error);
-//     throw error; // Обработайте ошибку по вашему усмотрению
-//   }
-// }
-
-// fetchRecipesWithFilters();
-// async function serviceSelectParams() {}
-
-// async function serviceSerchFilter(currentCategori, searchValue) {
-//   const params = new URLSearchParams({
-//     category: `${currentCategori}`,
-//   });
-//   try {
-//     const response = await axios.get(`?${params}`);
-//     if (response.data.total === 0) {
-//       Notify.failure(
-//         'Sorry, there are no images matching your search query. Please try again.'
-//       );
-//     }
-//     return response.data;
-//   } catch (error) {
-//     throw error;
-//     Notify.failure(error.message);
-//   }
-// }
-
-// export { serviceSerchFilter };
-
-// import axios from 'axios';
-// import debounce from 'lodash/debounce';
-
-// // Функция для отправки запроса на бекенд
-// async function sendRequest(searchParams) {
-//   try {
-//     const response = await axios.get(
-//       'https://tasty-treats-backend.p.goit.global/api/recipes',
-//       {
-//         params: searchParams,
-//       }
-//     );
-//     // Обработка полученных данных
-//     console.log('Response data:', response.data);
-//   } catch (error) {
-//     console.error('Error:', error);
-//   }
-// }
+// Функция для отправки запроса на бекенд
+async function sendRequest(searchParams) {
+  try {
+    const response = await axios.get(
+      'https://tasty-treats-backend.p.goit.global/api/recipes',
+      {
+        params: searchParams,
+      }
+    );
+    // Обработка полученных данных
+    console.log('Response data:', response.data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 // // Функция для обработки изменения значения в поле поиска
 // function handleSearchInputChange(event) {
 //   const searchInput = event.target;
@@ -139,6 +127,3 @@ async function serviceChangeAllAreas() {
 //     sendRequest(searchParams);
 //   }
 // }
-// // Добавляем обработчик события ввода текста с debounce
-// const searchInput = document.getElementById('search-input');
-// searchInput.addEventListener('input', debounce(handleSearchInputChange, 300));

@@ -6,245 +6,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites Page</title>
     <!--Підключення стилів-->
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <!--Підключення js-->
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/favorites-main.js"></script>
   </head>
   <body>
     <!--Підключення хедера-->
     <load src="partials/header.html" />
     <main>
-      <section class="hero-section container">
-        <h1 class="visually-hidden">Favorites</h1>
-        <img
-          class="hero-img"
-          loading="lazy"
-          srcset="
-            ./img/favorites/hero_335.jpg   335w,
-            ./img/favorites/hero_670.jpg   670w,
-            ./img/favorites/hero_704.jpg   704w,
-            ./img/favorites/hero_1080.jpg 1080w,
-            ./img/favorites/hero_1408.jpg 1408w,
-            ./img/favorites/hero_2160.jpg 2160w
-          "
-          sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 375px) 335px, 100vw"
-          src="./img/favorites/hero_335.jpg   335w,"
-          alt="tasty food"
-        />
+      <section class="fav-hero-section js-fav-hero-section">
+        <div class="container fav-container">
+          <h1 class="visually-hidden">Favorites</h1>
+          <img
+            class="fav-hero-img"
+            loading="lazy"
+            srcset="
+              /img/favorites/hero_335.jpg   335w,
+              /img/favorites/hero_670.jpg   670w,
+              /img/favorites/hero_704.jpg   704w,
+              /img/favorites/hero_1080.jpg 1080w,
+              /img/favorites/hero_1408.jpg 1408w,
+              /img/favorites/hero_2160.jpg 2160w
+            "
+            sizes="(min-width: 1280px) 1080px, (min-width: 768px) 704px, (min-width: 375px) 335px, 100vw"
+            src="./img/favorites/hero_335.jpg   335w,"
+            alt="tasty food"
+          />
+        </div>
       </section>
 
-      <section class="categories-section container">
-        <ul class="catigories-list">
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-          <li class="catigories-item">
-            <button type="button" class="catigories-btn">Breakfast</button>
-          </li>
-        </ul>
+      <section class="fav-categories-section js-fav-categories-section">
+        <div class="container fav-cat-container fav-categories-list">
+          <h2 class="visually-hidden">Favorites categories</h2>
+          <button type="button" class="fav-categories-btn fav-all-categ-btn categ-btn-active">
+            All categories
+          </button>
+          <div class="fav-categories-list js-fav-categories-list">
+            <!-- розмітка кнопок з локал сторедж -->
+          </div>
+        </div>
       </section>
 
-      <section class="cards-section container">
-        <ul class="cards-list">
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="./img/icons.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="./img/icons.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="./img/icons.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="./img/icons.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-          <li class="cards-item">
-            <svg width="22" height="22" class="heart-icon">
-              <use href="./img/icons.svg#heart-active"></use>
-            </svg>
-            <h2 class="recipe-title">Beef Wellington</h2>
-            <p class="recipe-description">
-              Beef Wellington is a steak dish of English origin, made out of
-              fillet steak coated with pâté and...
-            </p>
-            <div class="recipe-info">
-              <div class="recipe-rating">
-                <div class="rating-value">4.5</div>
-                <div class="rating-stars">
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                  <svg width="18" height="18" class="star-icon-transparent">
-                    <use href="./img/icons.svg#star"></use>
-                  </svg>
-                </div>
-              </div>
-              <button type="button" class="card-btn">See recipe</button>
-            </div>
-          </li>
-        </ul>
+      <section class="fav-cards-section cards-grid">
+        <div class="container fav-container">
+          <ul class="fav-cards-list card-list card-set js-fav-cards-list">
+            <!-- розмітка з локал сторедж -->
+          </ul>
 
-        <!-- Розмітка заглушки (у разі відсутності зецептів у favorites) -->
-        <div class="favorites-plug container-plug">
-          <svg class="icon-favorites-plug" width="68" height="58">
-            <use href="./img/icons.svg#favorites-plug"></use>
-          </svg>
-          <p class="plug-text">
-            It appears that you haven't added any recipes to your favorites yet.
-            To get started, you can add recipes that you like to your favorites
-            for easier access in the future.
-          </p>
+          <!-- Розмітка заглушки (у разі відсутності зецептів у favorites) -->
+          <div class="favorites-plug js-favorites-plug">
+            <svg class="icon-favorites-plug" width="68" height="58">
+              <use href="/img/icons.svg#favorites-plug"></use>
+            </svg>
+            <p class="plug-text">
+              It appears that you haven't added any recipes to your favorites
+              yet. To get started, you can add recipes that you like to your
+              favorites for easier access in the future.
+            </p>
+          </div>
         </div>
       </section>
     </main>
     <!-- Підключення футера -->
-    <load src="partials/footer.html" />
+    <footer class="footer js-fav-footer">
+      <div class="container container-footer">
+        <div class="pagination-panel-fav">
+          <div class="nav-btns">
+            <button class="pagination-btn first-page-btn">
+              <svg
+                class="arrow-pag-icon left-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/img/icons.svg#arrow-left"></use>
+              </svg>
+              <svg
+                class="arrow-pag-icon right-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/img/icons.svg#arrow-left"></use>
+              </svg>
+            </button>
+            <button class="pagination-btn prev-btn">
+              <svg class="arrow-pag-icon" width="20" height="20">
+                <use href="/img/icons.svg#arrow-left"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="pages-btns-box">
+            <button class="pagination-btn pages-btn">1</button>
+            <button class="pagination-btn pages-btn">2</button>
+            <button class="pagination-btn pages-btn pag-btn-hidden">3</button>
+            <button class="pagination-btn pages-btn dots-btn">...</button>
+          </div>
+          <div class="nav-btns">
+            <button class="pagination-btn next-btn">
+              <svg class="arrow-pag-icon" width="20" height="20">
+                <use href="/img/icons.svg#arrow-right"></use>
+              </svg>
+            </button>
+            <button class="pagination-btn last-page-btn">
+              <svg
+                class="arrow-pag-icon right-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/img/icons.svg#arrow-right"></use>
+              </svg>
+              <svg
+                class="arrow-pag-icon left-arrow-icon"
+                width="20"
+                height="20"
+              >
+                <use href="/img/icons.svg#arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- підключення модалки -->
+    <load src="partials/modal-new-order.html" />
   </body>
 </html>

@@ -1,197 +1,140 @@
-.hero-img {
+.fav-container {
+  padding-top: 0;
+}
+
+.fav-hero-section {
+  --visible: false;
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+
+@media only screen and (min-width: 768px) {
+  .fav-hero-section {
+    --visible: true;
+    padding-top: 42px;
+    padding-bottom: 64px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .fav-hero-section {
+    padding-top: 32px;
+  }
+}
+
+.fav-hero-img {
   margin: 0 auto;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-.categories-section {
-  overflow: hidden;
-  margin-bottom: 24px;
+.fav-categories-section {
+  padding-bottom: 24px;
 }
 
 @media only screen and (min-width: 768px) {
-  .categories-section {
-    margin-bottom: 32px;
+  .fav-categories-section {
+    padding-bottom: 32px;
   }
 }
 
-@media only screen and (min-width: 1080px) {
-  .categories-section {
-    margin-bottom: 46px;
-  }
+.fav-cat-container {
+  overflow: hidden;
+  padding-top: 0;
+  padding-right: 0;
 }
-.catigories-list {
+
+.fav-categories-list {
   display: flex;
-  column-gap: 12px;
-  justify-content: flex-start;
+  gap: 12px;
 }
 
 @media only screen and (min-width: 768px) {
-  .catigories-list {
-    column-gap: 15px;
+  .fav-categories-list {
+    gap: 15px;
   }
 }
 
-.catigories-btn {
+.fav-categories-btn {
+  white-space: nowrap;
   padding: 14px 18px;
   border-radius: 15px;
-  border: var(--border-light-theme);
-  background: var(--bg-cl-light-theme);
+  border: 1px solid var(--border-light-theme);
+  background-color: transparent;
   color: var(--txt-cl-30-light-theme);
-  font-size: 14px;
   font-weight: 500;
   line-height: 1.29;
+
+  cursor: pointer;
+  transition: color 250ms var(--timing-function);
+  transition: background-color 250ms var(--timing-function);
+  transition: border-color 250ms var(--timing-function);
 }
-.catigories-btn:hover,
-.catigories-btn:focus {
-  background: var(--accent-cl);
+
+.categ-btn-active {
+  color: var(--secondary-txt-cl-100-light-theme);
+  background-color: var(--accent-cl);
+  border-color: var(--accent-cl);
+}
+
+@media (hover: hover) {
+  .fav-categories-btn:hover,
+  .fav-categories-btn:focus {
+    color: var(--secondary-txt-cl-100-light-theme);
+    background-color: var(--accent-cl);
+    border-color: var(--accent-cl);
+  }
+}
+
+@media not (hover: hover) {
+  .fav-categories-btn:active {
+    color: var(--secondary-txt-cl-100-light-theme);
+    background-color: var(--accent-cl);
+    border-color: var(--accent-cl);
+  }
 }
 
 @media only screen and (min-width: 768px) {
-  .catigories-btn {
+  .fav-categories-btn {
     font-size: 16px;
     line-height: 1.25;
   }
 }
 
-.cards-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+.fav-cards-list {
+  --limiter-cards-on-page: 9;
 }
 
 @media only screen and (min-width: 768px) {
-  .cards-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
+  .fav-cards-list {
+    --limiter-cards-on-page: 12;
   }
 }
 
-@media only screen and (min-width: 1080px) {
-  .cards-list {
-    row-gap: 32px;
-    column-gap: 16px;
-  }
-}
-.cards-item {
-  display: flex;
-  flex-direction: column;
-  width: 335px;
-  height: 335px;
-  padding: 16px;
-
-  border-radius: 8px;
-  background: linear-gradient(
-      1deg,
-      rgba(5, 5, 5, 0.6) 4.82%,
-      rgba(5, 5, 5, 0) 108.72%
-    ),
-    url(../img/favorites/card-img.jpg),
-    lightgray -25px -10px / 116.716% 114.018% no-repeat;
-}
-
-@media only screen and (min-width: 768px) {
-  .cards-item {
-    width: 224px;
-    height: 224px;
-    flex-basis: calc((100% - 32px) / 3);
-  }
-}
-
-@media only screen and (min-width: 1280px) {
-  .cards-item {
-    width: 258px;
-    height: 287px;
-    flex-basis: calc((100% - 48px) / 4);
-  }
-}
-.heart-icon {
-  margin: 0 0 auto auto;
-}
-.recipe-title {
-  margin: auto auto 16px 0;
-  color: var(--bg-cl-light-theme);
-  text-align: center;
-
-  font-size: 14px;
-
-  font-weight: 600;
-  line-height: 1.29;
-  text-transform: uppercase;
-}
-
-.recipe-description {
-  margin: 0 auto 16px 0;
-  overflow: hidden;
-  color: var(--bg-cl-light-theme);
-  text-overflow: ellipsis;
-
-  font-size: 12px;
-  text-overflow: ellipsis;
-  font-weight: 400;
-  line-height: 1.33;
-}
-.recipe-info {
+.pagination-panel-fav {
   display: flex;
   justify-content: space-between;
 }
 
-.recipe-rating {
-  display: flex;
-  column-gap: 4px;
-  align-items: center;
+@media only screen and (min-width: 768px) {
+  .pagination-panel-fav {
+    width: 446px;
+    margin: auto;
+  }
 }
 
-.rating-value {
-  color: var(--bg-cl-light-theme);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.29;
-}
-
-.rating-stars {
-  display: flex;
-  gap: 0;
-  height: 18px;
-}
-.card-btn {
-  padding: 8px 14px;
-  border-radius: 8px;
-  border-style: none;
-  background: var(--accent-cl);
-  color: var(--bg-cl-light-theme);
-  font-size: 12px;
-  font-weight: 500;
-  line-height: normal;
-  text-wrap: nowrap;
-}
-
-.star-icon {
-  fill: var(--cl-rating);
-  margin: 0;
-  padding: 1px;
+.favorites-plug {
+  padding: 272px 0 329px;
 }
 
 @media only screen and (min-width: 768px) {
-  .star-icon {
-    width: 16px;
-    height: 16px;
+  .favorites-plug {
+    padding: 0 0 319px;
   }
 }
-.star-icon-transparent {
-  fill: rgba(248, 248, 248, 0.1);
+
+@media only screen and (min-width: 1280px) {
+  .favorites-plug {
+    padding-bottom: 64px;
+  }
 }
 
 .icon-favorites-plug {
@@ -204,21 +147,20 @@
   .icon-favorites-plug {
     width: 97px;
     height: 83px;
+
+    margin-bottom: 32px;
   }
 }
 .plug-text {
-  width: 335px;
-  margin: 0 auto;
-  color: var(--txt-cl-100-light-theme);
   text-align: center;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.29;
 }
+
 @media only screen and (min-width: 768px) {
   .plug-text {
     width: 481px;
     font-size: 16px;
     line-height: 1.5;
+
+    margin: 0 auto;
   }
 }
