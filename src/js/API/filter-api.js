@@ -50,9 +50,7 @@ async function serviceAllFilter({
   }
   try {
     const queryParams = new URLSearchParams(params);
-    console.dir(queryParams);
-    console.log(URLSearchParams);
-    URLSearchParams.toString();
+
     const response = await axios.get(`${BASE_URL}?${queryParams}`);
     console.log(response);
     console.log('Response data:', response.data);
