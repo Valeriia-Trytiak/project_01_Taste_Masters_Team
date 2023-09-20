@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import SlimSelect from 'slim-select';
 import { debounce } from 'debounce';
+
 import { addRating } from './cards.js';
 import { serviceChangeAllAreas } from '/js/API/areas-api.js';
 import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
@@ -8,29 +8,25 @@ import { serviceAllRecipesSearch } from '/js/API/filter-api.js';
 import { createOption } from '/js/markup/markup-option-search.js';
 import { createMarkupCard } from '/js/markup/markup-card.js';
 
-// new SlimSelect({
-//   select: '#selectElement',
-// });
-
 const refs = {
   inputSearch: document.querySelector('#search-input'),
-  filterTime: document.querySelector('[name="time"]'),
-  filterArea: document.querySelector('[name= "area"]'),
-  filterIngred: document.querySelector('[name="ingredients"]'),
+  selectTime: document.querySelector('[name='time']'),
+  selectArea: document.querySelector(''),
+  selectIngred: document.querySelector('[name="ingredients"]'),
   searchForm: document.querySelector('.search-form-js'),
 };
 
-//контейнер для зберігання карток з секції
-const gridBox = document.querySelector('.js-card-list');
-
 refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
-refs.searchForm.addEventListener('change', onChangeSelectFilter);
+// refs.searchForm.addEventListener('change', onChangeSelectFilter);
 
 //забираю значення з інпуту та роблю запит з подальшою відмальовкою
-const valueSearch = evt.target.value.trim();
+function onChangeInputSearch(evt) {
+  const gridBox = document.querySelector('.js-card-list');
+  // const ratingList = document.querySelectorAll('.js-rating-stars-list');
+
+  const valueSearch = evt.target.value.trim();
   serviceAllRecipesSearch(valueSearch)
     .then(data => {
-      console.log(data.totalPages);
       if (data.totalPages === null) {
         Notify.failure(
           'Sorry, there are no recipes matching your search query. Please try again.'
@@ -52,10 +48,14 @@ function onChangeSelectFilter(evt) {
 
 // Створення селекту часу
 function changeSelectTime() {
-  for (let i = 5; i <= 120; i += 5) {
-    let optionText = i + ' min';
-    let option = new Option(optionText, i.toString(), false, true);
-    refs.filterTime.appendChild(option);
+  if (refs.selectTime) {
+    for (let i = 5; i <= 120; i += 5) {
+      const option = document.createElement('option');
+      option.value = i.toString();
+      option.textContent = `${i} min`;
+      option.classList.add('filter-time');
+      refs.selectTime.appendChild(option);
+    }
   }
 }
 changeSelectTime();
@@ -67,7 +67,7 @@ function changeSelectAreas() {
   serviceChangeAllAreas()
     .then(data => {
       createOption(data);
-      refs.filterArea.innerHTML = createOption(data);
+      refs.selectArea.innerHTML = createOption(data);
     })
     .catch(error => {
       Notify.failure(error.message);
@@ -79,42 +79,42 @@ function changeSelectIngred() {
   serviceChangeAllIngred()
     .then(data => {
       createOption(data);
-      refs.filterIngred.innerHTML = createOption(data);
+      refs.selectArea.innerHTML = createOption(data);
     })
     .catch(error => {
       Notify.failure(error.message);
     });
 }
 
-// Функция для отправки запроса на бекенд
-async function sendRequest(searchParams) {
-  try {
-    const response = await axios.get(
-      'https://tasty-treats-backend.p.goit.global/api/recipes',
-      {
-        params: searchParams,
-      }
-    );
-    // Обработка полученных данных
-    console.log('Response data:', response.data);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-// // Функция для обработки изменения значения в поле поиска
-// function handleSearchInputChange(event) {
-//   const searchInput = event.target;
-//   const searchValue = searchInput.value.trim();
-
-//   // Выполняем запрос, если длина введенного текста больше или равна 3 символам
-//   if (searchValue.length >= 3) {
-//     // Создаем объект параметров запроса
-//     const searchParams = {
-//       search: searchValue,
-//       // Другие параметры запроса, например: category, age, limit, time, area, ingredient
-//     };
-
-//     // Отправляем запрос на бекенд с использованием debounce для задержки
-//     sendRequest(searchParams);
+// // Функция для отправки запроса на бекенд
+// async function sendRequest(searchParams) {
+//   try {
+//     const response = await axios.get(
+//       'https://tasty-treats-backend.p.goit.global/api/recipes',
+//       {
+//         params: searchParams,
+//       }
+//     );
+//     // Обработка полученных данных
+//     console.log('Response data:', response.data);
+//   } catch (error) {
+//     console.error('Error:', error);
 //   }
 // }
+// // // Функция для обработки изменения значения в поле поиска
+// // function handleSearchInputChange(event) {
+// //   const searchInput = event.target;
+// //   const searchValue = searchInput.value.trim();
+
+// //   // Выполняем запрос, если длина введенного текста больше или равна 3 символам
+// //   if (searchValue.length >= 3) {
+// //     // Создаем объект параметров запроса
+// //     const searchParams = {
+// //       search: searchValue,
+// //       // Другие параметры запроса, например: category, age, limit, time, area, ingredient
+// //     };
+
+// //     // Отправляем запрос на бекенд с использованием debounce для задержки
+// //     sendRequest(searchParams);
+// //   }
+// // }

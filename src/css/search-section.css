@@ -107,6 +107,11 @@
   color: var(--txt-cl-50-light-theme);
   border: 1px solid var(--border-light-theme);
   border-radius: 15px;
+  cursor: pointer;
+}
+.filter-time {
+  max-height: 124px;
+  overflow-y: auto;
 }
 
 @media only screen and (min-width: 768px) {
@@ -122,6 +127,7 @@
     left: 294px;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .filter-list li:first-child {
     min-width: 125px;
