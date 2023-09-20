@@ -2,10 +2,16 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { debounce } from 'debounce';
 
 import { addRating } from './cards.js';
-import { serviceChangeAllAreas } from '/js/API/areas-api.js';
-import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
-import { serviceAllRecipesSearch } from '/js/API/filter-api.js';
-import { createOption } from '/js/markup/markup-option-search.js';
+import { fetchAllDataFilter } from '/js/API/areas-api.js';
+// import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
+import {
+  serviceAllRecipesSearch,
+  serviceAllFilter,
+} from '/js/API/filter-api.js';
+import {
+  createOptionArea,
+  createOptionIngr,
+} from '/js/markup/markup-option-search.js';
 import { createMarkupCard } from '/js/markup/markup-card.js';
 
 const refs = {
@@ -16,10 +22,13 @@ const refs = {
   searchForm: document.querySelector('.search-form-js'),
 };
 
-console.log(refs.time);
+window.addEventListener('DOMContentLoaded', () => {
+  changeSelectTime();
+  changeAllSelectFilter();
+});
 
 refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
-// refs.searchForm.addEventListener('change', onChangeSelectFilter);
+refs.searchForm.addEventListener('change', debounce(onChangeSelectFilter, 350));
 
 //забираю значення з інпуту та роблю запит з подальшою відмальовкою
 function onChangeInputSearch(evt) {
@@ -44,8 +53,22 @@ function onChangeInputSearch(evt) {
     });
 }
 
-function onChangeSelectFilter(evt) {
-  console.log(evt.target.value);
+function onChangeSelectFilter() {
+  const formData = new FormData(refs.searchForm);
+  const filterParams = {
+    // search: formData.get('search'),
+    time: formData.get('time'),
+    area: formData.get('area'),
+    ingredients: formData.get('ingredients'),
+  };
+
+  serviceAllFilter(filterParams)
+    .then(data => {
+      console.log(data.result);
+    })
+    .catch(error => {
+      Notify.failure(error.message);
+    });
 }
 
 // Створення селекту часу
@@ -60,28 +83,15 @@ function changeSelectTime() {
     }
   }
 }
-changeSelectTime();
-changeSelectAreas();
-changeSelectIngred();
 
-// Створення селектору країни
-function changeSelectAreas() {
-  serviceChangeAllAreas()
+// Створення селектору країни та інгридієнту
+function changeAllSelectFilter() {
+  fetchAllDataFilter()
     .then(data => {
-      createOption(data);
-      refs.selectArea.innerHTML = createOption(data);
-    })
-    .catch(error => {
-      Notify.failure(error.message);
-    });
-}
-
-// Створення селектору інгридієнту
-function changeSelectIngred() {
-  serviceChangeAllIngred()
-    .then(data => {
-      createOption(data);
-      refs.selectIngred.innerHTML = createOption(data);
+      createOptionArea(data.areasData);
+      createOptionIngr(data.ingredientsData);
+      refs.selectArea.innerHTML = createOptionArea(data.areasData);
+      refs.selectIngred.innerHTML = createOptionIngr(data.ingredientsData);
     })
     .catch(error => {
       Notify.failure(error.message);
@@ -120,3 +130,10 @@ function changeSelectIngred() {
 // //     sendRequest(searchParams);
 // //   }
 // // }
+
+// serviceAllFilter({
+//   search: searchValue,
+//   time: selectedTime,
+//   area: selectedArea,
+//   ingredients: selectedIngredients,
+// }) - замість form Data
