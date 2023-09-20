@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--Підключення фавікону-->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <!--Підключення фавікону-->
-  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TastyTreats.</title>
+    <!--Підключення стилів-->
+    
 
-  <title>TastyTreats.</title>
-  <!--Підключення стилів-->
-  
+    <!--Підключення js-->
+    
+    <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/index-4187511b.js"></script>
+    <link rel="modulepreload" crossorigin href="/project_01_Taste_Masters_Team/assets/cards-c63bfe8d.js">
+    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/cards-a07aa870.css">
+    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/index-cfc9f3e6.css">
+  </head>
 
-  <!--Підключення js-->
-  
-  <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/index-f5f42892.js"></script>
-  <link rel="modulepreload" crossorigin href="/project_01_Taste_Masters_Team/assets/cards-2085fda8.js">
-  <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/cards-0576c421.css">
-  <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/index-cfc9f3e6.css">
-</head>
-
-<body>
-  <!--Підключення хедера-->
-  <header class="header">
+  <body>
+    <!--Підключення хедера-->
+    <header class="header">
   <div class="container header-container">
     <div class="menu-desc">
       <nav class="page-nav">
@@ -125,9 +124,9 @@
   </div>
 </header>
 
-  <main>
-    <!--Підключення секцій-->
-    <section class="section-hero container">
+    <main>
+      <!--Підключення секцій-->
+      <section class="section-hero container">
     <div class="hero-left">
         <h1 class="hero-title">
             Learn to Cook
@@ -144,32 +143,99 @@
         <div class="swiper-pagination swiper-pagination-hero"></div>
     </div>
 </section>
-    <section class="section">
-    <h2 class="visually-hidden">Categoties section</h2>
-        <div class="container categories-container">
-            <button class="categories-btn all-categories-active" type="button">All categories</button>
-           <ul class="button-container scroll-container">
-             <li class="categories-btn-dishes"><button class="btn-dishes">Beef</button> </li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Breakfast</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Chicken</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Dessert</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Goat</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Lamb</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Miscellaneous</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Pasta</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Pork</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Seafood</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Side</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Starter</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Vegan</button></li>
-            <li class="categories-btn-dishes"><button class="btn-dishes">Vegetarian</button></li>
-            </ul>
-        </div>       
 
-    </section>
-    <section class="search-section">
+      <div class="general-section container">
+        <aside class="sidebar">
+          <section class="section categories">
+  <h2 class="visually-hidden">Categoties section</h2>
+  <div class="categories-container">
+    <button class="categories-btn all-categories-active" type="button">
+      All categories
+    </button>
+    <ul class="button-container scroll-container">
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Beef</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Breakfast</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Chicken</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Dessert</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Goat</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Lamb</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Miscellaneous</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Pasta</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Pork</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Seafood</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Side</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Starter</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Vegan</button>
+      </li>
+      <li class="categories-btn-dishes">
+        <button class="btn-dishes">Vegetarian</button>
+      </li>
+    </ul>
+  </div>
+</section>
+
+          <section class="popular-recipes">
+  <div class="popular-recipes-container">
+    <h3 class="popular-recipes-title">Popular recipes</h3>
+    <ul class="popular-recipes-list">
+      <!-- <li class="popular-recipe-item">
+          <div class="popular-recipe-img-wrapper">
+            <img src="" alt="popular recipe" class="popular-recipe-img" loading="lazy"/>
+          </div>
+          <div class="popular-recipe-info">
+            <h4 class="popular-recipe-title">French Omelette</h4>
+            <p class="popular-recipe-text">
+              A French omelette is a simple yet elegant dish made with whisked eggs, butter, salt, and pepper, cooked gently until light and fluffy, then folded over and served for a comforting and refined meal any time of day.
+            </p>
+          </div>
+        </li>
+        <li class="popular-recipe-item">
+          <div class="popular-recipe-img-wrapper">
+            <img src="" alt="popular recipe" class="popular-recipe-img" loading="lazy" />
+          </div>
+          <div class="popular-recipe-info">
+            <h4 class="popular-recipe-title">Squash linguine</h4>
+            <p class="popular-recipe-text">
+              Squash linguine is a flavorful and nutritious pasta alternative made
+              with spiralized squash noodles, paired with a variety of delicious
+              sauces and toppings for a satisfying and healthy meal.
+            </p>
+          </div>
+        </li> -->
+    </ul>
+  </div>
+</section>
+
+        </aside>
+        <div class="general-search">
+          <section class="search-section">
   <h2 class="visually-hidden">Search filter</h2>
-  <div class="container">
+  <div>
     <div class="filter-wrapper">
       <form class="search-form-js">
         <div class="search-form">
@@ -220,8 +286,8 @@
   </div>
 </section>
 
-    <section class="cards-grid">
-  <div class="container">
+          <section class="cards-grid">
+  <div>
     <h2 class="visually-hidden">List of recipes</h2>
     <ul class="card-list card-set js-card-list">
       <!-- Карточка для генерації сітки з беккенду -->
@@ -229,39 +295,10 @@
   </div>
 </section>
 
-    <section class="popular-recipes">
-  <div class="popular-recipes-container">
-    <h3 class="popular-recipes-title">Popular recipes</h3>
-    <ul class="popular-recipes-list">
-      <!-- <li class="popular-recipe-item">
-          <div class="popular-recipe-img-wrapper">
-            <img src="" alt="popular recipe" class="popular-recipe-img" loading="lazy"/>
-          </div>
-          <div class="popular-recipe-info">
-            <h4 class="popular-recipe-title">French Omelette</h4>
-            <p class="popular-recipe-text">
-              A French omelette is a simple yet elegant dish made with whisked eggs, butter, salt, and pepper, cooked gently until light and fluffy, then folded over and served for a comforting and refined meal any time of day.
-            </p>
-          </div>
-        </li>
-        <li class="popular-recipe-item">
-          <div class="popular-recipe-img-wrapper">
-            <img src="" alt="popular recipe" class="popular-recipe-img" loading="lazy" />
-          </div>
-          <div class="popular-recipe-info">
-            <h4 class="popular-recipe-title">Squash linguine</h4>
-            <p class="popular-recipe-text">
-              Squash linguine is a flavorful and nutritious pasta alternative made
-              with spiralized squash noodles, paired with a variety of delicious
-              sauces and toppings for a satisfying and healthy meal.
-            </p>
-          </div>
-        </li> -->
-    </ul>
-  </div>
-</section>
+        </div>
+      </div>
 
-    <section class="modal-overlay visually-hidden">
+      <section class="modal-overlay visually-hidden">
   <div class="modal-new-order modal-container">
     <button type="button" class="modal-close-btn new-order-btn">
       <svg class="modal-close-svg">
@@ -326,7 +363,7 @@
   </div>
 </section>
 
-    <div class="modal-backdrop backdrop-modal">
+      <div class="modal-backdrop backdrop-modal">
   <div class="modal-wrap">
     <div class="modal-recipe-card">
       <button class="modal-btn-close">
@@ -339,7 +376,7 @@
   </div>
 </div>
 
-    <div class="modal-overlay visually-hidden">
+      <div class="modal-overlay visually-hidden">
   <div class="modal-container modal-rating-form">
     <button class="close-rating modal-close-btn">
       <svg class="close-rating-svg modal-close-svg">
@@ -391,9 +428,8 @@
   </div>
 </div>
 
-
-  </main>
-  <footer class="footer js-fav-footer">
+    </main>
+    <footer class="footer js-fav-footer">
   <div class="container container-footer">
     <div class="pagination-panel">
       <div class="nav-btns">
@@ -436,6 +472,5 @@
   </div>
 </footer>
 
-</body>
-
+  </body>
 </html>
