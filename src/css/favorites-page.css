@@ -37,9 +37,21 @@
 }
 
 .fav-cat-container {
+  height: 48px;
+
   overflow: hidden;
   padding-top: 0;
   padding-right: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .fav-cat-container {
+    height: 50px;
+  }
+}
+
+.categ-scroll {
+  overflow: scroll;
 }
 
 .fav-categories-list {
