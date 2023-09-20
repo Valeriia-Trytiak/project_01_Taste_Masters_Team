@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 //Запит за країнами
 export async function serviceChangeAllAreas() {
   try {
