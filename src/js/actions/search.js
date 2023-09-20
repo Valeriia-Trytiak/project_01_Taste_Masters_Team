@@ -27,18 +27,19 @@ refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
 refs.searchForm.addEventListener('change', onChangeSelectFilter);
 
 //забираю значення з інпуту та роблю запит з подальшою відмальовкою
-function onChangeInputSearch(evt) {
-  const valueSearch = evt.target.value.trim();
+const valueSearch = evt.target.value.trim();
   serviceAllRecipesSearch(valueSearch)
     .then(data => {
+      console.log(data.totalPages);
       if (data.totalPages === null) {
         Notify.failure(
           'Sorry, there are no recipes matching your search query. Please try again.'
         );
       }
       createMarkupCard(data.results);
-      addRating();
       gridBox.innerHTML = createMarkupCard(data.results);
+
+      addRating();
     })
     .catch(error => {
       Notify.failure(error.message);
