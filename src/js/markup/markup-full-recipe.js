@@ -21,7 +21,7 @@ export function createMarkupModal(data) {
     .filter(tag => tag !== '') // Фільтрую порожні теги
     .map(
       tag => `
-        <li class="modal-hashtag-item">#${tag}</li>
+        <li class="modal-hashtag-item"><p class="modal-hashtag-text">#${tag}</p></li>
       `
     )
     .join('');
@@ -30,7 +30,7 @@ export function createMarkupModal(data) {
     .map(
       ingredient => `
       <li class="modal-ingredient">
-        ${ingredient.name}
+       <p class="modal-ingredient-text">${ingredient.name}</p>
         <span class="modal-ing-measure">${ingredient.measure}</span>
       </li>
     `
@@ -70,7 +70,7 @@ export function createMarkupModal(data) {
               <p class="modal-card-time">${data.time} min</p>
             </div>
             <ul class="modal-ingredients-list">${ingredientsMarkup}</ul>
-            <ul class="modal-hashtags"><li class="modal-hashtag-item modal-category-js">#${data.category}</li>${tagsMarkup}</ul>
+            <ul class="modal-hashtags"><li class="modal-hashtag-item modal-category-js"><p class="modal-hashtag-text">#${data.category}</p></li>${tagsMarkup}</ul>
             <p class="modal-recipe-instructions">${data.instructions}</p>
           </div>
           <div class="modal-button">
