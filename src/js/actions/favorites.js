@@ -83,6 +83,11 @@ export function favoritesPage() {
       item => item.category === activeBtn[0].textContent
     );
 
+    if (oneCategoryArray.length === 0) {
+      handlerAllCategories();
+      return;
+    }
+
     favElements.cardsList.innerHTML = createMarkupCard(oneCategoryArray);
 
     addRating();
@@ -121,6 +126,12 @@ export function favoritesPage() {
   }
 
   function handlerAllCategories() {
-    
+    favElements.allCategBtn.classList.add('categ-btn-active');
+
+    [...favElements.allCategBtn.nextElementSibling.children].map(item =>
+      item.classList.remove('categ-btn-active')
+    );
+
+    createGridItems();
   }
 }
