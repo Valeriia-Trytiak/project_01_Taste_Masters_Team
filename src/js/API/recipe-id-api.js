@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export async function fetchRecipeByID(id) {
+export async function fetchRecipeByID(cardId) {
   try {
     const resp = await axios.get(
-      'https://tasty-treats-backend.p.goit.global/api/recipes/${id}'
+      `https://tasty-treats-backend.p.goit.global/api/recipes/${cardId}`
     );
     return resp.data;
   } catch (error) {
