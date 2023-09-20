@@ -1,5 +1,9 @@
 /*OVERLAY*/
-  .modal-rating{
+  .modal-overlay{
+    visibility: hidden;
+  }
+
+  .modal-overlay .rating-is-open{
     position: fixed;
     top:0;
     left:0;

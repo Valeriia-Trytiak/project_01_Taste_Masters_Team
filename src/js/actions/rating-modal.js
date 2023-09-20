@@ -1,6 +1,7 @@
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
-import { fetchRatingById, rateRecipeById } from '/js/API/rating-api';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { rateRecipeById } from '/js/API/rating-api';
+import { fetchRecipeByID } from '/js/API/recipe-id-api';
 
 export function setupRating() {
   const stars = document.querySelectorAll('.rating-star-svg');
@@ -8,32 +9,40 @@ export function setupRating() {
   const userEmailInput = document.querySelector('.rating-form-input');
   const sendButton = document.querySelector('.rating-send');
   const closeButton = document.querySelector('.close-rating');
-  const modalRating = document.querySelector('.modal-rating');
+  const modalRating = document.querySelector('.modal-overlay');
+ // const giveRatingButton = document.getElementById('give_rating');
 
   let userRating = 0.0;
   let userEmail = ''; // Store the user's email
+  let recipeId = null; // Initialize to null
+
+  // Function to open the modal and add the class
+  function openModal() {
+    modalRating.style.display = 'block'; // Display the modal
+    modalRating.classList.add('rating-is-open'); // Add the class
+  }
+
+  // Event listener for clicking on the "give_rating" button
+  //giveRatingButton.addEventListener('click', function () {
+   // openModal(); // Open the modal when the button is clicked
+  //});
 
   // Function to close the modal
   function closeModal() {
     modalRating.style.display = 'none';
+    modalRating.classList.remove('rating-is-open'); // Remove the class
   }
 
   // Event listener for clicking on the close button
   closeButton.addEventListener('click', closeModal);
 
   // Event listener for pressing the escape key
-  document.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      closeModal();
-    }
-  });
-
-  // Event listener for clicking outside the modal to close it
-  // document.addEventListener('click', function (event) {
-  //   if (!modalRating.contains(event.target)) {
-  //     closeModal();
-  //   }
-  // });
+// Event listener for pressing the escape key
+window.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape' && modalRating.classList.contains('rating-is-open')) {
+    closeModal();
+  }
+});
 
   // Function to validate email using a simple regex pattern
   function isValidEmail(email) {
@@ -77,39 +86,39 @@ export function setupRating() {
     }
   });
 
+  // Fetch the recipe ID dynamically
+  fetchRecipeByID()
+    .then(id => {
+      recipeId = id; // Set the recipeId when it's fetched
+    })
+    .catch(error => {
+      // Handle error fetching the recipe ID
+      Notify.failure('Oops! Something went wrong. Please try again later.');
+    });
+
   // Event listener for clicking on the Send button
   sendButton.addEventListener('click', function () {
-    if (isValidEmail(userEmail)) {
-      // Fetch the recipe ID dynamically
-      getRecipeIdFromApi()
-        .then(recipeId => {
-          // Send the userRating to the API using the rateRecipeById function
-          rateRecipeById(recipeId, userRating, userEmail)
-            .then(() => {
-              // Handle success using Notiflix
-              Notify.success('Rating submitted successfully!');
-              // Reset form state
-              userEmailInput.value = '';
-              userRating = 0.0;
-              currentRating.textContent = userRating.toFixed(1);
-              updateStarColors(-1);
-              sendButton.setAttribute('disabled', true);
-              closeModal(); // Close the modal after successful submission
-            })
-            .catch(error => {
-              // Handle error using Notiflix
-              Notify.failure(
-                'Error submitting rating. Please try again later.'
-              );
-            });
+    if (isValidEmail(userEmail) && recipeId !== null) { // Check if recipeId is not null
+      // Send the userRating to the API using the rateRecipeById function
+      rateRecipeById(recipeId, userRating, userEmail)
+        .then(() => {
+          // Handle success using Notiflix
+          Notify.success('Rating submitted successfully!');
+          // Reset form state
+          userEmailInput.value = '';
+          userRating = 0.0;
+          currentRating.textContent = userRating.toFixed(1);
+          updateStarColors(-1);
+          sendButton.setAttribute('disabled', true);
+          closeModal(); // Close the modal after successful submission
         })
         .catch(error => {
-          // Handle error fetching the recipe ID
-          Notify.failure('Oops! Something went wrong. Please try again later.');
+          // Handle error using Notiflix
+          Notify.failure('Error submitting rating. Please try again later.');
         });
     } else {
-      // Handle invalid email address using Notiflix
-      Notify.failure('Please enter a valid email.');
+      // Handle invalid email address or missing recipe ID using Notiflix
+      Notify.failure('Please enter a valid email and ensure the recipe ID is available.');
     }
   });
 
@@ -117,7 +126,7 @@ export function setupRating() {
   userEmailInput.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
       event.preventDefault(); // Prevent the default form submission behavior
-      if (isValidEmail(userEmail)) {
+      if (isValidEmail(userEmail) && recipeId !== null) { // Check if recipeId is not null
         // Send the userRating to the API using the rateRecipeById function
         rateRecipeById(recipeId, userRating, userEmail)
           .then(() => {
@@ -136,11 +145,9 @@ export function setupRating() {
             Notify.failure('Error submitting rating. Please try again later.');
           });
       } else {
-        // Handle invalid email address using Notiflix
-        Notify.failure('Please enter a valid email.');
+        // Handle invalid email address or missing recipe ID using Notiflix
+        Notify.failure('Please enter a valid email and ensure the recipe ID is available.');
       }
     }
   });
-
-  //  const recipeId = getRecipeIdFromApi(); Maybe this will be needed
 }
