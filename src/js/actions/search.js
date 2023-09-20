@@ -10,11 +10,13 @@ import { createMarkupCard } from '/js/markup/markup-card.js';
 
 const refs = {
   inputSearch: document.querySelector('#search-input'),
-  selectTime: document.querySelector('[name='time']'),
-  selectArea: document.querySelector(''),
+  selectTime: document.querySelector('[name= "time"]'),
+  selectArea: document.querySelector('[name= "area"]'),
   selectIngred: document.querySelector('[name="ingredients"]'),
   searchForm: document.querySelector('.search-form-js'),
 };
+
+console.log(refs.time);
 
 refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
 // refs.searchForm.addEventListener('change', onChangeSelectFilter);
@@ -79,7 +81,7 @@ function changeSelectIngred() {
   serviceChangeAllIngred()
     .then(data => {
       createOption(data);
-      refs.selectArea.innerHTML = createOption(data);
+      refs.selectIngred.innerHTML = createOption(data);
     })
     .catch(error => {
       Notify.failure(error.message);

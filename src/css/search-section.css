@@ -109,10 +109,6 @@
   border-radius: 15px;
   cursor: pointer;
 }
-.filter-time {
-  max-height: 124px;
-  overflow-y: auto;
-}
 
 @media only screen and (min-width: 768px) {
   .filter-item select {
@@ -135,13 +131,12 @@
 }
 
 .filter-list li {
-  min-width: 160px;
+  width: 160px;
 }
 
-#time-select {
-  max-height: 124px;
-  overflow-y: auto;
-}
+/* .filter-item #area-select {
+  width: ;
+} */
 @media only screen and (min-width: 768px) {
   .filter-list li {
     min-width: 141px;
