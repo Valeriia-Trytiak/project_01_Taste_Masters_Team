@@ -57,7 +57,7 @@ function onChangeSelectFilter() {
   const formData = new FormData(refs.searchForm);
   const filterParams = {
     // search: formData.get('search'),
-    time: formData.get('time'),
+    time: formData.get('time').toString(),
     area: formData.get('area'),
     ingredients: formData.get('ingredients'),
   };
