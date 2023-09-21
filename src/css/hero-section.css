@@ -1,6 +1,6 @@
 /* section hero */
 /* lest  */
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1280px) {
   .section-hero {
     display: flex;
   }
@@ -10,7 +10,7 @@
   padding-top: 0;
 }
 
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1280px) {
   .section-hero {
     padding-top: 94px;
   }
@@ -77,7 +77,7 @@
     margin-bottom: 32px;
   }
 }
-@media only screen and (min-width: 1440px) {
+@media only screen and (min-width: 1280px) {
   .hero-block-text {
     width: 408px;
   }

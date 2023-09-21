@@ -81,12 +81,6 @@
   transition: border-color 250ms var(--timing-function);
 }
 
-.categ-btn-active {
-  color: var(--secondary-txt-cl-100-light-theme);
-  background-color: var(--accent-cl);
-  border-color: var(--accent-cl);
-}
-
 @media (hover: hover) {
   .fav-categories-btn:hover,
   .fav-categories-btn:focus {
@@ -175,4 +169,10 @@
 
     margin: 0 auto;
   }
+}
+
+.categ-btn-active {
+  color: var(--secondary-txt-cl-100-light-theme);
+  background-color: var(--accent-cl);
+  border-color: var(--accent-cl);
 }

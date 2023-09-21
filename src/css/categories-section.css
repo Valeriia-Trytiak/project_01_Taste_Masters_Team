@@ -1,106 +1,134 @@
+@media only screen and (min-width: 768px) {
+  .categories {
+    margin-bottom: 64px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .categories-container {
+    padding-top: 26px;
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+@media only screen and (min-width: 768px) {
+  .button-container {
+    gap: 24px;
+  }
+}
 .categories-btn {
-    margin-bottom: 24px;
-    padding: 14px 29px;    
-    border: 1px solid var(--border-light-theme);
-    color: var(--txt-cl-50-light-theme);
-    background-color: transparent;
-    width: 176px;
-    height: 50px;
-    border-radius: 15px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 18px;
-    line-height: normal;
+  margin-bottom: 24px;
+  padding: 14px 29px;
+  border: 1px solid var(--border-light-theme);
+  color: var(--txt-cl-50-light-theme);
+  background-color: transparent;
+  width: 176px;
+  height: 50px;
+  border-radius: 15px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  line-height: normal;
 }
 .all-categories-active {
-    background-color: var(--accent-cl);
-    color: var(--secondary-txt-cl-100-light-theme);
-    border: none;
+  background-color: var(--accent-cl);
+  color: var(--secondary-txt-cl-100-light-theme);
+  border: none;
 }
 .categories-btn:hover,
 .categories-btn:focus,
 .categories-btn:active {
-    background-color: var(--accent-cl);
-    color: var(--secondary-txt-cl-100-light-theme);
-    border: none;
+  background-color: var(--accent-cl);
+  color: var(--secondary-txt-cl-100-light-theme);
+  border: none;
 }
 @media only screen and (min-width: 768px) {
-    .categories-btn {
+  .categories-btn {
     margin-bottom: 30px;
+  }
 }
-    }
-@media only screen and (min-width: 1280px){
-    .categories-btn {
-    margin-bottom: 42px;      
+@media only screen and (min-width: 1280px) {
+  .categories-btn {
+    margin-bottom: 42px;
     width: 174px;
     height: 50px;
-    padding: 14px 28px;   
+    padding: 14px 28px;
+  }
+}
+.categories-btn-dishes {
+  height: 18px;
+}
 
-        }
-}   
-
+@media only screen and (min-width: 768px) {
+  .categories-btn-dishes {
+    height: 20px;
+  }
+}
 .btn-dishes {
-    min-width: 64px;
-    text-align: left;
-    cursor: pointer;
-    border: none;
-    color: var(--txt-cl-30-light-theme);
-    background-color: transparent;
-    font-weight: 500;
-    line-height: 1.29;
-    margin-bottom: 18px;
-    margin-left: 0;
+  min-width: 64px;
+  text-align: left;
+  cursor: pointer;
+  border: none;
+  color: var(--txt-cl-30-light-theme);
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
+
+  margin-left: 0;
 }
 @media only screen and (min-width: 768px) {
-    .btn-dishes {
-        min-width: 110px;
-        margin-bottom: 24px;
-        font-size: 16px;
-        line-height: 1.25;
-    }
+  .btn-dishes {
+    min-width: 110px;
+    margin-bottom: 24px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
 }
 
 .btn-dishes:hover,
 .btn-dishes:focus,
 .btn-dishes:active {
-    color: var(--accent-cl);
+  color: var(--accent-cl);
 }
 
 .button-container {
-    width: 326px;
-    height: 198px;
-    overflow: auto;
-    border: 0;
-    margin-bottom: 40px;
-    padding-left: 0;
+  width: 326px;
+  height: 198px;
+  overflow: auto;
+  border: 0;
+  /* margin-bottom: 40px; */
+  padding-left: 0;
 }
-@media only screen and (min-width: 768px){
-    .button-container {
-        width: 176px;
-        height: 416px;
-        margin-bottom: 64px;
-    }
+@media only screen and (min-width: 768px) {
+  .button-container {
+    width: 176px;
+    height: 416px;
+  }
 }
 @media only screen and (min-width: 1280px) {
-.button-container {
-        width: 235px;        
-        
-    }
+  .button-container {
+    width: 235px;
+  }
 }
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 116px;
-    border-color: var(--txt-cl-100-light-theme);
-    border-radius: 12px;
+  width: 8px;
+  height: 116px;
+  border-color: var(--txt-cl-100-light-theme);
+  border-radius: 12px;
 }
-.scroll-container {    
-    overflow-y: scroll; 
+.scroll-container {
+  overflow-y: scroll;
 }
 .scroll-container::-webkit-scrollbar {
-    width: 8px;
-       
+  width: 8px;
 }
 .scroll-container::-webkit-scrollbar-thumb {
-    background-color: rgba(5, 5, 5, 0.18);    
-    border-radius: 12px;    
+  background-color: rgba(5, 5, 5, 0.18);
+  border-radius: 12px;
 }

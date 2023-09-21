@@ -1,6 +1,7 @@
 import { Notify } from 'notiflix';
 import { addNewOrder } from '/js/API/order-api';
 
+
 const cartBtn = document.querySelector('.order-btn');
 const cartBtnMobile = document.querySelector('.order-btn-mob');
 const heroBtn = document.querySelector('.hero-btn-js');
@@ -11,17 +12,41 @@ const form = document.querySelector('.form');
 cartBtn.addEventListener('click', openModalNewOrder);
 cartBtnMobile.addEventListener('click', openModalNewOrder);
 heroBtn.addEventListener('click', openModalNewOrder);
-closeModalBtn.addEventListener('click', closeModalNewOrder);
 form.addEventListener('submit', onSubmitNewOrder);
+window.addEventListener('keydown', handleKeyDown);
 
 // open modal
 function openModalNewOrder() {
   modalWindow.classList.remove('visually-hidden');
+  closeModalBtn.addEventListener('click', closeModalNewOrder);
+ modalWindow.addEventListener('click', closeModalOnBackdropNewOrder);
 }
+
+
 
 // close modal
 function closeModalNewOrder() {
+  cartBtn.removeEventListener('click', closeModalNewOrder);
+  cartBtnMobile.removeEventListener('click', closeModalNewOrder);
   modalWindow.classList.add('visually-hidden');
+}
+
+//close modal on clicking on backdrop
+function closeModalOnBackdropNewOrder(event) {
+  if (event && event.target === modalWindow) {
+    closeModalBtn.removeEventListener('click', closeModalNewOrder);
+    modalWindow.removeEventListener('click', closeModalOnBackdropNewOrder);
+    window.removeEventListener('keydown', handleKeyDown);
+    modalWindow.classList.add('visually-hidden');
+    
+  }
+}
+
+//close modal by clicking "Escape"
+function handleKeyDown (event) {
+  if (event.key === 'Escape') {
+    closeModalNewOrder();
+  }
 }
 
 // function submit data of form

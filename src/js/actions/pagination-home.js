@@ -31,12 +31,12 @@ export async function initializePagination() {
   async function updatePageButtons() {
     const totalPages = await calculateTotalPages();
 
-    prevBtns.forEach((btn) => {
+    prevBtns.forEach(btn => {
       btn.disabled = currentPage === 1;
     });
 
     // Inside the updatePageButtons function
-    nextBtns.forEach((btn) => {
+    nextBtns.forEach(btn => {
       btn.disabled = currentPage === totalPages;
       if (currentPage === totalPages) {
         btn.classList.add('last-page'); // Add the class on the last page
@@ -45,7 +45,8 @@ export async function initializePagination() {
       }
     });
 
-    document.querySelector('.last-page-btn').disabled = currentPage === totalPages;
+    document.querySelector('.last-page-btn').disabled =
+      currentPage === totalPages;
     if (currentPage === totalPages) {
       document.querySelector('.last-page-btn').classList.add('last-page'); // Add the class on the last page
     } else {
@@ -82,37 +83,45 @@ export async function initializePagination() {
 
   function calculatePerPage() {
     const gridBox = document.querySelector('.js-card-list');
-    const elemToPage = getComputedStyle(gridBox).getPropertyValue('--limiter-cards-on-page');
+    const elemToPage = getComputedStyle(gridBox).getPropertyValue(
+      '--limiter-cards-on-page'
+    );
     return parseInt(elemToPage) || 6; // Default to 6 if custom property is not set
   }
 
-// Event listeners for previous page button
-prevBtns.forEach((btn) => {
+  // Event listeners for previous page button
+  prevBtns.forEach(btn => {
     btn.addEventListener('click', async () => {
       if (currentPage > 1) {
         currentPage--;
         await updatePage();
-  
+
         // Remove the current-page class from all page buttons
-        pageButtons.forEach((button) => {
+        pageButtons.forEach(button => {
           button.classList.remove('current-page');
         });
-  
+
         // Add the current-page class to the current page button
-        document.querySelector(`.pages-btn:nth-child(${currentPage})`).classList.add('current-page');
-  
+        document
+          .querySelector(`.pages-btn:nth-child(${currentPage})`)
+          .classList.add('current-page');
+
         // Update styles for first-page-btn and prev-btn
         if (currentPage === 1) {
-          document.querySelector('.first-page-btn').style.backgroundColor = 'var(--cl-number-pages)';
-          document.querySelector('.first-page-btn').style.borderColor = 'var(--txt-cl-30-light-theme)';
-          prevBtns.forEach((prev) => {
+          document.querySelector('.first-page-btn').style.backgroundColor =
+            'var(--cl-number-pages)';
+          document.querySelector('.first-page-btn').style.borderColor =
+            'var(--txt-cl-30-light-theme)';
+          prevBtns.forEach(prev => {
             prev.style.backgroundColor = 'var(--cl-number-pages)';
             prev.style.borderColor = 'var(--txt-cl-30-light-theme)';
           });
         } else {
-          document.querySelector('.first-page-btn').style.backgroundColor = 'var(--accent-cl)';
-          document.querySelector('.first-page-btn').style.borderColor = 'var(--accent-cl)';
-          prevBtns.forEach((prev) => {
+          document.querySelector('.first-page-btn').style.backgroundColor =
+            'var(--accent-cl)';
+          document.querySelector('.first-page-btn').style.borderColor =
+            'var(--accent-cl)';
+          prevBtns.forEach(prev => {
             prev.style.backgroundColor = 'var(--accent-cl)';
             prev.style.borderColor = 'var(--accent-cl)';
           });
@@ -120,39 +129,43 @@ prevBtns.forEach((btn) => {
       }
     });
   });
-  
+
   // Event listeners for next page button
-  nextBtns.forEach((btn) => {
+  nextBtns.forEach(btn => {
     btn.addEventListener('click', async () => {
       const totalPages = await calculateTotalPages();
       if (currentPage < totalPages) {
         currentPage++;
         await updatePage();
-  
+
         // Remove the current-page class from all page buttons
-        pageButtons.forEach((button) => {
+        pageButtons.forEach(button => {
           button.classList.remove('current-page');
         });
-  
+
         // Add the current-page class to the current page button
-        document.querySelector(`.pages-btn:nth-child(${currentPage})`).classList.add('current-page');
-  
+        document
+          .querySelector(`.pages-btn:nth-child(${currentPage})`)
+          .classList.add('current-page');
+
         // Update styles for last-page-btn and next-btn
         if (currentPage === totalPages) {
-          document.querySelector('.last-page-btn').style.backgroundColor = 'var(--cl-number-pages)';
-          nextBtns.forEach((next) => {
+          document.querySelector('.last-page-btn').style.backgroundColor =
+            'var(--cl-number-pages)';
+          nextBtns.forEach(next => {
             next.style.backgroundColor = 'var(--cl-number-pages)';
           });
         } else {
-          document.querySelector('.last-page-btn').style.backgroundColor = 'var(--accent-cl)';
-          nextBtns.forEach((next) => {
+          document.querySelector('.last-page-btn').style.backgroundColor =
+            'var(--accent-cl)';
+          nextBtns.forEach(next => {
             next.style.backgroundColor = 'var(--accent-cl)';
           });
         }
       }
     });
   });
-  
+
   // Event listener for the "..." (dots) button
   dotsBtn.addEventListener('click', async () => {
     const totalPages = await calculateTotalPages();
@@ -163,33 +176,37 @@ prevBtns.forEach((btn) => {
   });
 
   // Event listener for first page button
-  document.querySelector('.first-page-btn').addEventListener('click', async () => {
-    if (currentPage !== 1) {
-      // Check if it's not already on the first page
-      currentPage = 1;
-      await updatePage();
+  document
+    .querySelector('.first-page-btn')
+    .addEventListener('click', async () => {
+      if (currentPage !== 1) {
+        // Check if it's not already on the first page
+        currentPage = 1;
+        await updatePage();
 
-      // Remove the current-page class from all page buttons
-      pageButtons.forEach((button) => {
-        button.classList.remove('current-page');
-      });
+        // Remove the current-page class from all page buttons
+        pageButtons.forEach(button => {
+          button.classList.remove('current-page');
+        });
 
-      // Add the current-page class to the first page button
-      document.querySelector('.pages-btn').classList.add('current-page');
-    }
-  });
+        // Add the current-page class to the first page button
+        document.querySelector('.pages-btn').classList.add('current-page');
+      }
+    });
 
   // Event listener for last page button
-  document.querySelector('.last-page-btn').addEventListener('click', async () => {
-    const totalPages = await calculateTotalPages();
-    if (currentPage < totalPages) {
-      currentPage = totalPages;
-      await updatePage();
-    }
-  });
+  document
+    .querySelector('.last-page-btn')
+    .addEventListener('click', async () => {
+      const totalPages = await calculateTotalPages();
+      if (currentPage < totalPages) {
+        currentPage = totalPages;
+        await updatePage();
+      }
+    });
 
   // Event listeners for page number buttons
-  pageButtons.forEach((btn) => {
+  pageButtons.forEach(btn => {
     btn.addEventListener('click', async () => {
       const pageNumber = parseInt(btn.textContent);
       if (!isNaN(pageNumber) && pageNumber !== currentPage) {
@@ -197,7 +214,7 @@ prevBtns.forEach((btn) => {
         await updatePage();
 
         // Remove the current-page class from all page buttons
-        pageButtons.forEach((button) => {
+        pageButtons.forEach(button => {
           button.classList.remove('current-page');
         });
 
@@ -208,7 +225,9 @@ prevBtns.forEach((btn) => {
   });
 
   // Initial load
-  document.querySelector('.pages-btn:nth-child(1)').classList.add('current-page'); // Add the current-page class to the first page button
+  document
+    .querySelector('.pages-btn:nth-child(1)')
+    .classList.add('current-page'); // Add the current-page class to the first page button
   await updatePageButtons();
   await updatePage();
 }

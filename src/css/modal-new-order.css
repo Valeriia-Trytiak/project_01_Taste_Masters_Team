@@ -30,7 +30,17 @@
   border-radius: 15px;
   border: 1px solid var(--border-light-theme);
   padding: 14px 18px;
+  position: relative;
 }
+
+.form-field::placeholder {
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  color: var(--txt-cl-50-light-theme);
+  font-size:16px;
+  font-size: 1.2;
+   }
 
 .form-field-comment {
   height: 100px;
