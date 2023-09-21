@@ -213,10 +213,10 @@ function createRecipeDataFromModal(cardId) {
   const elements = {
     title: document.querySelector('.modal-recipe-name').textContent,
     description: document.querySelector('.modal-recipe-instructions')
-      .textContent,
+      .textContent.trim(),
     preview: document.querySelector('.iframe-video').getAttribute('poster'),
     rating: document.querySelector('.modal-stars-rating').textContent,
-    category: document.querySelector('.modal-category-js').textContent,
+    category: document.querySelector('.modal-category-js').textContent.slice(1),
   };
   return {
     _id: cardId,
