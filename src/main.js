@@ -20,24 +20,26 @@ import { windowLoad } from '/js/actions/header';
 // import {} from './js/ingredients-api';
 // import {} from './js/popular-api';
 
+import {} from './js/actions/rating-modal';
 
+import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
 import { handlerMenuLink } from '/js/actions/header';
 import { handlerMobMenuLink } from '/js/actions/header';
 
+setupRating();
 import {} from '/js/actions/modal-new-order';
 import { cardsGenerate } from '/js/actions/cards';
-import {} from '/js/actions/full-recipe.js';
-import {} from '/js/actions/rating-modal';
 import { initializePagination } from '/js/actions/pagination-home';
 import {} from '/js/actions/popular';
 import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
-
+import {} from '/js/actions/full-recipe.js';
 
 handlerMenuLink();
 handlerMobMenuLink();
+setupRating();
 cardsGenerate();
 loadHero();
 initializePagination();
