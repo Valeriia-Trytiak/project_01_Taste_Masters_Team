@@ -63,7 +63,7 @@ refs.resetBtn.addEventListener('click', onClickResetButton);
 // }
 
 //Функція пошуку по усіх рецептах
-function onChangeSelectFilter(currentCategory) {
+function onChangeSelectFilter() {
   if (refs.inputSearch.value !== '') {
     refs.inputSearch.nextElementSibling.style.fill = 'var(--accent-cl)';
   } else {
