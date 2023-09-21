@@ -13,6 +13,9 @@ import {
   serviceAllRecipesSearch,
   serviceAllFilter,
 } from '/js/API/filter-api.js';
+// import {
+//   currentCategory,
+// } from '/js/actions/category.js';
 import {
   createOptionArea,
   createOptionIngr,
@@ -60,18 +63,20 @@ refs.resetBtn.addEventListener('click', onClickResetButton);
 // }
 
 //Функція пошуку по усіх рецептах
-function onChangeSelectFilter() {
+function onChangeSelectFilter(currentCategory) {
   const gridBox = document.querySelector('.js-card-list');
   const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
+
   const formData = new FormData(refs.searchForm);
   const timeField = formData.get('time');
   const filterParams = {
+    category: currentCategory,
     search: formData.get('search').trim() || '',
     time: timeField !== null ? timeField.toString() : '',
     area: formData.get('area') || '',
     ingredients: formData.get('ingredients') || '',
   };
-
+  console.log(filterParams);
   serviceAllFilter(filterParams)
     .then(data => {
       console.log(data.results);

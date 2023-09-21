@@ -36,6 +36,7 @@ import {} from '/js/actions/popular';
 import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
 import {} from '/js/actions/full-recipe.js';
+import{} from '/js/actions/category.js'
 
 handlerMenuLink();
 handlerMobMenuLink();
