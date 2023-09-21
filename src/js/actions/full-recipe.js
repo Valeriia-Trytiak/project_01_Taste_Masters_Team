@@ -4,16 +4,14 @@ import { createMarkupModal } from '/js/markup/markup-full-recipe.js';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const refs = {
-  allCards: document.querySelector('.js-card-list'),
-  modalCardCont: document.querySelector('.modal-card-markup'),
-  modalBackdrop: document.querySelector('.modal-backdrop'),
-  modalButtonClose: document.querySelector('.modal-btn-close'),
-  giveRatingModalBtn: document.querySelector('.modal-give-rating'),
-  inputStar: document.querySelectorAll('.rating-star'),
-};
+const allCards = document.querySelector('.js-card-list');
+const modalCardCont = document.querySelector('.modal-card-markup');
+const modalBackdrop = document.querySelector('.modal-backdrop');
+const modalButtonClose = document.querySelector('.modal-btn-close');
+const giveRatingModalBtn = document.querySelector('.modal-give-rating');
+const inputStar = document.querySelectorAll('.rating-star');
 
-refs.allCards.addEventListener('click', handlerGetIdCard);
+allCards.addEventListener('click', handlerGetIdCard);
 
 //функція відкриття модального вікна та забору id рецепту
 function handlerGetIdCard(evt) {
@@ -26,7 +24,7 @@ function handlerGetIdCard(evt) {
      fetchRecipeByID(cardId)
       .then(data => {
         const modalMarkup = createMarkupModal(data);
-        refs.modalCardCont.innerHTML = modalMarkup;
+        modalCardCont.innerHTML = modalMarkup;
         fillStars();
         const addToFavorite = document.querySelector('.modal-add-favorite');
         Loading.remove();
@@ -69,10 +67,10 @@ export function fillStars() {
 
 //блок кнопок на відкриття та закриття модального вікна
 export function openModal() {
-  refs.modalButtonClose.addEventListener('click', closeModal);
-  refs.modalBackdrop.addEventListener('click', closeModalOnBackdrop);
+  modalButtonClose.addEventListener('click', closeModal);
+  modalBackdrop.addEventListener('click', closeModalOnBackdrop);
   window.addEventListener('keydown', handleKeyDown);
-  refs.modalBackdrop.classList.add('is-open-modal');
+  modalBackdrop.classList.add('is-open-modal');
   document.body.style.overflow = 'hidden';
 }
 
@@ -83,21 +81,21 @@ export function handleKeyDown(event) {
 }
 
 export function closeModal() {
-  refs.modalButtonClose.removeEventListener('click', closeModal);
-  refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
+  modalButtonClose.removeEventListener('click', closeModal);
+  modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
   window.removeEventListener('keydown', handleKeyDown);
-  refs.modalBackdrop.classList.remove('is-open-modal');
+  modalBackdrop.classList.remove('is-open-modal');
   document.body.style.overflow = 'auto';
   const youtubeIframe = document.querySelector('.iframe-video');
   youtubeIframe.src = '';
 }
 
 export function closeModalOnBackdrop(event) {
-  if (event && event.target === refs.modalBackdrop) {
-    refs.modalButtonClose.removeEventListener('click', closeModal);
-    refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
+  if (event && event.target === modalBackdrop) {
+    modalButtonClose.removeEventListener('click', closeModal);
+    modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
     window.removeEventListener('keydown', handleKeyDown);
-    refs.modalBackdrop.classList.remove('is-open-modal');
+    modalBackdrop.classList.remove('is-open-modal');
     document.body.style.overflow = 'auto';
     const youtubeIframe = document.querySelector('.iframe-video');
     youtubeIframe.src = '';
@@ -182,3 +180,5 @@ function showButtonActive() {
     button.classList.remove('visually-hidden');
   }
 }
+
+export {giveRatingModalBtn};

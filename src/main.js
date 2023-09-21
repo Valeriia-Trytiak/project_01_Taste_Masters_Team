@@ -21,19 +21,19 @@ import { windowLoad } from '/js/actions/header';
 // import {} from './js/popular-api';
 
 
-import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
 
 import {} from '/js/actions/modal-new-order';
 import { cardsGenerate } from '/js/actions/cards';
+import {} from '/js/actions/full-recipe.js';
+import { initializeRating } from '/js/actions/rating-modal';
 import { initializePagination } from '/js/actions/pagination-home';
 import {} from '/js/actions/popular';
 import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
-import {} from '/js/actions/full-recipe.js';
 
-setupRating();
 cardsGenerate();
+initializeRating();
 loadHero();
 initializePagination();
