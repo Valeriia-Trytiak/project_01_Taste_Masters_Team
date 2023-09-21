@@ -3,7 +3,7 @@ import { debounce } from 'debounce';
 
 import { addRating } from './cards.js';
 import { fetchAllDataFilter } from '/js/API/areas-api.js';
-// import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
+import { serviceAllRecipes } from '/js/API/recipe-api.js';
 import {
   serviceAllRecipesSearch,
   serviceAllFilter,
@@ -20,21 +20,23 @@ const refs = {
   selectArea: document.querySelector('[name= "area"]'),
   selectIngred: document.querySelector('[name="ingredients"]'),
   searchForm: document.querySelector('.search-form-js'),
+  resetBtn: document.querySelector('.reset-btn'),
 };
-
+console.log(refs.resetBtn);
 window.addEventListener('DOMContentLoaded', () => {
   changeSelectTime();
   changeAllSelectFilter();
 });
 
 // refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
-refs.searchForm.addEventListener('change', debounce(onChangeSelectFilter, 350));
+refs.searchForm.addEventListener('change', onChangeSelectFilter);
+refs.resetBtn.addEventListener('click', onClickResetButton);
 
 //забираю значення з інпуту та роблю запит з подальшою відмальовкою
 // function onChangeInputSearch(evt) {
 //   const gridBox = document.querySelector('.js-card-list');
 
-//   const valueSearch = evt.target.value.trim();
+//   const valueSearch = evt.target.value.trim();serviceAllRecipes
 //   serviceAllRecipesSearch(valueSearch)
 //     .then(data => {
 //       if (data.totalPages === null) {
@@ -55,11 +57,12 @@ refs.searchForm.addEventListener('change', debounce(onChangeSelectFilter, 350));
 function onChangeSelectFilter() {
   const gridBox = document.querySelector('.js-card-list');
   const formData = new FormData(refs.searchForm);
+  const timeField = formData.get('time');
   const filterParams = {
-    // search: formData.get('search'),
-    time: formData.get('time').toString(),
-    area: formData.get('area'),
-    ingredients: formData.get('ingredients'),
+    search: formData.get('search').trim() || '',
+    time: timeField !== null ? timeField.toString() : '',
+    area: formData.get('area') || '',
+    ingredients: formData.get('ingredients') || '',
   };
 
   serviceAllFilter(filterParams)
@@ -70,6 +73,21 @@ function onChangeSelectFilter() {
           'Sorry, there are no recipes matching your search query. Please try again.'
         );
       }
+      createMarkupCard(data.results);
+      gridBox.innerHTML = createMarkupCard(data.results);
+
+      addRating();
+    })
+    .catch(error => {
+      Notify.failure(error.message);
+    });
+}
+
+function onClickResetButton() {
+  refs.searchForm.reset();
+  const gridBox = document.querySelector('.js-card-list');
+  serviceAllRecipes()
+    .then(data => {
       createMarkupCard(data.results);
       gridBox.innerHTML = createMarkupCard(data.results);
 
@@ -99,8 +117,14 @@ function changeAllSelectFilter() {
     .then(data => {
       createOptionArea(data.areasData);
       createOptionIngr(data.ingredientsData);
-      refs.selectArea.innerHTML = createOptionArea(data.areasData);
-      refs.selectIngred.innerHTML = createOptionIngr(data.ingredientsData);
+      refs.selectArea.insertAdjacentHTML(
+        'beforeend',
+        createOptionArea(data.areasData)
+      );
+      refs.selectIngred.insertAdjacentHTML(
+        'beforeend',
+        createOptionIngr(data.ingredientsData)
+      );
     })
     .catch(error => {
       Notify.failure(error.message);
