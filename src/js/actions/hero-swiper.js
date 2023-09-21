@@ -12,6 +12,8 @@ export async function loadHero() {
     heroSwiperWrapper.insertAdjacentHTML('beforeend', markupSlide);
 
     const heroSwiper = new Swiper('.js-swiper-hero', {
+      loop: true,
+      autoplay: true,
       slidesPerView: 0.8,
       spaceBetween: 40,
       pagination: {
