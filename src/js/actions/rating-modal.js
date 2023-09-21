@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { rateRecipeById } from '/js/API/rating-api';
-import { rateRecipeByID } from '/js/API/recipe-id-api';
+import { fetchRecipeByID } from '/js/API/recipe-id-api';
 
 let giveRatingModalBtn;
 
