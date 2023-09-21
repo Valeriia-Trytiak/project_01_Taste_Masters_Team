@@ -21,6 +21,7 @@
 }
 
 .popular-recipe-item {
+  cursor: pointer;
   display: flex;
   flex-direction: row;
   gap: 16px;
