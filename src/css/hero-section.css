@@ -32,7 +32,7 @@
 }
 
 .hero-title {
-  color: var(txt-cl-100-light-theme);
+  color: var(--txt-cl-100-light-theme);
   font-size: 26px;
   font-weight: 600;
   line-height: 1.2;
