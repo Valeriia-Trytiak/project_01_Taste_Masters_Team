@@ -26,7 +26,7 @@ export async function cardsGenerate(currentPage, perPage) {
     addRating();
     heartIsActive(gridBox, favoritesArr);
     addCartInLocalStorage();
-    removeCartInLocalStorage()
+    removeCartInLocalStorage();
 
     // Update the rating stars based on data
     const ratingList = document.querySelectorAll('.js-rating-stars-list');
@@ -58,7 +58,7 @@ export function addRating() {
   });
 }
 
-function addCartInLocalStorage() {
+export function addCartInLocalStorage() {
   const inactiveHearts = document.querySelectorAll('.js-btn-heart-inactive');
 
   inactiveHearts.forEach(elem =>
