@@ -8,29 +8,31 @@ const mobMenuLinkFavElement = document.querySelector('.mob-menu-link-fav');
 
 menuLinkFavElement.addEventListener('click', handlerMenuLink);
 mobMenuLinkFavElement.addEventListener('click', handlerMobMenuLink);
-
 openMobileMenuElement.addEventListener('click', openMobileMenu);
 closeMobileMenuElement.addEventListener('click', closeMobileMenu);
 
 export function openMobileMenu() {
   mobileMenuElement.classList.add('is-open');
-  mobileMenuElement.classList.remove('visually-hidden');
+  mobileMenuElement.classList.remove('is-hidden');
 }
 
 export function closeMobileMenu() {
   mobileMenuElement.classList.remove('is-open');
-  mobileMenuElement.classList.add('visually-hidden');
+  mobileMenuElement.classList.add('is-hidden');
 }
 
 export function handlerMenuLink() {
-  menuLinkFavElement.classList.add('current');
-  menuLinkHomeElement.classList.remove('current');
+  menuLinkFavElement.classList.toggle('current');
+  menuLinkHomeElement.classList.toggle('current');
 }
 
 export function handlerMobMenuLink() {
-  mobMenuLinkFavElement.classList.add('active-mob-nav');
-  mobMenuLinkHomeElement.classList.remove('active-mob-nav');
+  mobMenuLinkFavElement.classList.toggle('active-mob-nav');
+  mobMenuLinkHomeElement.classList.toggle('active-mob-nav');
 }
+
+handlerMenuLink();
+handlerMobMenuLink();
 
 //  =========== change the theme ===========
 
