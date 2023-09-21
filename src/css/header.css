@@ -143,6 +143,11 @@
   display: block;
 }
 
+.current {
+  color: var(--accent-cl);
+  font-weight: 500;
+}
+
 @media (hover: hover) {
   .menu-link:hover,
   .menu-link:focus {
@@ -154,11 +159,6 @@
   .menu-link:active {
     color: var(--accent-cl);
   }
-}
-
-.current {
-  color: var(--accent-cl);
-  font-weight: 500;
 }
 
 @media screen and (min-width: 768px) {
@@ -305,8 +305,27 @@ html.dark body {
 
 /* ========= header ======== */
 
+
+html.dark .link-home {
+  color: var(--bg-cl-light-theme);
+}
+
 html.dark .link-fav {
   color: var(--bg-cl-light-theme);
+}
+
+html.dark .link-home:hover,
+html.dark .link-home:focus {
+  color: var(--accent-cl);
+}
+
+html.dark .link-fav:hover,
+html.dark .link-fav:focus {
+  color: var(--accent-cl);
+}
+
+html.dark .current {
+  color: var(--accent-cl);
 }
 
 html.dark .logo-end {
