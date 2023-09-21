@@ -4,29 +4,23 @@ import { rateRecipeById } from '/js/API/rating-api';
 import { fetchRecipeByID } from '/js/API/recipe-id-api';
 import { giveRatingModalBtn } from '/js/actions/full-recipe.js';
 
+async function getElementByIdAsync(id) {
+  return new Promise((resolve) => {
+    const checkElement = () => {
+      const element = document.getElementById(id);
+      if (element) {
+        resolve(element);
+      } else {
+        requestAnimationFrame(checkElement);
+      }
+    };
+    checkElement();
+  });
+}
+
 export async function initializeRating() {
-  await new Promise(resolve => {
-    document.addEventListener('DOMContentLoaded', resolve);
-  });
-
-  document.addEventListener('DOMContentLoaded', async () => {
-    const giveRatingModalBtn = await getElementByIdAsync('give_rating');
-  });
-
-  async function getElementByIdAsync(id) {
-    return new Promise((resolve) => {
-      const checkElement = () => {
-        const element = document.getElementById(id);
-        if (element) {
-          resolve(element);
-        } else {
-          requestAnimationFrame(checkElement);
-        }
-      };
-      checkElement();
-    });
-  }
-
+  const giveRatingModalBtn = await getElementByIdAsync('give_rating');
+  
   const stars = document.querySelectorAll('.rating-star-svg');
   const currentRating = document.querySelector('.rating-result');
   const userEmailInput = document.querySelector('.rating-form-input');
