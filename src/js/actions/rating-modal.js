@@ -20,21 +20,25 @@ async function getElementByIdAsync(id) {
 }
 
 // Use an async function to initialize the rating modal
-async function initializeRating() {
+export async function initializeRating() {
   giveRatingModalBtn = await getElementByIdAsync('give_rating');
 
-  if (!giveRatingModalBtn) {
-    // The element with ID 'give_rating' was not found in the DOM
-    console.error('giveRatingModalBtn not found in the DOM');
-  } else {
-    // Add a click event listener to open the rating modal when the button is clicked
-    giveRatingModalBtn.addEventListener('click', function () {
-      // Check if the full recipe modal is open
-      if (isFullRecipeModalOpen()) {
-        openRatingModal(); // Open the rating modal
+// Event listener for card buttons
+document.addEventListener('click', function (evt) {
+  const cardBtn = evt.target.closest('.card-btn');
+  if (cardBtn) {
+    console.log('.card-btn clicked'); 
+    // Check if the full recipe modal is open
+    if (isFullRecipeModalOpen()) {
+      console.log('Full recipe modal is open');
+      // Check if the rating button is clicked
+      if (evt.target.id === 'give_rating') {
+        console.log('give_rating button clicked');
+        openRatingModal();
       }
-    });
+    }
   }
+});
 
   const stars = document.querySelectorAll('.rating-star-svg');
   const currentRating = document.querySelector('.rating-result');

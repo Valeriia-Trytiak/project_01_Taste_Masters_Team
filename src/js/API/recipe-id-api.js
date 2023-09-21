@@ -2,6 +2,9 @@ import axios from 'axios';
 
 export async function fetchRecipeByID(cardId) {
   try {
+    if (!cardId) {
+      throw new Error('Invalid cardId');
+    }
     const resp = await axios.get(
       `https://tasty-treats-backend.p.goit.global/api/recipes/${cardId}`
     );

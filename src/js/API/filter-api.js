@@ -1,8 +1,14 @@
 import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-async function serviceAllRecipes(perPage, currentPage = '1') {
+async function serviceAllRecipes(perPage = 6, currentPage = '1') {
   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
+
+  // Ensure that the perPage parameter is defined and has a valid value
+  if (typeof perPage !== 'number' || isNaN(perPage) || perPage <= 0) {
+    throw new Error('Invalid perPage parameter');
+  }
+  
   const params = new URLSearchParams({
     page: currentPage,
     limit: perPage,
