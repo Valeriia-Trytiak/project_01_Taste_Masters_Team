@@ -143,6 +143,11 @@
   display: block;
 }
 
+.current {
+  color: var(--accent-cl);
+  font-weight: 500;
+}
+
 @media (hover: hover) {
   .menu-link:hover,
   .menu-link:focus {
@@ -154,11 +159,6 @@
   .menu-link:active {
     color: var(--accent-cl);
   }
-}
-
-.current {
-  color: var(--accent-cl);
-  font-weight: 500;
 }
 
 @media screen and (min-width: 768px) {
@@ -305,8 +305,27 @@ html.dark body {
 
 /* ========= header ======== */
 
+
+html.dark .link-home {
+  color: var(--bg-cl-light-theme);
+}
+
 html.dark .link-fav {
   color: var(--bg-cl-light-theme);
+}
+
+html.dark .link-home:hover,
+html.dark .link-home:focus {
+  color: var(--accent-cl);
+}
+
+html.dark .link-fav:hover,
+html.dark .link-fav:focus {
+  color: var(--accent-cl);
+}
+
+html.dark .current {
+  color: var(--accent-cl);
 }
 
 html.dark .logo-end {
@@ -396,6 +415,7 @@ html.dark .modal-title {
 }
 
 html.dark .form-field {
+  color: var(--txt-cl-50-dark-theme);
   background-color: transparent;
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -540,3 +560,12 @@ html.dark .modal-hashtag-item {
 html.dark .modal-give-rating {
   color: var(--bg-cl-light-theme);
 }
+
+html.dark .modal-card-time-dark {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-ingredient-dark {
+  border-bottom-color: rgba(255, 255, 255, 0.10);
+}
+
