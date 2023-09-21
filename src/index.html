@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!--Підключення фавікону-->
+    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-  <meta charset="UTF-8" />
-  <!--Підключення фавікону-->
-  <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TastyTreats.</title>
+    <!--Підключення стилів-->
+    <link rel="stylesheet" href="./css/styles.css" />
 
-  <title>TastyTreats.</title>
-  <!--Підключення стилів-->
-  <link rel="stylesheet" href="./css/styles.css" />
+    <!--Підключення js-->
+    <script type="module" src="/main.js"></script>
+  </head>
 
-  <!--Підключення js-->
-  <script type="module" src="/main.js"></script>
-</head>
+  <body>
+    <!--Підключення хедера-->
+    <load src="partials/header.html" />
+    <main>
+      <!--Підключення секцій-->
+      <load src="partials/hero-section.html" />
 
-<body>
-  <!--Підключення хедера-->
-  <load src="partials/header.html" />
-  <main>
-    <!--Підключення секцій-->
-    <load src="partials/hero-section.html" />
-    <load src="partials/categories-section.html" />
-    <load src="partials/search-section.html" />
-    <load src="partials/cards-section.html" />
-    <load src="partials/popular-recipes-section.html" />
-    <load src="partials/modal-new-order.html" />
-    <load src="partials/modal-full-recipe.html" />
-    <load src="partials/modal-rating.html" />
+      <div class="general-section container">
+        <aside class="sidebar">
+          <load src="partials/categories-section.html" />
+          <load src="partials/popular-recipes-section.html" />
+        </aside>
+        <div class="general-search">
+          <load src="partials/search-section.html" />
+          <load src="partials/cards-section.html" />
+        </div>
+      </div>
 
-  </main>
-  <load src="partials/footer.html" />
-</body>
-
+      <load src="partials/modal-new-order.html" />
+      <load src="partials/modal-full-recipe.html" />
+      <load src="partials/modal-rating.html" />
+    </main>
+    <load src="partials/footer.html" />
+  </body>
 </html>
