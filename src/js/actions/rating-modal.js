@@ -2,7 +2,8 @@ import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { rateRecipeById } from '/js/API/rating-api';
 import { fetchRecipeByID } from '/js/API/recipe-id-api';
-import { giveRatingModalBtn } from '/js/actions/full-recipe.js';
+
+let giveRatingModalBtn;
 
 async function getElementByIdAsync(id) {
   return new Promise((resolve) => {
@@ -18,9 +19,23 @@ async function getElementByIdAsync(id) {
   });
 }
 
-export async function initializeRating() {
-  const giveRatingModalBtn = await getElementByIdAsync('give_rating');
-  
+// Use an async function to initialize the rating modal
+async function initializeRating() {
+  giveRatingModalBtn = await getElementByIdAsync('give_rating');
+
+  if (!giveRatingModalBtn) {
+    // The element with ID 'give_rating' was not found in the DOM
+    console.error('giveRatingModalBtn not found in the DOM');
+  } else {
+    // Add a click event listener to open the rating modal when the button is clicked
+    giveRatingModalBtn.addEventListener('click', function () {
+      // Check if the full recipe modal is open
+      if (isFullRecipeModalOpen()) {
+        openRatingModal(); // Open the rating modal
+      }
+    });
+  }
+
   const stars = document.querySelectorAll('.rating-star-svg');
   const currentRating = document.querySelector('.rating-result');
   const userEmailInput = document.querySelector('.rating-form-input');
@@ -31,18 +46,21 @@ export async function initializeRating() {
   let userRating = 0.0;
   let userEmail = '';
   let recipeId = null;
+  
+  // Function to check if the full recipe modal is open
+  function isFullRecipeModalOpen() {
+    const fullRecipeModal = document.querySelector('.modal-backdrop.is-open-modal');
+    return fullRecipeModal !== null;
+  }
 
-    // Add a click event listener to open the modal when the button is clicked
-giveRatingModalBtn.addEventListener('click', function () {
-  openModal(); // Call the openModal function to open the window
-});
-
-  function openModal() {
-    modalRating.style.display = 'block';
+  // Function to open the rating modal
+  function openRatingModal() {
+    const modalRating = document.querySelector('.modal-overlay');
     modalRating.classList.add('rating-is-open');
   }
 
   function closeModal() {
+    modalRating.style.visibility = 'hidden'; // Change visibility to "hidden"
     modalRating.style.display = 'none';
     modalRating.classList.remove('rating-is-open');
   }

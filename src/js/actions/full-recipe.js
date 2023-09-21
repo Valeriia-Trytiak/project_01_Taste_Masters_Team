@@ -180,5 +180,4 @@ function showButtonActive() {
     button.classList.remove('visually-hidden');
   }
 }
-
-export {giveRatingModalBtn};
+ 
