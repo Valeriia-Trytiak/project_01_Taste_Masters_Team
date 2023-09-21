@@ -12,9 +12,9 @@
 
     <!--Підключення js-->
     
-    <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/index-e297f9d0.js"></script>
-    <link rel="modulepreload" crossorigin href="/project_01_Taste_Masters_Team/assets/cards-42d7ab43.js">
-    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/cards-1cc32310.css">
+    <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/index-8b01f2cb.js"></script>
+    <link rel="modulepreload" crossorigin href="/project_01_Taste_Masters_Team/assets/cards-b3a5cb04.js">
+    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/cards-b3c953a2.css">
     <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/index-cfc9f3e6.css">
   </head>
 
@@ -257,25 +257,24 @@
           <li class="filter-item">
             <label class="search-titles" for="time-select">Time</label>
             <select id="time-select" name="time">
-              <!-- <option value="">40 min</option> -->
+              <option class="option-def-time"  selected disabled>Search time</option>
             </select>
           </li>
           <li class="filter-item">
             <label class="search-titles" for="area-select">Area</label>
-            <select id="area-select" name="area">
-              <!-- <option value="">Italian</option> -->
+            <select id="area-select" name="area"><option class="option-def-area" selected disabled>Search area</option>
             </select>
           </li>
           <li class="filter-item">
             <label class="search-titles" for="ingredients-select">Ingredients</label>
-            <select id="ingredients-select" name="ingredients">
-              <!-- <option value="">Tomato</option> -->
+            <select id="ingredients-select" name="ingredients"><option class="option-def-ingr"  selected disabled>Search ingredient </option>
             </select>
           </li>
         </ul>
+    
       </div>
       <div class="btn-reset-thumb">
-        <button class="reset-btn" type="button">
+        <button class="reset-btn" type="button" aria-label="reset-filter-button">
           <svg class="reset-filter-icon" width="16" height="16">
             <use href="/project_01_Taste_Masters_Team/assets/icons-0b85c172.svg#x"></use>
           </svg>
