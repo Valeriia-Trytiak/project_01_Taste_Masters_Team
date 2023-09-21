@@ -24,6 +24,7 @@
   color: var(--txt-cl-50-light-theme);
 }
 .form-field {
+  resize: none;
   width: 100%;
   height: 48px;
   margin-top: 8px;
