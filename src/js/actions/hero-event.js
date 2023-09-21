@@ -7,14 +7,14 @@ export function markupHeroSlide(arr) {
         <div class="hero-block-chief">
             <picture>
                 <source srcset="${cook.imgWebpUrl}" type="image/webp" />
-                <img class="hero-block-cook-img" src="${cook.imgUrl}" alt="${cook.name}" loading="lazy" />
+                <img class="hero-block-cook-img" src="${cook.imgUrl}" alt="${cook.name} " />
             </picture>
         </div>
         <div class="hero-preview">
             <div class="hero-block-prewiew">
                 <picture>
                     <source srcset="${topic.previewWebpUrl}" type="image/webp" />
-                    <img class="hero-block-prewiew-img" src="${topic.previewUrl}" alt="${topic.name}" loading="lazy" />
+                    <img class="hero-block-prewiew-img" src="${topic.previewUrl}" alt="${topic.name} " />
                 </picture>
                 <p class="hero-block-prewiew-title">${topic.name}</p>
                 <p class="hero-block-prewiew-text">${topic.area}</p>
@@ -23,7 +23,7 @@ export function markupHeroSlide(arr) {
         <div class="hero-block-dish">
             <picture>
                 <source srcset="${topic.imgWebpUrl}" type="image/webp" />
-                <img class="hero-block-dish-img" src="${topic.imgUrl}" alt="${topic.name}" loading="lazy" />
+                <img class="hero-block-dish-img" src="${topic.imgUrl}" alt="${topic.name} " />
             </picture>
         </div>
     </div>

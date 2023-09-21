@@ -15,38 +15,9 @@ const refs = {
 
 refs.allCards.addEventListener('click', handlerGetIdCard);
 
-//функція відкриття модального вікна та забору id рецепту
-function handlerGetIdCard(evt) {
-  const cardBtn = evt.target.closest('.card-btn');
-  if (cardBtn) {
-    const card = cardBtn.closest('.card');
-    const cardId = card.dataset.id;
-    Loading.standard('Loading...', { svgColor: '#9bb537' });
-
-     fetchRecipeByID(cardId)
-      .then(data => {
-        const modalMarkup = createMarkupModal(data);
-        refs.modalCardCont.innerHTML = modalMarkup;
-        fillStars();
-        const addToFavorite = document.querySelector('.modal-add-favorite');
-        Loading.remove();
-
-        if (addToFavorite) {
-          openModal();
-          addToFavorite.addEventListener('click', addToLocalStorage);
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching or rendering data:', error);
-        Notify.failure(error.message);
-      });
-  }
-}
-
 //зірки заливка
 export function fillStars() {
   const starRatings = document.querySelectorAll('.stars-block-js');
-  console.log(starRatings);
   starRatings.forEach(starRating => {
     //Отримую рейтинг(текст контент) з елемента
     const rating = parseFloat(
@@ -55,9 +26,7 @@ export function fillStars() {
 
     //Округлюю до цілого числа
     const roundedRating = Math.round(rating);
-
     const stars = starRating.querySelectorAll('#stars-full-modal');
-
     // Циклом по кожній зірці замальовую
     stars.forEach((star, index) => {
       if (index < roundedRating) {
@@ -104,55 +73,35 @@ export function closeModalOnBackdrop(event) {
   }
 }
 
-// запис та видалення з сховища
-export function addToLocalStorage(evt) {
-  console.log('addToLocalStorage called');
-  const addButton = evt.target;
-  const cardId = addButton.getAttribute('id');
+// // запис та видалення з сховища
+// export function addToLocalStorage(evt) {
+//   console.log('addToLocalStorage called');
+//   const addButton = evt.target;
+//   const cardId = addButton.getAttribute('id');
 
-  const recipeData = createRecipeDataFromModal(cardId);
+//   const recipeData = createRecipeDataFromModal(cardId);
 
-  // перевірка на вміст
-  const savedData = getSavedDataFromLocalStorage();
-  const existingRecipe = savedData.findIndex(data => data.id === cardId);
+//   // перевірка на вміст
+//   const savedData = getSavedDataFromLocalStorage();
+//   const existingRecipe = savedData.findIndex(data => data.id === cardId);
 
-  if (existingRecipe !== -1) {
-    savedData.splice(existingRecipe, 1);
+//   if (existingRecipe !== -1) {
+//     savedData.splice(existingRecipe, 1);
 
-    Notify.warning(`Recipe added to favorites`);
-    addButton.textContent = 'Add to favorite';
+//     Notify.warning(`Recipe added to favorites`);
+//     addButton.textContent = 'Add to favorite';
 
-    hideButtonInactive();
-  } else {
-    savedData.push(recipeData);
+//     hideButtonInactive();
+//   } else {
+//     savedData.push(recipeData);
 
-    showButtonActive();
-    Notify.success(`Recipe removed from favorites`);
-    addButton.textContent = 'Remove favorite';
-    hideButtonInactive();
-  }
-  saveDataToLocalStorage(savedData);
-}
-
-export function createRecipeDataFromModal(cardId) {
-  const elements = {
-    title: document.querySelector('.modal-recipe-name').textContent,
-    description: document.querySelector('.modal-recipe-instructions')
-      .textContent,
-    preview: document.querySelector('.iframe-video').getAttribute('poster'),
-    rating: document.querySelector('.modal-stars-rating').textContent,
-    category: document.querySelector('.modal-category-js').textContent,
-    cardId: document.querySelector('.modal-add-favorite').getAttribute('id'),
-  };
-  return {
-    id: cardId,
-    title: elements.title,
-    description: elements.description,
-    preview: elements.preview,
-    rating: elements.rating,
-    category: elements.category,
-  };
-}
+//     showButtonActive();
+//     Notify.success(`Recipe removed from favorites`);
+//     addButton.textContent = 'Remove favorite';
+//     hideButtonInactive();
+//   }
+//   saveDataToLocalStorage(savedData);
+// }
 
 function getSavedDataFromLocalStorage() {
   try {
@@ -164,6 +113,8 @@ function getSavedDataFromLocalStorage() {
     return [];
   }
 }
+
+// // Додаю до локалу
 function saveDataToLocalStorage(data) {
   localStorage.setItem('cardsArray', JSON.stringify(data));
 }
@@ -181,4 +132,98 @@ function showButtonActive() {
   if (button) {
     button.classList.remove('visually-hidden');
   }
+}
+
+//опрацювання кліку на картці
+function handlerGetIdCard(evt) {
+  const cardBtn = evt.target.closest('.card-btn');
+  // const gridBox = document.querySelector('.js-card-list');
+  // const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
+  if (cardBtn) {
+    const card = cardBtn.closest('.card');
+    const cardId = card.dataset.id;
+    Loading.standard('Loading...', { svgColor: '#9bb537' });
+
+    fetchRecipeByID(cardId)
+      .then(data => {
+        const modalMarkup = createMarkupModal(data);
+        refs.modalCardCont.innerHTML = modalMarkup;
+        fillStars();
+        const addToFavorite = document.querySelector('.modal-add-favorite');
+        Loading.remove();
+
+        if (addToFavorite) {
+          // Перевірка локального сховища
+          const savedData = getSavedDataFromLocalStorage();
+          const existingRecipe = savedData.find(data => data._id === cardId);
+          if (existingRecipe) {
+            // Зміна тексту кнопки
+            addToFavorite.textContent = 'Remove from favorites';
+            showButtonActive();
+          } else {
+            addToFavorite.textContent = 'Add to favorites';
+            hideButtonInactive();
+          }
+          openModal();
+
+          addToFavorite.addEventListener('click', addToLocalStorage);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching or rendering data:', error);
+        Notify.failure(error.message);
+      });
+  }
+}
+
+// Для добавления и удаления из избранного
+export function addToLocalStorage(evt) {
+  const addButton = evt.target;
+  const cardId = addButton.getAttribute('id');
+
+  const recipeData = createRecipeDataFromModal(cardId);
+
+  // Перевірка наличия в сховищі
+  const savedData = getSavedDataFromLocalStorage();
+  console.log(savedData);
+  const existingRecipeIndex = savedData.findIndex(data => data._id === cardId);
+
+  console.log(existingRecipeIndex);
+  if (existingRecipeIndex !== -1) {
+    savedData.splice(existingRecipeIndex, 1);
+
+    Notify.warning(`Recipe removed from favorites`);
+    addButton.textContent = 'Add to favorites';
+
+    saveDataToLocalStorage(savedData);
+
+    // updateFavoriteButtonVisibility(cardId, false);
+  } else {
+    savedData.push(recipeData);
+
+    // updateFavoriteButtonVisibility(cardId, true);
+    Notify.success(`Recipe added to favorites`);
+    addButton.textContent = 'Remove from favorites';
+  }
+  saveDataToLocalStorage(savedData);
+}
+
+// Массив до локального сховища
+function createRecipeDataFromModal(cardId) {
+  const elements = {
+    title: document.querySelector('.modal-recipe-name').textContent,
+    description: document.querySelector('.modal-recipe-instructions')
+      .textContent,
+    preview: document.querySelector('.iframe-video').getAttribute('poster'),
+    rating: document.querySelector('.modal-stars-rating').textContent,
+    category: document.querySelector('.modal-category-js').textContent,
+  };
+  return {
+    _id: cardId,
+    title: elements.title,
+    description: elements.description,
+    preview: elements.preview,
+    rating: elements.rating,
+    category: elements.category,
+  };
 }

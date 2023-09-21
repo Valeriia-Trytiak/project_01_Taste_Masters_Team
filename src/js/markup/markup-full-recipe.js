@@ -1,7 +1,6 @@
 import sprite from '../../img/icons.svg';
 
 export function createMarkupModal(data) {
-  console.log(data);
   const youtubeLink = data.youtube;
 
   function getYoutubeVideoId(url) {
@@ -75,7 +74,7 @@ export function createMarkupModal(data) {
           </div>
           <div class="modal-button">
                 <button class="modal-add-favorite btn" type="button" id=${data._id}>Add to favorite</button>
-                <button class="modal-give-rating btn" type="button">Give a rating</button>
+                <button class="modal-give-rating btn" type="button" id= "givRating">Give a rating</button>
               </div>
     `;
 
