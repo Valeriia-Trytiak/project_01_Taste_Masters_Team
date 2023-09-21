@@ -58,7 +58,7 @@ export function addRating() {
   });
 }
 
-function addCartInLocalStorage() {
+export function addCartInLocalStorage() {
   const inactiveHearts = document.querySelectorAll('.js-btn-heart-inactive');
 
   inactiveHearts.forEach(elem =>
