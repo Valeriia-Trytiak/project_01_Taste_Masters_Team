@@ -542,6 +542,10 @@ html.dark .hero-btn:focus {
   background: var(--accent-cl);
 }
 
+html.dark .hero-title {
+  color: var(--bg-cl-light-theme);
+}
+
 /* ========================== Footer =========================== */
 
 html.dark .pages-btn {
