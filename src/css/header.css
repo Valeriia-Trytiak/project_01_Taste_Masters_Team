@@ -148,6 +148,10 @@
   font-weight: 500;
 }
 
+.current:hover {
+  color: var(--txt-cl-100-light-theme);
+}
+
 @media (hover: hover) {
   .menu-link:hover,
   .menu-link:focus {
@@ -326,6 +330,10 @@ html.dark .link-fav:focus {
 
 html.dark .current {
   color: var(--accent-cl);
+}
+
+html.dark .current:hover {
+  color: var(--bg-cl-light-theme);
 }
 
 html.dark .logo-end {

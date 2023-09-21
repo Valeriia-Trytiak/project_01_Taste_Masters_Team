@@ -25,6 +25,8 @@ import {} from './js/actions/rating-modal';
 import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
+import { handlerMenuLink } from '/js/actions/header';
+import { handlerMobMenuLink } from '/js/actions/header';
 
 setupRating();
 import {} from '/js/actions/modal-new-order';
@@ -35,6 +37,8 @@ import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
 import {} from '/js/actions/full-recipe.js';
 
+handlerMenuLink();
+handlerMobMenuLink();
 setupRating();
 cardsGenerate();
 loadHero();
