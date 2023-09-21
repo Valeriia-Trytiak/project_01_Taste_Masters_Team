@@ -17,7 +17,7 @@
             type="text"
             name="modal_name"
             id="modal_name"
-            pattern="[A-Za-zА-Яа-я\s'-]{3,50}"
+            pattern="[A-Za-z]{3,50}"
             required
           />
         </div>
@@ -29,7 +29,8 @@
             type="tel"
             name="modal_phone"
             id="modal_phone"
-            placeholder=""
+            placeholder="+380"
+            pattern="^\+380\d{9}$"
             
             required
           />
