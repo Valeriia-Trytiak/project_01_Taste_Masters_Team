@@ -429,6 +429,10 @@ html.dark .form-field {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+html.dark .form-field::placeholder {
+  color: var(--txt-cl-50-dark-theme);
+}
+
 html.dark .form-label {
   color: var(--txt-cl-50-dark-theme);
 }
@@ -504,6 +508,11 @@ html.dark .catigories-btn {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+html.dark .fav-categories-btn {
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 html.dark .catigories-btn:hover,
 html.dark .catigories-btn:focus {
   background: var(--accent-cl);
@@ -531,6 +540,10 @@ html.dark .hero-btn {
 html.dark .hero-btn:hover,
 html.dark .hero-btn:focus {
   background: var(--accent-cl);
+}
+
+html.dark .hero-title {
+  color: var(--bg-cl-light-theme);
 }
 
 /* ========================== Footer =========================== */
