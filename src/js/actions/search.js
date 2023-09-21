@@ -1,7 +1,7 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { debounce } from 'debounce';
 
-import { addRating } from './cards.js';
+import { addRating, removeCartInLocalStorage, heartIsActive, addCartInLocalStorage} from './cards.js';
 import { fetchAllDataFilter } from '/js/API/areas-api.js';
 import { serviceAllRecipes } from '/js/API/recipe-api.js';
 import {
@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
-refs.searchForm.addEventListener('change', onChangeSelectFilter);
+refs.searchForm.addEventListener('change', debounce(onChangeSelectFilter, 300));
 refs.resetBtn.addEventListener('click', onClickResetButton);
 
 //забираю значення з інпуту та роблю запит з подальшою відмальовкою
@@ -56,6 +56,7 @@ refs.resetBtn.addEventListener('click', onClickResetButton);
 
 function onChangeSelectFilter() {
   const gridBox = document.querySelector('.js-card-list');
+  const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
   const formData = new FormData(refs.searchForm);
   const timeField = formData.get('time');
   const filterParams = {
@@ -77,6 +78,10 @@ function onChangeSelectFilter() {
       gridBox.innerHTML = createMarkupCard(data.results);
 
       addRating();
+      addRating();
+      heartIsActive(gridBox, favoritesArr);
+      addCartInLocalStorage();
+      removeCartInLocalStorage();
     })
     .catch(error => {
       Notify.failure(error.message);
