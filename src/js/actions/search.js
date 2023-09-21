@@ -1,129 +1,139 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import SlimSelect from 'slim-select';
 import { debounce } from 'debounce';
 
-import { serviceChangeAllAreas } from '/js/API/areas-api.js';
-import { serviceChangeAllIngred } from '/js/API/ingredients-api.js';
-import { serviceAllRecipesSearch } from '/js/API/filter-api.js';
-import { createOption } from '/js/markup/markup-option-search.js';
+import { addRating } from './cards.js';
+import { fetchAllDataFilter } from '/js/API/areas-api.js';
+import { serviceAllRecipes } from '/js/API/recipe-api.js';
+import {
+  serviceAllRecipesSearch,
+  serviceAllFilter,
+} from '/js/API/filter-api.js';
+import {
+  createOptionArea,
+  createOptionIngr,
+} from '/js/markup/markup-option-search.js';
 import { createMarkupCard } from '/js/markup/markup-card.js';
-
-// new SlimSelect({
-//   select: '#selectElement',
-// });
 
 const refs = {
   inputSearch: document.querySelector('#search-input'),
-  filterTime: document.querySelector('[name="time"]'),
-  filterArea: document.querySelector('[name= "area"]'),
-  filterIngred: document.querySelector('[name="ingredients"]'),
+  selectTime: document.querySelector('[name= "time"]'),
+  selectArea: document.querySelector('[name= "area"]'),
+  selectIngred: document.querySelector('[name="ingredients"]'),
   searchForm: document.querySelector('.search-form-js'),
+  resetBtn: document.querySelector('.reset-btn'),
 };
-console.dir(refs.searchForm);
-//контейнер для зберігання карток з секції
-const gridBox = document.querySelector('.js-card-list');
-//список зірок рейтингу
-const ratingList = document.querySelectorAll('.js-rating-stars-list');
+console.log(refs.resetBtn);
+window.addEventListener('DOMContentLoaded', () => {
+  changeSelectTime();
+  changeAllSelectFilter();
+});
 
-refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
+// refs.inputSearch.addEventListener('input', debounce(onChangeInputSearch, 300));
 refs.searchForm.addEventListener('change', onChangeSelectFilter);
+refs.resetBtn.addEventListener('click', onClickResetButton);
 
 //забираю значення з інпуту та роблю запит з подальшою відмальовкою
-function onChangeInputSearch(evt) {
-  const valueSearch = evt.target.value.trim();
-  serviceAllRecipesSearch(valueSearch)
+// function onChangeInputSearch(evt) {
+//   const gridBox = document.querySelector('.js-card-list');
+
+//   const valueSearch = evt.target.value.trim();serviceAllRecipes
+//   serviceAllRecipesSearch(valueSearch)
+//     .then(data => {
+//       if (data.totalPages === null) {
+//         Notify.failure(
+//           'Sorry, there are no recipes matching your search query. Please try again.'
+//         );
+//       }
+//       createMarkupCard(data.results);
+//       gridBox.innerHTML = createMarkupCard(data.results);
+
+//       addRating();
+//     })
+//     .catch(error => {
+//       Notify.failure(error.message);
+//     });
+// }
+
+function onChangeSelectFilter() {
+  const gridBox = document.querySelector('.js-card-list');
+  const formData = new FormData(refs.searchForm);
+  const timeField = formData.get('time');
+  const filterParams = {
+    search: formData.get('search').trim() || '',
+    time: timeField !== null ? timeField.toString() : '',
+    area: formData.get('area') || '',
+    ingredients: formData.get('ingredients') || '',
+  };
+
+  serviceAllFilter(filterParams)
     .then(data => {
-      console.log(data.totalPages);
+      console.log(data.results);
       if (data.totalPages === null) {
         Notify.failure(
           'Sorry, there are no recipes matching your search query. Please try again.'
         );
       }
       createMarkupCard(data.results);
-
-      // ratingList.forEach(elem => {
-      //   const ratingNum = Math.round(elem.previousElementSibling.textContent);
-
-      //   for (let i = 0; i < ratingNum; i++) {
-      //     elem.children[i].style.fill = 'rgb(238, 161, 12)';
-      //   }
-      // });
       gridBox.innerHTML = createMarkupCard(data.results);
+
+      addRating();
     })
     .catch(error => {
       Notify.failure(error.message);
     });
 }
 
-function onChangeSelectFilter(evt) {
-  console.log(evt.target.value);
+function onClickResetButton() {
+  refs.searchForm.reset();
+  const gridBox = document.querySelector('.js-card-list');
+  serviceAllRecipes()
+    .then(data => {
+      createMarkupCard(data.results);
+      gridBox.innerHTML = createMarkupCard(data.results);
+
+      addRating();
+    })
+    .catch(error => {
+      Notify.failure(error.message);
+    });
 }
 
 // Створення селекту часу
 function changeSelectTime() {
-  for (let i = 5; i <= 120; i += 5) {
-    let optionText = i + ' min';
-    let option = new Option(optionText, i.toString(), false, true);
-    refs.filterTime.appendChild(option);
+  if (refs.selectTime) {
+    for (let i = 5; i <= 120; i += 5) {
+      const option = document.createElement('option');
+      option.value = i.toString();
+      option.textContent = `${i} min`;
+      option.classList.add('filter-time');
+      refs.selectTime.appendChild(option);
+    }
   }
 }
-changeSelectTime();
-changeSelectAreas();
-changeSelectIngred();
 
-// Створення селектору країни
-function changeSelectAreas() {
-  serviceChangeAllAreas()
+// Створення селектору країни та інгридієнту
+function changeAllSelectFilter() {
+  fetchAllDataFilter()
     .then(data => {
-      createOption(data);
-      refs.filterArea.innerHTML = createOption(data);
+      createOptionArea(data.areasData);
+      createOptionIngr(data.ingredientsData);
+      refs.selectArea.insertAdjacentHTML(
+        'beforeend',
+        createOptionArea(data.areasData)
+      );
+      refs.selectIngred.insertAdjacentHTML(
+        'beforeend',
+        createOptionIngr(data.ingredientsData)
+      );
     })
     .catch(error => {
       Notify.failure(error.message);
     });
 }
 
-// Створення селектору інгридієнту
-function changeSelectIngred() {
-  serviceChangeAllIngred()
-    .then(data => {
-      createOption(data);
-      refs.filterIngred.innerHTML = createOption(data);
-    })
-    .catch(error => {
-      Notify.failure(error.message);
-    });
-}
-
-// Функция для отправки запроса на бекенд
-async function sendRequest(searchParams) {
-  try {
-    const response = await axios.get(
-      'https://tasty-treats-backend.p.goit.global/api/recipes',
-      {
-        params: searchParams,
-      }
-    );
-    // Обработка полученных данных
-    console.log('Response data:', response.data);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
-// // Функция для обработки изменения значения в поле поиска
-// function handleSearchInputChange(event) {
-//   const searchInput = event.target;
-//   const searchValue = searchInput.value.trim();
-
-//   // Выполняем запрос, если длина введенного текста больше или равна 3 символам
-//   if (searchValue.length >= 3) {
-//     // Создаем объект параметров запроса
-//     const searchParams = {
-//       search: searchValue,
-//       // Другие параметры запроса, например: category, age, limit, time, area, ingredient
-//     };
-
-//     // Отправляем запрос на бекенд с использованием debounce для задержки
-//     sendRequest(searchParams);
-//   }
-// }
+// serviceAllFilter({
+//   search: searchValue,
+//   time: selectedTime,
+//   area: selectedArea,
+//   ingredients: selectedIngredients,
+// }) - замість form Data
