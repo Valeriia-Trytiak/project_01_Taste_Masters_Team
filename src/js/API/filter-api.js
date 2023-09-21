@@ -30,6 +30,7 @@ async function serviceAllFilter(
     time: currentTimeFilter,
     area: currentAreaFilter,
     ingredients: currentIngrFilter,
+    category: categoryName,
   },
   currentPage = '1'
 ) {

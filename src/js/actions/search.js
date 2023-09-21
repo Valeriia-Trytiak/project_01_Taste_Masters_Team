@@ -13,6 +13,7 @@ import {
   serviceAllRecipesSearch,
   serviceAllFilter,
 } from '/js/API/filter-api.js';
+import { getCategoryName } from '/js/actions/category.js';
 import {
   createOptionArea,
   createOptionIngr,
