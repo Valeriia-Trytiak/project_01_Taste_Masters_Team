@@ -1,7 +1,12 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { debounce } from 'debounce';
 
-import { addRating, removeCartInLocalStorage, heartIsActive, addCartInLocalStorage} from './cards.js';
+import {
+  addRating,
+  removeCartInLocalStorage,
+  heartIsActive,
+  addCartInLocalStorage,
+} from './cards.js';
 import { fetchAllDataFilter } from '/js/API/areas-api.js';
 import { serviceAllRecipes } from '/js/API/recipe-api.js';
 import {
@@ -54,6 +59,7 @@ refs.resetBtn.addEventListener('click', onClickResetButton);
 //     });
 // }
 
+//Функція пошуку по усіх рецептах
 function onChangeSelectFilter() {
   const gridBox = document.querySelector('.js-card-list');
   const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
@@ -78,7 +84,6 @@ function onChangeSelectFilter() {
       gridBox.innerHTML = createMarkupCard(data.results);
 
       addRating();
-      addRating();
       heartIsActive(gridBox, favoritesArr);
       addCartInLocalStorage();
       removeCartInLocalStorage();
@@ -88,8 +93,10 @@ function onChangeSelectFilter() {
     });
 }
 
+// Очищення форми та відмальовка рецептів
 function onClickResetButton() {
   refs.searchForm.reset();
+  const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
   const gridBox = document.querySelector('.js-card-list');
   serviceAllRecipes()
     .then(data => {
@@ -97,6 +104,9 @@ function onClickResetButton() {
       gridBox.innerHTML = createMarkupCard(data.results);
 
       addRating();
+      heartIsActive(gridBox, favoritesArr);
+      addCartInLocalStorage();
+      removeCartInLocalStorage();
     })
     .catch(error => {
       Notify.failure(error.message);
@@ -135,10 +145,3 @@ function changeAllSelectFilter() {
       Notify.failure(error.message);
     });
 }
-
-// serviceAllFilter({
-//   search: searchValue,
-//   time: selectedTime,
-//   area: selectedArea,
-//   ingredients: selectedIngredients,
-// }) - замість form Data

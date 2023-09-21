@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix';
 
 async function serviceAllRecipes(perPage, currentPage = '1') {
   const BASE_URL = 'https://tasty-treats-backend.p.goit.global/api/recipes';
