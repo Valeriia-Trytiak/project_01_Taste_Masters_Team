@@ -134,11 +134,3 @@ export function limit() {
   );
   return elemToPage;
 }
-
-export function limit() {
-  const gridBox = document.querySelector('.js-card-list');
-  const elemToPage = getComputedStyle(gridBox).getPropertyValue(
-    '--limiter-cards-on-page'
-  );
-  return elemToPage;
-}
