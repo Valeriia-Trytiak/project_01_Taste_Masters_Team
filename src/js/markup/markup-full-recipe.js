@@ -1,7 +1,6 @@
 import sprite from '../../img/icons.svg';
 
 export function createMarkupModal(data) {
-  console.log(data);
   const youtubeLink = data.youtube;
 
   function getYoutubeVideoId(url) {
