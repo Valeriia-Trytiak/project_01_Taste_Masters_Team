@@ -467,6 +467,7 @@ html.dark .rating-form-input::placeholder {
 /* ==================== Search ==================== */
 
 html.dark .search-form input {
+  color: var(--txt-cl-50-dark-theme);
   background-color: #1e1e1e;
   border: 1px solid var(--txt-cl-50-dark-theme);
 }
