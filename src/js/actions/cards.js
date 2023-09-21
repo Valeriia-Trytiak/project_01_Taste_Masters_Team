@@ -26,6 +26,7 @@ export async function cardsGenerate(currentPage, perPage) {
     addRating();
     heartIsActive(gridBox, favoritesArr);
     addCartInLocalStorage();
+    removeCartInLocalStorage();
   } catch (error) {
     // Handle Axios request error (e.g., network issue)
     Notify.failure(
