@@ -27,6 +27,17 @@ export async function cardsGenerate(currentPage, perPage) {
     heartIsActive(gridBox, favoritesArr);
     addCartInLocalStorage();
     removeCartInLocalStorage();
+
+    // Update the rating stars based on data
+    const ratingList = document.querySelectorAll('.js-rating-stars-list');
+
+    ratingList.forEach(elem => {
+      const ratingNum = Math.round(elem.previousElementSibling.textContent);
+
+      for (let i = 0; i < ratingNum; i++) {
+        elem.children[i].style.fill = 'rgb(238, 161, 12)';
+      }
+    });
   } catch (error) {
     // Handle Axios request error (e.g., network issue)
     Notify.failure(
@@ -47,7 +58,7 @@ export function addRating() {
   });
 }
 
-export function addCartInLocalStorage() {
+function addCartInLocalStorage() {
   const inactiveHearts = document.querySelectorAll('.js-btn-heart-inactive');
 
   inactiveHearts.forEach(elem =>
@@ -114,4 +125,20 @@ export function heartIsActive(listBox, localArr) {
       }
     });
   });
+}
+
+export function limit() {
+  const gridBox = document.querySelector('.js-card-list');
+  const elemToPage = getComputedStyle(gridBox).getPropertyValue(
+    '--limiter-cards-on-page'
+  );
+  return elemToPage;
+}
+
+export function limit() {
+  const gridBox = document.querySelector('.js-card-list');
+  const elemToPage = getComputedStyle(gridBox).getPropertyValue(
+    '--limiter-cards-on-page'
+  );
+  return elemToPage;
 }

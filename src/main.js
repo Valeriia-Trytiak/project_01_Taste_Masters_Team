@@ -25,17 +25,21 @@ import {} from './js/actions/rating-modal';
 import { setupRating } from '/js/actions/rating-modal';
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
+import { handlerMenuLink } from '/js/actions/header';
+import { handlerMobMenuLink } from '/js/actions/header';
 
 setupRating();
 import {} from '/js/actions/modal-new-order';
-import { cardsGenerate } from '/js/actions/cards';
+import { cardsGenerate, limit } from '/js/actions/cards';
 import { initializePagination } from '/js/actions/pagination-home';
 import {} from '/js/actions/popular';
 import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
 import {} from '/js/actions/full-recipe.js';
 
+handlerMenuLink();
+handlerMobMenuLink();
 setupRating();
-cardsGenerate();
+cardsGenerate(1, limit());
 loadHero();
 initializePagination();

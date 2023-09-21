@@ -19,6 +19,7 @@
 @import url('./modal-rating.css');
 @import url('./favorites-page.css');
 @import url('./footer.css');
+@import url('./home.css');
 
 :root {
   --font-family: Inter, sans-serif;

@@ -143,6 +143,15 @@
   display: block;
 }
 
+.current {
+  color: var(--accent-cl);
+  font-weight: 500;
+}
+
+.current:hover {
+  color: var(--txt-cl-100-light-theme);
+}
+
 @media (hover: hover) {
   .menu-link:hover,
   .menu-link:focus {
@@ -154,11 +163,6 @@
   .menu-link:active {
     color: var(--accent-cl);
   }
-}
-
-.current {
-  color: var(--accent-cl);
-  font-weight: 500;
 }
 
 @media screen and (min-width: 768px) {
@@ -243,7 +247,7 @@
   left: 20px;
 
   border-radius: 14px;
-  box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
+  box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.60);
 }
 
 .switch-desk {
@@ -255,7 +259,7 @@
   margin-top: 3px;
 
   border-radius: 14px;
-  box-shadow: 7px 5px 15px 0px var(-bg-cl-dark-theme);
+  box-shadow: 7px 5px 15px 0px rgba(160, 158, 160, 0.60);
 }
 
 .switch__slider {
@@ -305,7 +309,30 @@ html.dark body {
 
 /* ========= header ======== */
 
+
+html.dark .link-home {
+  color: var(--bg-cl-light-theme);
+}
+
 html.dark .link-fav {
+  color: var(--bg-cl-light-theme);
+}
+
+html.dark .link-home:hover,
+html.dark .link-home:focus {
+  color: var(--accent-cl);
+}
+
+html.dark .link-fav:hover,
+html.dark .link-fav:focus {
+  color: var(--accent-cl);
+}
+
+html.dark .current {
+  color: var(--accent-cl);
+}
+
+html.dark .current:hover {
   color: var(--bg-cl-light-theme);
 }
 
@@ -396,9 +423,14 @@ html.dark .modal-title {
 }
 
 html.dark .form-field {
+  color: var(--txt-cl-50-dark-theme);
   background-color: transparent;
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .form-field::placeholder {
+  color: var(--txt-cl-50-dark-theme);
 }
 
 html.dark .form-label {
@@ -439,6 +471,7 @@ html.dark .rating-form-input::placeholder {
 /* ==================== Search ==================== */
 
 html.dark .search-form input {
+  color: var(--txt-cl-50-dark-theme);
   background-color: #1e1e1e;
   border: 1px solid var(--txt-cl-50-dark-theme);
 }
@@ -471,6 +504,11 @@ html.dark .fav-hero-img {
 
 html.dark .catigories-btn {
   background: #1e1e1e;
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .fav-categories-btn {
   color: rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -540,3 +578,12 @@ html.dark .modal-hashtag-item {
 html.dark .modal-give-rating {
   color: var(--bg-cl-light-theme);
 }
+
+html.dark .modal-card-time-dark {
+  color: var(--txt-cl-50-dark-theme);
+}
+
+html.dark .modal-ingredient-dark {
+  border-bottom-color: rgba(255, 255, 255, 0.10);
+}
+

@@ -11,7 +11,14 @@
 }
 @media only screen and (min-width: 1280px) {
   .search-form {
+    display: block;
+    /* gap: 16px; */
     margin: 0;
+  }
+
+  .search-form-js {
+    display: flex;
+    gap: 16px;
   }
 }
 @media only screen and (min-width: 768px) {
@@ -69,6 +76,13 @@
     line-height: 1.25;
   }
 }
+.option-def-ingr,
+.option-def-time,
+.option-def-area {
+  font-size: 14px;
+  line-height: 1.17;
+  font-weight: 400;
+}
 
 .search-icon {
   position: absolute;
@@ -90,7 +104,9 @@
 
 @media only screen and (min-width: 1280px) {
   .filter-list {
+    width: 486px;
     gap: 16px;
+    flex-wrap: nowrap;
   }
 }
 
@@ -107,6 +123,7 @@
   color: var(--txt-cl-50-light-theme);
   border: 1px solid var(--border-light-theme);
   border-radius: 15px;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -122,6 +139,7 @@
     left: 294px;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .filter-list li:first-child {
     min-width: 125px;
@@ -129,13 +147,12 @@
 }
 
 .filter-list li {
-  min-width: 160px;
+  width: 160px;
 }
 
-#time-select {
-  max-height: 124px;
-  overflow-y: auto;
-}
+/* .filter-item #area-select {
+  width: ;
+} */
 @media only screen and (min-width: 768px) {
   .filter-list li {
     min-width: 141px;
@@ -164,9 +181,22 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition: transform 250ms var(--timing-function);
 }
 
 .reset-filter-icon {
   height: 16px;
   stroke: var(--accent-cl);
+}
+
+@media (hover: hover) {
+  .reset-btn:hover,
+  .reset-btn:focus {
+    transform: scale(1.2);
+  }
+}
+@media not (hover: hover) {
+  .reset-btn:active {
+    transform: scale(1.2);
+  }
 }

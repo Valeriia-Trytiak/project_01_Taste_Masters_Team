@@ -16,7 +16,7 @@ const refs = {
 refs.allCards.addEventListener('click', handlerGetIdCard);
 
 //зірки заливка
-function fillStars() {
+export function fillStars() {
   const starRatings = document.querySelectorAll('.stars-block-js');
   starRatings.forEach(starRating => {
     //Отримую рейтинг(текст контент) з елемента
@@ -36,8 +36,8 @@ function fillStars() {
   });
 }
 
-// //блок кнопок на відкриття та закриття модального вікна
-function openModal() {
+//блок кнопок на відкриття та закриття модального вікна
+export function openModal() {
   refs.modalButtonClose.addEventListener('click', closeModal);
   refs.modalBackdrop.addEventListener('click', closeModalOnBackdrop);
   window.addEventListener('keydown', handleKeyDown);
@@ -45,13 +45,13 @@ function openModal() {
   document.body.style.overflow = 'hidden';
 }
 
-function handleKeyDown(event) {
+export function handleKeyDown(event) {
   if (event.key === 'Escape') {
     closeModal();
   }
 }
 
-function closeModal() {
+export function closeModal() {
   refs.modalButtonClose.removeEventListener('click', closeModal);
   refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
   window.removeEventListener('keydown', handleKeyDown);
@@ -61,7 +61,7 @@ function closeModal() {
   youtubeIframe.src = '';
 }
 
-function closeModalOnBackdrop(event) {
+export function closeModalOnBackdrop(event) {
   if (event && event.target === refs.modalBackdrop) {
     refs.modalButtonClose.removeEventListener('click', closeModal);
     refs.modalBackdrop.removeEventListener('click', closeModalOnBackdrop);
@@ -71,6 +71,56 @@ function closeModalOnBackdrop(event) {
     const youtubeIframe = document.querySelector('.iframe-video');
     youtubeIframe.src = '';
   }
+}
+
+// запис та видалення з сховища
+export function addToLocalStorage(evt) {
+  console.log('addToLocalStorage called');
+  const addButton = evt.target;
+  const cardId = addButton.getAttribute('id');
+
+  const recipeData = createRecipeDataFromModal(cardId);
+
+  // перевірка на вміст
+  const savedData = getSavedDataFromLocalStorage();
+  const existingRecipe = savedData.findIndex(data => data.id === cardId);
+
+  if (existingRecipe !== -1) {
+    savedData.splice(existingRecipe, 1);
+
+    Notify.warning(`Recipe added to favorites`);
+    addButton.textContent = 'Add to favorite';
+
+    hideButtonInactive();
+  } else {
+    savedData.push(recipeData);
+
+    showButtonActive();
+    Notify.success(`Recipe removed from favorites`);
+    addButton.textContent = 'Remove favorite';
+    hideButtonInactive();
+  }
+  saveDataToLocalStorage(savedData);
+}
+
+export function createRecipeDataFromModal(cardId) {
+  const elements = {
+    title: document.querySelector('.modal-recipe-name').textContent,
+    description: document.querySelector('.modal-recipe-instructions')
+      .textContent,
+    preview: document.querySelector('.iframe-video').getAttribute('poster'),
+    rating: document.querySelector('.modal-stars-rating').textContent,
+    category: document.querySelector('.modal-category-js').textContent,
+    cardId: document.querySelector('.modal-add-favorite').getAttribute('id'),
+  };
+  return {
+    id: cardId,
+    title: elements.title,
+    description: elements.description,
+    preview: elements.preview,
+    rating: elements.rating,
+    category: elements.category,
+  };
 }
 
 function getSavedDataFromLocalStorage() {
