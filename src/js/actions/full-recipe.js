@@ -104,6 +104,7 @@ function showButtonActive() {
   }
 }
 
+//опрацювання кліку на картці
 function handlerGetIdCard(evt) {
   const cardBtn = evt.target.closest('.card-btn');
   // const gridBox = document.querySelector('.js-card-list');
@@ -128,8 +129,10 @@ function handlerGetIdCard(evt) {
           if (existingRecipe) {
             // Зміна тексту кнопки
             addToFavorite.textContent = 'Remove from favorites';
+            showButtonActive();
           } else {
             addToFavorite.textContent = 'Add to favorites';
+            hideButtonInactive();
           }
           openModal();
 
@@ -163,7 +166,7 @@ function addToLocalStorage(evt) {
     addButton.textContent = 'Add to favorites';
 
     saveDataToLocalStorage(savedData);
-    showButtonActive();
+
     // updateFavoriteButtonVisibility(cardId, false);
   } else {
     savedData.push(recipeData);
@@ -171,7 +174,6 @@ function addToLocalStorage(evt) {
     // updateFavoriteButtonVisibility(cardId, true);
     Notify.success(`Recipe added to favorites`);
     addButton.textContent = 'Remove from favorites';
-    hideButtonInactive();
   }
   saveDataToLocalStorage(savedData);
 }
