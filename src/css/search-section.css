@@ -54,6 +54,14 @@
 
 .search-input-wrapper {
   position: relative;
+  width: 335px;
+  height: 46px;
+}
+
+@media only screen and (min-width: 768px) {
+  .search-input-wrapper {
+    width: 278px;
+  }
 }
 
 .search-form input {
@@ -153,11 +161,11 @@
 /* .filter-item #area-select {
   width: ;
 } */
-@media only screen and (min-width: 768px) {
+/* @media only screen and (min-width: 768px) {
   .filter-list li {
     min-width: 141px;
   }
-}
+} */
 
 .filter-list li:last-child {
   width: 188px;
@@ -173,7 +181,16 @@
   justify-content: flex-end;
   align-items: center;
   gap: 4px;
+  padding-top: 14px;
+  padding-bottom: 20px;
 }
+
+@media only screen and (min-width: 768px) {
+  .btn-reset-thumb {
+    padding-bottom: 14px;
+  }
+}
+
 .reset-btn {
   width: 16px;
   height: 16px;
@@ -198,5 +215,31 @@
 @media not (hover: hover) {
   .reset-btn:active {
     transform: scale(1.2);
+  }
+}
+
+/* #time-select {
+  width: 160px;
+  height: 46px;
+} */
+
+@media only screen and (min-width: 768px) {
+  #time-select {
+    width: 125px;
+    height: 48px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #area-select {
+    width: 141px;
+    height: 48px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #ingredients-select {
+    width: 188px;
+    height: 48px;
   }
 }
