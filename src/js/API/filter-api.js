@@ -27,6 +27,7 @@ async function serviceAllRecipesSearch(valueSearch) {
 async function serviceAllFilter(
   {
     search,
+    category,
     time: currentTimeFilter,
     area: currentAreaFilter,
     ingredients: currentIngrFilter,
@@ -39,6 +40,9 @@ async function serviceAllFilter(
     page: currentPage,
   };
 
+  if (category !== null && category !== undefined) {
+    params.category = category;
+  }
   if (search !== null && search !== undefined) {
     params.title = search;
   }

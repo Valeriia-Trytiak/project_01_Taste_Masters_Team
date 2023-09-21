@@ -7,26 +7,33 @@ import {
 } from './cards.js';
 import { createMarkupCard } from '/js/markup/markup-card.js';
 import { serviceAllRecipes } from '/js/API/recipe-api.js';
+// import { onChangeSelectFilter } from '/js/API/search.js';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const btnAllCaterogies = document.querySelector('.btn-all-js');
 const categoryList = document.querySelector('.categories-list');
 const btnAllCategories = document.querySelector('.categories-btn');
-
 const gridBox = document.querySelector('.js-card-list');
 const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
+// export let currentCategory = '';
 
 categoryList.addEventListener('click', getCategoryName);
-btnAllCaterogies.addEventListener('click', getAllCateroryRecipe);
+btnAllCategories.addEventListener('click', getAllCategoryRecipes);
 
-export function getCategoryName(evt) {
+function getCategoryName(evt) {
   if (!evt.target.classList.contains('btn-dishes')) {
     return;
   }
 
-  btnAllCategories.classList.remove('all-categories-active');
-  const category = evt.target.textContent;
+  const currentCategory = evt.target.textContent;
+  fetchRecipesByCategory(currentCategory);
+  // onChangeSelectFilter(currentCategory);
+}
+function getAllCategoryRecipes() {
+  fetchAllRecipes();
+}
 
+function fetchRecipesByCategory(category) {
+  btnAllCategories.classList.remove('all-categories-active');
   fetchRecipeByCategory(category)
     .then(data => {
       if (data.totalPages === null) {
@@ -34,31 +41,29 @@ export function getCategoryName(evt) {
           'Sorry, there are no recipes matching your search query. Please try again.'
         );
       }
-      createMarkupCard(data.results);
-      gridBox.innerHTML = createMarkupCard(data.results);
-
-      addRating();
-      heartIsActive(gridBox, favoritesArr);
-      addCartInLocalStorage();
-      removeCartInLocalStorage();
+      displayRecipes(data.results);
     })
     .catch(error => {
       Notify.failure(error.message);
     });
 }
 
-function getAllCateroryRecipe() {
+function fetchAllRecipes() {
   serviceAllRecipes()
     .then(data => {
-      createMarkupCard(data.results);
-      gridBox.innerHTML = createMarkupCard(data.results);
-
-      addRating();
-      heartIsActive(gridBox, favoritesArr);
-      addCartInLocalStorage();
-      removeCartInLocalStorage();
+      displayRecipes(data.results);
     })
     .catch(error => {
       Notify.failure(error.message);
     });
+}
+
+export function displayRecipes(recipes) {
+  createMarkupCard(recipes);
+  gridBox.innerHTML = createMarkupCard(recipes);
+
+  addRating();
+  heartIsActive(gridBox, favoritesArr);
+  addCartInLocalStorage();
+  removeCartInLocalStorage();
 }
