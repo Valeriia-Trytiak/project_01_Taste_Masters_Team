@@ -64,6 +64,12 @@ refs.resetBtn.addEventListener('click', onClickResetButton);
 
 //Функція пошуку по усіх рецептах
 function onChangeSelectFilter(currentCategory) {
+  if (refs.inputSearch.value !== '') {
+    refs.inputSearch.nextElementSibling.style.fill = 'var(--accent-cl)';
+  } else {
+    refs.inputSearch.nextElementSibling.style.fill =
+      'var(--txt-cl-50-light-theme)';
+  }
   const gridBox = document.querySelector('.js-card-list');
   const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
 
