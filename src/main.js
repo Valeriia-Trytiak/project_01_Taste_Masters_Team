@@ -23,6 +23,8 @@ import { windowLoad } from '/js/actions/header';
 
 import { openMobileMenu } from '/js/actions/header';
 import { closeMobileMenu } from '/js/actions/header';
+import { handlerMenuLink } from '/js/actions/header';
+import { handlerMobMenuLink } from '/js/actions/header';
 
 import {} from '/js/actions/modal-new-order';
 import { cardsGenerate } from '/js/actions/cards';
@@ -33,6 +35,9 @@ import {} from '/js/actions/popular';
 import {} from '/js/actions/modal-new-order';
 import {} from '/js/actions/search';
 
+
+handlerMenuLink();
+handlerMobMenuLink();
 cardsGenerate();
 loadHero();
 initializePagination();
