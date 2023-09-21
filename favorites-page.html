@@ -9,9 +9,9 @@
     
     <!--Підключення js-->
     
-    <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/favorites-page-bdbd0270.js"></script>
-    <link rel="modulepreload" crossorigin href="/project_01_Taste_Masters_Team/assets/cards-6ea8b858.js">
-    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/cards-0f22db70.css">
+    <script type="module" crossorigin src="/project_01_Taste_Masters_Team/assets/favorites-page-aafe9018.js"></script>
+    <link rel="modulepreload" crossorigin href="/project_01_Taste_Masters_Team/assets/cards-cdae0ebb.js">
+    <link rel="stylesheet" href="/project_01_Taste_Masters_Team/assets/cards-82192a39.css">
   </head>
   <body>
     <!--Підключення хедера-->
@@ -247,7 +247,7 @@
             type="text"
             name="modal_name"
             id="modal_name"
-            pattern="[A-Za-z]{3,10}"
+            pattern="[A-Za-z]{3,50}"
             required
           />
         </div>
@@ -261,6 +261,7 @@
             id="modal_phone"
             placeholder="+380"
             pattern="^\+380\d{9}$"
+            
             required
           />
         </div>
@@ -279,8 +280,7 @@
         <div class="input-wrapper">
           <label class="form-label" for="modal_comment">Comment</label>
           <textarea
-            rows="5"
-            cols="33"
+            
             class="form-field form-field-comment"
             name="modal_comment"
             id="modal_comment"
