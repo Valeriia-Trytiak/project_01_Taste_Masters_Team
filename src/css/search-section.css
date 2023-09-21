@@ -11,6 +11,8 @@
 }
 @media only screen and (min-width: 1280px) {
   .search-form {
+    display: block;
+    /* gap: 16px; */
     margin: 0;
   }
 }
@@ -91,6 +93,7 @@
 @media only screen and (min-width: 1280px) {
   .filter-list {
     gap: 16px;
+    flex-wrap: nowrap;
   }
 }
 
