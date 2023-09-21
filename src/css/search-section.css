@@ -181,11 +181,12 @@
   justify-content: flex-end;
   align-items: center;
   gap: 4px;
+  padding-top: 14px;
+  padding-bottom: 20px;
 }
 
 @media only screen and (min-width: 768px) {
   .btn-reset-thumb {
-    padding-top: 14px;
     padding-bottom: 14px;
   }
 }
