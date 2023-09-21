@@ -32,6 +32,15 @@
   padding: 14px 18px;
 }
 
+.form-field::placeholder {
+  position: absolute;
+  left: 18px;
+  top: 14px;
+  color: var(--txt-cl-50-light-theme);
+  font-size:16px;
+  font-size: 1.2;
+   }
+
 .form-field-comment {
   height: 100px;
   text-align: left;
