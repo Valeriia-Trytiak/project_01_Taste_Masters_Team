@@ -415,6 +415,7 @@ html.dark .modal-title {
 }
 
 html.dark .form-field {
+  color: var(--txt-cl-50-dark-theme);
   background-color: transparent;
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.2);
