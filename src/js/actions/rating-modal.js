@@ -9,7 +9,24 @@ export async function initializeRating() {
     document.addEventListener('DOMContentLoaded', resolve);
   });
 
-  const giveRatingButton = document.getElementById('give_rating');
+  document.addEventListener('DOMContentLoaded', async () => {
+    const giveRatingModalBtn = await getElementByIdAsync('give_rating');
+  });
+
+  async function getElementByIdAsync(id) {
+    return new Promise((resolve) => {
+      const checkElement = () => {
+        const element = document.getElementById(id);
+        if (element) {
+          resolve(element);
+        } else {
+          requestAnimationFrame(checkElement);
+        }
+      };
+      checkElement();
+    });
+  }
+
   const stars = document.querySelectorAll('.rating-star-svg');
   const currentRating = document.querySelector('.rating-result');
   const userEmailInput = document.querySelector('.rating-form-input');
@@ -22,7 +39,7 @@ export async function initializeRating() {
   let recipeId = null;
 
     // Add a click event listener to open the modal when the button is clicked
-giveRatingButton.addEventListener('click', function () {
+giveRatingModalBtn.addEventListener('click', function () {
   openModal(); // Call the openModal function to open the window
 });
 
