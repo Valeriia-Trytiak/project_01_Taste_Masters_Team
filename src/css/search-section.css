@@ -21,6 +21,9 @@
     gap: 16px;
   }
 }
+.filter-wrapper{
+  margin-bottom: 14px;
+}
 @media only screen and (min-width: 768px) {
   .filter-wrapper {
     width: 419px;
@@ -58,9 +61,7 @@
 
 .search-form input {
   width: 100%;
-  padding-top: 14px;
-  padding-bottom: 14px;
-  padding-left: 48px;
+  padding: 14px 18px 14px 48px;
 
   font-size: 14px;
   line-height: 1.17;
@@ -82,6 +83,12 @@
   font-size: 14px;
   line-height: 1.17;
   font-weight: 400;
+}
+
+@media only screen and (min-width: 1280px) {
+  #ingredients-select {
+    width: 198px;
+  }
 }
 
 .search-icon {
