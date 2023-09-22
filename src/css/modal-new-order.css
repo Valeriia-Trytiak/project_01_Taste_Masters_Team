@@ -2,6 +2,7 @@
   width: 335px;
   height: 582px;
   padding: 28px 20px;
+  overflow-y: scroll;
 }
 
 .modal-title {
@@ -116,3 +117,8 @@ top: 16px;
 right: 16px;
 }
 }
+
+.no-scroll{
+  overflow: hidden;
+}
+
