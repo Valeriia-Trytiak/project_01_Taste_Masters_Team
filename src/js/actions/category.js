@@ -25,15 +25,24 @@ function getCategoryName(evt) {
   }
 
   const currentCategory = evt.target.textContent;
-  fetchRecipesByCategory(currentCategory);
+  fetchRecipesByCategory(currentCategory, evt.target);
   // onChangeSelectFilter(currentCategory);
 }
 function getAllCategoryRecipes() {
+  btnAllCategories.classList.add('all-categories-active');
+  [...categoryList.children].map(item =>
+    item.firstElementChild.classList.remove('btn-dishes-active')
+  );
+  
   fetchAllRecipes();
 }
 
-function fetchRecipesByCategory(category) {
+function fetchRecipesByCategory(category, active) {
   btnAllCategories.classList.remove('all-categories-active');
+  [...categoryList.children].map(item =>
+    item.firstElementChild.classList.remove('btn-dishes-active')
+  );
+  active.classList.add('btn-dishes-active');
   fetchRecipeByCategory(category)
     .then(data => {
       if (data.totalPages === null) {
