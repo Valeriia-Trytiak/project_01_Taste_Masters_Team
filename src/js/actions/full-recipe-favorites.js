@@ -185,10 +185,9 @@ export function addToLocalStorage(evt) {
 
   // Перевірка наличия в сховищі
   const savedData = getSavedDataFromLocalStorage();
-  console.log(savedData);
+
   const existingRecipeIndex = savedData.findIndex(data => data._id === cardId);
 
-  console.log(existingRecipeIndex);
   if (existingRecipeIndex !== -1) {
     savedData.splice(existingRecipeIndex, 1);
 

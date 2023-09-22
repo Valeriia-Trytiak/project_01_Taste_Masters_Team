@@ -80,12 +80,8 @@ function onChangeSelectFilter() {
     area: formData.get('area') || '',
     ingredients: formData.get('ingredients') || '',
   };
-  console.log(currentCategory);
-  console.log('лог після каренту');
-
   serviceAllFilter(filterParams)
     .then(data => {
-      console.log(data.results);
       if (data.totalPages === null) {
         Notify.failure(
           'Sorry, there are no recipes matching your search query. Please try again.'
