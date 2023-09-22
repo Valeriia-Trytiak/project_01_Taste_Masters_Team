@@ -4,6 +4,9 @@ export function createMarkupModal(data) {
   const youtubeLink = data.youtube;
 
   function getYoutubeVideoId(url) {
+    if (!url) {
+      return ''; // Перевірка на нульове значення
+    }
     const videoIdMatch = url.match(/v=([^&]+)/);
     return videoIdMatch ? videoIdMatch[1] : '';
   }

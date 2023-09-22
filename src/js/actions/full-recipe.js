@@ -212,7 +212,8 @@ export function addToLocalStorage(evt) {
 function createRecipeDataFromModal(cardId) {
   const elements = {
     title: document.querySelector('.modal-recipe-name').textContent,
-    description: document.querySelector('.modal-recipe-instructions')
+    description: document
+      .querySelector('.modal-recipe-instructions')
       .textContent.trim(),
     preview: document.querySelector('.iframe-video').getAttribute('poster'),
     rating: document.querySelector('.modal-stars-rating').textContent,
