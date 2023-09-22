@@ -2,6 +2,7 @@
   width: 335px;
   height: 582px;
   padding: 28px 20px;
+  overflow-y: scroll;
 }
 
 .modal-title {
