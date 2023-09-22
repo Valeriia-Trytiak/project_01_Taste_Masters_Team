@@ -1,5 +1,6 @@
 import { fetchRecipeByID } from '/js/API/recipe-id-api';
 import { createMarkupModal } from '/js/markup/markup-full-recipe.js';
+import { openRatingModal, initializeRating } from '/js/actions/rating-modal.js';
 
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -9,7 +10,6 @@ const refs = {
   modalCardCont: document.querySelector('.modal-card-markup'),
   modalBackdrop: document.querySelector('.modal-backdrop'),
   modalButtonClose: document.querySelector('.modal-btn-close'),
-  giveRatingModalBtn: document.querySelector('.modal-give-rating'),
   inputStar: document.querySelectorAll('.rating-star'),
 };
 
@@ -172,10 +172,14 @@ function handlerGetIdCard(evt) {
       .catch(error => {
         console.error('Error fetching or rendering data:', error);
         Notify.failure(error.message);
+      })
+      .finally(() => {
+        const giveRatingModalBtn = document.querySelector('#givRating');
+        giveRatingModalBtn.addEventListener('click', openRatingModal);
+        initializeRating(cardId);
       });
   }
 }
-
 // Для добавления и удаления из избранного
 export function addToLocalStorage(evt) {
   const addButton = evt.target;
