@@ -26,7 +26,7 @@ const refs = {
   selectArea: document.querySelector('[name= "area"]'),
   selectIngred: document.querySelector('[name="ingredients"]'),
   searchForm: document.querySelector('.search-form-js'),
-  resetBtn: document.querySelector('.reset-btn'),
+  resetBtn: document.querySelector('.btn-reset-thumb'),
 };
 
 window.addEventListener('DOMContentLoaded', () => {

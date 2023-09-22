@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { Notify } from 'notiflix';
 import { cardsGenerate } from '/js/actions/cards';
 import { serviceAllRecipes } from '/js/API/filter-api';
@@ -15,10 +14,8 @@ export async function initializePagination() {
 
   async function calculateTotalPages() {
     const response = await serviceAllRecipes(perPage, currentPage);
-    console.log('API Response:', response.data);
 
     const totalPages = response.data.totalPages;
-    console.log('Total Pages:', totalPages);
 
     return totalPages;
   }
