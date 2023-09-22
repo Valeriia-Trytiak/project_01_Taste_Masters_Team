@@ -40,14 +40,14 @@ export async function initializeRating(cardId) {
   //   }
   // });
   const stars = document.querySelectorAll('.rating-star-svg');
-  const currentRating = document.querySelector('.rating-result');
+  let currentRating = document.querySelector('.rating-result');
   const userEmailInput = document.querySelector('.rating-form-input');
   const sendButton = document.querySelector('.rating-send');
   const closeButton = document.querySelector('.close-rating');
   const modalRating = document.querySelector('.modal-rating-js');
   let userRating = 0.0;
   let userEmail = '';
-  let recipeId = null;
+  // let cardId = null;
 
   // Function to check if the full recipe modal is open
   // function isFullRecipeModalOpen() {
@@ -124,22 +124,20 @@ export async function initializeRating(cardId) {
   sendButton.addEventListener('click', function (event) {
     event.preventDefault();
     const currentRating = userRating;
-    console.log(cardId);
-    console.log(typeof currentRating);
-    console.log(userEmail);
     if (isValidEmail(userEmail) && cardId !== null) {
       rateRecipeById(cardId, currentRating, userEmail)
         .then(() => {
           Notify.success('Rating submitted successfully!');
           userEmailInput.value = '';
           userRating = 0.0;
-          currentRating.textContent = userRating.toFixed(1);
+          // currentRating = userRating.toFixed(1);
           updateStarColors(-1);
           sendButton.setAttribute('disabled', true);
           closeModal();
         })
         .catch(error => {
-          Notify.failure('Error submitting rating. Please try again later.');
+          console.log(error);
+          // Notify.failure('Error submitting rating. Please try again later.');
         });
     }
   });
