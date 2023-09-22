@@ -10,16 +10,6 @@ import 'swiper/css/bundle';
 import { loadHero } from '/js/actions/hero-swiper';
 ///
 import { windowLoad } from '/js/actions/header';
-// import {} from './js/order-api';
-// import {} from './js/events-api';
-// import {} from '/js/API/order-api';
-// import {} from './js/categories-api';
-// import {} from './js/filter-api';
-// import {} from './js/recipe-api';
-// import {} from './js/areas-api';
-// import {} from './js/ingredients-api';
-// import {} from './js/popular-api';
-
 import {} from './js/actions/rating-modal';
 
 import { setupRating } from '/js/actions/rating-modal';
