@@ -14,7 +14,7 @@ const categoryList = document.querySelector('.categories-list');
 const btnAllCategories = document.querySelector('.categories-btn');
 const gridBox = document.querySelector('.js-card-list');
 const favoritesArr = JSON.parse(localStorage.getItem('cardsArray')) || [];
-// export let currentCategory = '';
+export let currentCategory = '';
 
 categoryList.addEventListener('click', getCategoryName);
 btnAllCategories.addEventListener('click', getAllCategoryRecipes);
@@ -24,16 +24,17 @@ function getCategoryName(evt) {
     return;
   }
 
-  const currentCategory = evt.target.textContent;
+  currentCategory = evt.target.textContent;
   fetchRecipesByCategory(currentCategory, evt.target);
   // onChangeSelectFilter(currentCategory);
 }
+
 function getAllCategoryRecipes() {
   btnAllCategories.classList.add('all-categories-active');
   [...categoryList.children].map(item =>
     item.firstElementChild.classList.remove('btn-dishes-active')
   );
-  
+
   fetchAllRecipes();
 }
 
