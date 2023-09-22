@@ -97,6 +97,10 @@
   color: var(--accent-cl);
 }
 
+.btn-dishes-active {
+  color: var(--accent-cl);
+}
+
 .button-container {
   width: 326px;
   height: 198px;
