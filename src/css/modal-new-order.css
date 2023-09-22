@@ -116,3 +116,8 @@ top: 16px;
 right: 16px;
 }
 }
+
+.no-scroll{
+  overflow: hidden;
+}
+
