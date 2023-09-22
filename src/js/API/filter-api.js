@@ -27,7 +27,7 @@ async function serviceAllRecipesSearch(valueSearch) {
 async function serviceAllFilter(
   {
     search,
-    category,
+    // category,
     time: currentTimeFilter,
     area: currentAreaFilter,
     ingredients: currentIngrFilter,

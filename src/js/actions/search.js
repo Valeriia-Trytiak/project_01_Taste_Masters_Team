@@ -76,13 +76,13 @@ function onChangeSelectFilter() {
   const formData = new FormData(refs.searchForm);
   const timeField = formData.get('time');
   const filterParams = {
-    category: currentCategory,
+    // category: currentCategory,
     search: formData.get('search').trim() || '',
     time: timeField !== null ? timeField.toString() : '',
     area: formData.get('area') || '',
     ingredients: formData.get('ingredients') || '',
   };
-  console.log(filterParams);
+
   serviceAllFilter(filterParams)
     .then(data => {
       console.log(data.results);
