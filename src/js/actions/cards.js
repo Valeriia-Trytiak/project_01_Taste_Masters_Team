@@ -86,6 +86,11 @@ export function addCartInLocalStorage() {
     };
 
     const fav = JSON.parse(localStorage.getItem('cardsArray')) || [];
+
+    if (fav.find(item => item._id === arrData._id)) {
+      return Notify.success('The recipe is already in your favorites');
+    }
+
     fav.push(arrData);
     localStorage.setItem('cardsArray', JSON.stringify(fav));
   }
@@ -105,8 +110,14 @@ export function removeCartInLocalStorage() {
     );
 
     const cardId = evt.currentTarget.parentNode.parentNode.dataset.id;
-
     const fav = JSON.parse(localStorage.getItem('cardsArray')) || [];
+
+    if (!fav.find(item => item._id === cardId)) {
+      return Notify.warning(
+        'The recipe has already been removed from favorites'
+      );
+    }
+
     fav.splice(fav.indexOf(fav.find(item => item.id === cardId)), 1);
     localStorage.setItem('cardsArray', JSON.stringify(fav));
   }

@@ -52,7 +52,7 @@ body {
   padding-bottom: 0;
   padding-left: 20px;
   margin: 0 auto;
-  border: 1px solid teal;
+  /* border: 1px solid teal; */
 }
 
 /*Tablet styles*/
@@ -69,7 +69,9 @@ body {
 /*Desktop styles*/
 @media only screen and (min-width: 1280px) {
   .container {
-    max-width: 1080px;
+    max-width: 1280px;
+    padding-right: 100px;
+    padding-left: 99px;
   }
 }
 
@@ -121,7 +123,6 @@ body {
   flex-wrap: wrap;
   row-gap: var(--indent-horizontal);
   column-gap: var(--indent-vertical);
-  justify-content: center;
 }
 
 .card-sed-item {

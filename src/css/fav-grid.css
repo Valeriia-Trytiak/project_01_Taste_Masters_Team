@@ -1,0 +1,13 @@
+/* сітка */
+
+@media only screen and (min-width: 768px) {
+  .card {
+--items: 3;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .card {
+--items: 4;
+  }
+}

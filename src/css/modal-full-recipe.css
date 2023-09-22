@@ -1,6 +1,7 @@
 /*OVERLAY*/
 .backdrop-modal {
   position: fixed;
+  z-index: 999;
   visibility: hidden;
   overflow-x: hidden;
   overflow-y: auto;
