@@ -123,7 +123,6 @@ body {
   flex-wrap: wrap;
   row-gap: var(--indent-horizontal);
   column-gap: var(--indent-vertical);
-  justify-content: center;
 }
 
 .card-sed-item {
