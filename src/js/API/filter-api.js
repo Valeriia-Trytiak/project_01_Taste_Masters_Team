@@ -31,7 +31,7 @@ async function serviceAllFilter(
     time: currentTimeFilter,
     area: currentAreaFilter,
     ingredients: currentIngrFilter,
-    category: categoryName,
+    // category: categoryName,
   },
   currentPage = '1'
 ) {
@@ -40,9 +40,9 @@ async function serviceAllFilter(
     page: currentPage,
   };
 
-  if (category !== null && category !== undefined) {
-    params.category = category;
-  }
+  // if (category !== null && category !== undefined) {
+  //   params.category = category;
+  // }
   if (search !== null && search !== undefined) {
     params.title = search;
   }
