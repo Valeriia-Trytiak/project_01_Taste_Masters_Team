@@ -3,15 +3,18 @@ import { createMarkupModal } from '/js/markup/markup-full-recipe.js';
 
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { openRatingModal } from '/js/actions/rating-modal.js';
 
 const refs = {
   allCards: document.querySelector('.js-card-list'),
   modalCardCont: document.querySelector('.modal-card-markup'),
   modalBackdrop: document.querySelector('.modal-backdrop'),
   modalButtonClose: document.querySelector('.modal-btn-close'),
-  giveRatingModalBtn: document.querySelector('.modal-give-rating'),
+
   inputStar: document.querySelectorAll('.rating-star'),
 };
+
+console.log(refs.giveRatingModalBtn);
 
 refs.allCards.addEventListener('click', handlerGetIdCard);
 
@@ -164,14 +167,17 @@ function handlerGetIdCard(evt) {
             addToFavorite.textContent = 'Add to favorites';
             hideButtonInactive();
           }
-          openModal();
-
-          addToFavorite.addEventListener('click', addToLocalStorage);
         }
+        openModal();
+        // addToFavorite.addEventListener('click', addToLocalStorage);
       })
       .catch(error => {
         console.error('Error fetching or rendering data:', error);
         Notify.failure(error.message);
+      })
+      .finally(() => {
+        const giveRatingModalBtn = document.querySelector('#givRating');
+        giveRatingModalBtn.addEventListener('click', openRatingModal);
       });
   }
 }
