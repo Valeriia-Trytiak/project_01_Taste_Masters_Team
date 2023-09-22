@@ -177,8 +177,10 @@ function handlerGetIdCard(evt) {
       })
       .finally(() => {
         const giveRatingModalBtn = document.querySelector('#givRating');
-        giveRatingModalBtn.addEventListener('click', openRatingModal);
-      });
+        giveRatingModalBtn.addEventListener('click', function () {
+          openRatingModal(cardId);
+        });
+      }); 
   }
 }
 
