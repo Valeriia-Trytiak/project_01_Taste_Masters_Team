@@ -1,24 +1,11 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { fetchRatingById, rateRecipeById } from '/js/API/rating-api';
+import { rateRecipeById } from '/js/API/rating-api';
 
 export function openRatingModal() {
   const modalRating = document.querySelector('.modal-rating-js');
   modalRating.classList.remove('visually-hidden');
 }
 
-// async function getElementByIdAsync(id) {
-//   return new Promise(resolve => {
-//     const checkElement = () => {
-//       const element = document.getElementById(id);
-//       if (element) {
-//         resolve(element);
-//       } else {
-//         requestAnimationFrame(checkElement);
-//       }
-//     };
-//     checkElement();
-//   });
-// }
 // Use an async function to initialize the rating modal
 export async function initializeRating(cardId) {
   const stars = document.querySelectorAll('.rating-star-svg');
@@ -29,20 +16,8 @@ export async function initializeRating(cardId) {
   const modalRating = document.querySelector('.modal-rating-js');
   let userRating = 0.0;
   let userEmail = '';
-  // let cardId = null;
-
-  // Function to check if the full recipe modal is open
-  // function isFullRecipeModalOpen() {
-  //   const fullRecipeModal = document.querySelector(
-  //     '.modal-backdrop.is-open-modal'
-  //   );
-  //   return fullRecipeModal !== null;
-  // }
-  // Function to open the rating modal
 
   function closeModal() {
-    modalRating.style.visibility = 'hidden'; // Change visibility to "hidden"
-    modalRating.style.display = 'none';
     modalRating.classList.add('visually-hidden');
   }
 
@@ -81,12 +56,8 @@ export async function initializeRating(cardId) {
         sendButton.removeAttribute('disabled');
       }
     });
-    // function formatRating(userRating) {
-    //   // Округляем рейтинг до одной десятой
-    //   const roundedRating = userRating.toFixed(1);
-    //   return roundedRating;
-    // }
   });
+
   userEmailInput.addEventListener('input', function () {
     userEmail = this.value;
     if (userRating > 0 && isValidEmail(userEmail)) {
@@ -95,13 +66,6 @@ export async function initializeRating(cardId) {
       sendButton.setAttribute('disabled', true);
     }
   });
-  // fetchRatingById(cardId)
-  //   .then(id => {
-  //     recipeId = id;
-  //   })
-  //   .catch(error => {
-  //     Notify.failure('Oops! Something went wrong. Please try again later.');
-  //   });
 
   sendButton.addEventListener('click', function (event) {
     event.preventDefault();
@@ -118,33 +82,8 @@ export async function initializeRating(cardId) {
           closeModal();
         })
         .catch(error => {
-          console.log(error);
-          // Notify.failure('Error submitting rating. Please try again later.');
+          Notify.failure('Error submitting rating. Please try again later.');
         });
     }
   });
-  // userEmailInput.addEventListener('keydown', function (event) {
-  //   if (event.key === 'Enter') {
-  //     event.preventDefault();
-  //     if (isValidEmail(userEmail) && recipeId !== null) {
-  //       rateRecipeById(favoriteId, userRating, userEmail)
-  //         .then(() => {
-  //           Notify.success('Rating submitted successfully!');
-  //           userEmailInput.value = '';
-  //           userRating = 0.0;
-  //           currentRating.textContent = userRating.toFixed(1);
-  //           updateStarColors(-1);
-  //           sendButton.setAttribute('disabled', true);
-  //           closeModal();
-  //         })
-  //         .catch(error => {
-  //           Notify.failure('Error submitting rating. Please try again later.');
-  //         });
-  //     } else {
-  //       Notify.failure(
-  //         'Please enter a valid email and ensure the recipe ID is available.'
-  //       );
-  //     }
-  //   }
-  // });
 }

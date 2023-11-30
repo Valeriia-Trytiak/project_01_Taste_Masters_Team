@@ -119,6 +119,7 @@
   .rating-form-input:focus {
     border-color: var(--txt-cl-50-light-theme);
     outline: none;
+    color: var(--txt-cl-100-dark-theme);
   }
 }
 

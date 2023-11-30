@@ -9,6 +9,7 @@ import { fetchRecipeByID } from '/js/API/recipe-id-api';
 import { createMarkupModal } from '/js/markup/markup-full-recipe.js';
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { openRatingModal, initializeRating } from '/js/actions/rating-modal';
 
 const popularList = document.querySelector('.popular-recipes-list');
 const modalCardCont = document.querySelector('.modal-card-markup');
@@ -19,7 +20,7 @@ function createPopularList() {
       popularList.innerHTML = createPopularMarkup(data);
     })
     .catch(error => {
-      console.log(error.message);
+      Notify.failure(error.message);
     });
 }
 
@@ -37,6 +38,7 @@ function handlerGetIdCard(evt) {
       const modalMarkup = createMarkupModal(data);
       modalCardCont.innerHTML = modalMarkup;
       fillStars();
+
       const addToFavorite = document.querySelector('.modal-add-favorite');
       Loading.remove();
 
@@ -46,7 +48,11 @@ function handlerGetIdCard(evt) {
       }
     })
     .catch(error => {
-      console.error('Error fetching or rendering data:', error);
       Notify.failure(error.message);
+    })
+    .finally(() => {
+      const giveRatingModalBtn = document.querySelector('#givRating');
+      giveRatingModalBtn.addEventListener('click', openRatingModal);
+      initializeRating(cardId);
     });
 }
