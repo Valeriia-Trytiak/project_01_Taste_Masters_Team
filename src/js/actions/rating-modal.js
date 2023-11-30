@@ -21,24 +21,6 @@ export function openRatingModal() {
 // }
 // Use an async function to initialize the rating modal
 export async function initializeRating(cardId) {
-  console.log(cardId);
-  // giveRatingModalBtn = await getElementByIdAsync('#givRating');
-  // // Event listener for card buttons
-  // document.addEventListener('click', function (evt) {
-  //   const cardBtn = evt.target.closest('.card-btn');
-  //   if (cardBtn) {
-  //     console.log('.card-btn clicked');
-  //     // Check if the full recipe modal is open
-  //     if (isFullRecipeModalOpen()) {
-  //       console.log('Full recipe modal is open');
-  //       // Check if the rating button is clicked
-  //       if (evt.target.id === 'givRating') {
-  //         console.log('givRating button clicked');
-  //         // openRatingModal();
-  //       }
-  //     }
-  //   }
-  // });
   const stars = document.querySelectorAll('.rating-star-svg');
   let currentRating = document.querySelector('.rating-result');
   const userEmailInput = document.querySelector('.rating-form-input');
